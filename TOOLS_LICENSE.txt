@@ -1,0 +1,35 @@
+STEALTH-O FLASHING HELPER FILES
+
+The following files are licensed under the MIT License below:
+
+- station/README.txt
+- station/flash.sh
+- station/monitor.sh
+- wristband/README.txt
+- wristband/flash.sh
+- wristband/monitor.sh
+
+The compiled firmware images and all other materials remain governed by their
+applicable licenses.
+
+MIT License
+
+Copyright (c) 2026 Stealth-O
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of the Helper Files, to deal in the Helper Files without restriction,
+including without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Helper Files, and to permit
+persons to whom the Helper Files are furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Helper Files.
+
+THE HELPER FILES ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE HELPER FILES OR THE USE OR OTHER DEALINGS IN
+THE HELPER FILES.

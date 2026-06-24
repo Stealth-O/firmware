@@ -1,0 +1,123 @@
+THIRD-PARTY SOFTWARE NOTICES
+
+Stealth-O firmware built with Seeeduino nRF52 core version 1.1.12 includes or
+links with the components listed below. Each component remains governed by its
+own license. The corresponding full license texts are in the licenses
+directory.
+
+1. Seeed Studio / Adafruit nRF52 Arduino core and SPI library
+
+License: GNU Lesser General Public License, version 2.1 or later
+Copyright (c) 2015 Arduino LLC
+Copyright (c) 2016 Sandeep Mistry
+Copyright (c) 2017 Adafruit Industries
+Copyright (c) 2019 Ha Thach for Adafruit Industries
+License files:
+- licenses/Arduino-nRF52-core-NOTICE.txt
+- licenses/LGPL-2.1.txt
+
+2. Bluefruit52Lib
+
+License: MIT; individual source files also carry BSD-3-Clause notices
+Copyright (c) 2016 Adafruit Industries
+Copyright (c) 2018 Adafruit Industries
+License files:
+- licenses/Bluefruit52Lib-MIT.txt
+- licenses/Bluefruit52Lib-BSD-3-Clause.txt
+
+3. Adafruit TinyUSB Arduino
+
+License: MIT
+Copyright (c) 2019 Ha Thach for Adafruit Industries
+License file: licenses/Adafruit-TinyUSB-MIT.txt
+
+4. Adafruit LittleFS wrapper
+
+License: MIT
+Copyright (c) 2019 Ha Thach for Adafruit Industries
+License file: licenses/Adafruit-LittleFS-MIT.txt
+
+5. littlefs
+
+License: BSD-3-Clause
+Copyright (c) 2017 Arm Limited
+License file: licenses/littlefs-BSD-3-Clause.txt
+
+6. InternalFileSystem
+
+License: MIT
+Copyright (c) 2019 Ha Thach for Adafruit Industries
+License file: licenses/InternalFileSystem-MIT.txt
+
+7. Adafruit SPIFlash
+
+License: MIT
+Copyright (c) 2017 Adafruit Industries, LLC
+License file: licenses/Adafruit-SPIFlash-MIT.txt
+
+8. Adafruit nRFCrypto
+
+License: MIT
+Copyright (c) 2020 Adafruit Industries
+License file: licenses/Adafruit-nRFCrypto-MIT.txt
+
+9. ARM CryptoCell CC310 object code and headers
+
+License: ARM Object Code and Header Files License, version 1.0
+Copyright (c) 2016-2017, ARM Limited or its affiliates. All rights reserved.
+Use and redistribution are limited to applications targeted for ARM-based
+products and are subject to the complete license terms.
+The linked libnrf_cc310_0.9.13-no-interrupts.a archive is supplied by
+Adafruit nRFCrypto in the Seeeduino nRF52 core 1.1.12 distribution under this
+license.
+License file: licenses/ARM-Object-Code-and-Headers-1.0.txt
+
+10. SdFat
+
+License: MIT
+Copyright (c) 2011..2020 Bill Greiman
+License file: licenses/SdFat-MIT.txt
+
+11. nrfx
+
+License: BSD-3-Clause
+Copyright (c) 2017-2020 Nordic Semiconductor ASA
+License file: licenses/nrfx-BSD-3-Clause.txt
+
+12. FreeRTOS kernel
+
+License: MIT
+Copyright (c) 2017 Amazon.com, Inc. or its affiliates
+License file: licenses/FreeRTOS-MIT.txt
+
+13. CMSIS and CMSIS-DSP
+
+License: Apache License 2.0
+Copyright (c) Arm Limited
+License file: licenses/CMSIS-Apache-2.0.txt
+
+14. Microsoft UF2
+
+License: MIT
+Copyright (c) Microsoft Corporation
+License file: licenses/Microsoft-UF2-MIT.txt
+
+15. newlib and newlib-nano 3.1.0
+
+License: collection of permissive licenses, primarily BSD-style
+The C and math runtime is statically linked by GNU Arm Embedded Toolchain
+9-2019q4 through nano.specs.
+License file: licenses/GNU-Arm-Embedded-Toolchain-9-2019q4.txt
+
+16. GCC runtime library (libgcc)
+
+License: GNU General Public License version 3 with GCC Runtime Library
+Exception version 3.1
+The exception permits eligible GCC compilation output, including proprietary
+target code, to contain covered GCC runtime portions without imposing GPLv3
+terms on the target code.
+Copyright (c) Free Software Foundation, Inc.
+License file: licenses/GNU-Arm-Embedded-Toolchain-9-2019q4.txt
+
+Re-audit this notice whenever build dependencies or the compiler toolchain
+change.

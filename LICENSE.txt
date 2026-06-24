@@ -1,0 +1,112 @@
+STEALTH-O FIRMWARE BINARY LICENSE
+Version 1.0, June 24, 2026
+
+Copyright (c) 2026 Stealth-O. All rights reserved.
+
+By downloading, copying, installing, or using the Firmware, you agree to this
+license.
+
+1. Definitions
+
+"Firmware" means an official compiled Stealth-O station or wristband firmware
+image distributed by Stealth-O, together with its accompanying documentation,
+excluding the Helper Files.
+
+"Helper Files" means the flashing scripts and documentation identified in
+TOOLS_LICENSE.txt. The Helper Files are not governed by this license.
+
+"Compatible Device" means hardware for which Stealth-O expressly distributes
+the Firmware.
+
+"Stealth-O Components" means portions of the Firmware owned by or licensed to
+Stealth-O, excluding Third-Party Components.
+
+"Third-Party Components" means portions of the Firmware identified in
+THIRD_PARTY_NOTICES.txt or otherwise accompanied by separate license terms.
+
+2. License Grant
+
+Subject to this license, Stealth-O grants you a limited, non-exclusive,
+non-transferable, royalty-free license to:
+
+a. download and retain reasonable backup copies of the unmodified Firmware;
+
+b. install the unmodified Firmware on Compatible Devices that you own or
+control; and
+
+c. operate those devices for personal or internal organizational use.
+
+3. Restrictions
+
+Except as expressly permitted by Section 4 or mandatory law, you may not:
+
+a. distribute, sublicense, publish, sell, rent, lease, host, or otherwise make
+the Firmware available to another person;
+
+b. modify, adapt, translate, or create derivative works of the Stealth-O
+Components;
+
+c. reverse engineer, decompile, or disassemble the Stealth-O Components;
+
+d. remove or alter copyright, trademark, attribution, or license notices;
+
+e. use the Firmware or Stealth-O Components to develop or provide a competing
+product or service; or
+
+f. use the Stealth-O name, logos, or trademarks except to identify genuine
+Stealth-O products.
+
+4. Third-Party Components and Mandatory Rights
+
+Third-Party Components are governed solely by their applicable third-party
+licenses. Nothing in this license limits rights granted by those licenses or
+rights that cannot lawfully be restricted.
+
+The Helper Files are governed solely by TOOLS_LICENSE.txt. Nothing in this
+license limits rights granted by that license.
+
+To the extent required by the GNU Lesser General Public License version 2.1 or
+a later applicable version, you are expressly permitted to:
+
+a. modify the Firmware for your own use; and
+
+b. reverse engineer the Firmware solely for debugging those modifications.
+
+You may also use any corresponding source code, object files, scripts, or
+other relinking materials supplied with a release to exercise rights granted
+by an applicable third-party license.
+
+This Section 4 does not grant permission to distribute Stealth-O Components,
+modified Firmware containing Stealth-O Components, or Stealth-O trademarks,
+except where such permission is required by an applicable third-party license
+or mandatory law.
+
+5. Ownership
+
+The Firmware is licensed, not sold. Stealth-O and its licensors retain all
+rights not expressly granted by this license.
+
+6. Termination
+
+This license terminates automatically if you materially breach it. Upon
+termination, you must stop using and delete all copies of the Firmware, except
+copies and rights governed independently by a Third-Party Component license.
+
+7. Disclaimer of Warranty
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE STEALTH-O COMPONENTS AND FIRMWARE
+ARE PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTIES OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE, TITLE, AND NON-INFRINGEMENT.
+
+8. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, STEALTH-O WILL NOT BE LIABLE FOR ANY
+INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES,
+OR FOR LOSS OF DATA, PROFITS, REVENUE, BUSINESS, OR USE, ARISING FROM OR
+RELATED TO THE FIRMWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+9. Severability
+
+If any provision of this license is unenforceable, it will be enforced to the
+maximum extent permitted and the remaining provisions will remain effective.
