@@ -53,7 +53,7 @@ trap cleanup EXIT
 trap 'cleanup; exit 130' INT TERM
 
 echo "Opening serial monitor on ${PORT} at ${BAUD_RATE} baud."
-echo "Commands: i, i7, s, c, p, b. Press Ctrl-C to exit."
+echo "Commands: i, s, c, p, b. Press Ctrl-C to exit."
 
 stty -f "${PORT}" "${BAUD_RATE}" cs8 -cstopb -parenb raw -echo
 exec 3<>"${PORT}"

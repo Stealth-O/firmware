@@ -18,7 +18,7 @@ Flash:
 
    ./flash.sh
 
-Configure wristband number:
+Check wristband identity:
 
 1. After flashing, wait for the board to reboot.
 2. Run:
@@ -27,15 +27,13 @@ Configure wristband number:
 
 3. Type a command and press Enter:
 
-   i7
+   i
 
-This saves wristband number 7 and automatically restarts the wristband as W7.
-Use any number from 0 to 99.
+This prints the stable factory-derived device id. No per-wristband number setup is required.
 
 Useful commands:
 
 - i - print identity.
-- i7 - save wristband number 7 and restart as W7.
 - s - print status.
 - c - clear stored logs.
 - p - dump stored log.
