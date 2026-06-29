@@ -5,44 +5,24 @@ root TOOLS_LICENSE.txt.
 
 Files:
 
-- station.uf2 - ready-to-flash station firmware.
-- flash.sh - copies station.uf2 to the XIAO UF2 bootloader drive.
-- monitor.sh - opens the station serial monitor at 115200 baud.
+- station-S00.uf2 ... station-S99.uf2 - ready-to-flash station firmware
+  images. Every image shares one universal code and carries its station number
+  in a single data byte.
+- flash.sh - copies the selected station image to the XIAO UF2 bootloader
+  drive.
 
 Flash:
 
 1. Connect the station board over USB-C.
 2. Press Reset twice quickly.
 3. Wait for the UF2 bootloader drive to appear.
-4. Run:
+4. Run flash.sh with the station number from 0 to 99:
 
-   ./flash.sh
+   ./flash.sh 42
 
-Configure station number:
-
-1. After flashing, wait for the board to reboot.
-2. Run:
-
-   ./monitor.sh
-
-3. Type a command and press Enter:
-
-   i42
-
-This saves station number 42 and automatically restarts the station as S42.
-Use any number from 0 to 99.
-
-Useful commands:
-
-- i - print identity.
-- i42 - save station number 42 and restart as S42.
-- s - print status.
-- b - print battery.
-
-If multiple serial devices are connected, run:
-
-SERIAL_PORT=/dev/cu.usbmodemXXXX ./monitor.sh
+The station number is part of the flashed firmware image. There is no runtime
+station-number configuration step and no persistent station-number file.
 
 If multiple UF2 drives are mounted, run:
 
-UF2_VOLUME="/Volumes/BOARDNAME" ./flash.sh
+UF2_VOLUME="/Volumes/BOARDNAME" ./flash.sh 42

@@ -4,10 +4,8 @@ The following files are licensed under the MIT License below:
 
 - station/README.txt
 - station/flash.sh
-- station/monitor.sh
 - wristband/README.txt
 - wristband/flash.sh
-- wristband/monitor.sh
 
 The compiled firmware images and all other materials remain governed by their
 applicable licenses.

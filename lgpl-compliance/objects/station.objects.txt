@@ -73,11 +73,11 @@ libraries/Adafruit_TinyUSB_Arduino/portable/raspberrypi/rp2040/dcd_rp2040.c.o
 libraries/Adafruit_TinyUSB_Arduino/portable/raspberrypi/rp2040/hcd_rp2040.c.o
 libraries/Adafruit_TinyUSB_Arduino/portable/raspberrypi/rp2040/rp2040_usb.c.o
 libraries/Adafruit_TinyUSB_Arduino/tusb.c.o
-libraries/InternalFileSytem/InternalFileSystem.cpp.o
-libraries/InternalFileSytem/flash/flash_cache.c.o
-libraries/InternalFileSytem/flash/flash_nrf5x.c.o
 libraries/Adafruit_LittleFS/Adafruit_LittleFS.cpp.o
 libraries/Adafruit_LittleFS/Adafruit_LittleFS_File.cpp.o
 libraries/Adafruit_LittleFS/littlefs/lfs.c.o
 libraries/Adafruit_LittleFS/littlefs/lfs_util.c.o
+libraries/InternalFileSytem/InternalFileSystem.cpp.o
+libraries/InternalFileSytem/flash/flash_cache.c.o
+libraries/InternalFileSytem/flash/flash_nrf5x.c.o
 core/variant.cpp.o

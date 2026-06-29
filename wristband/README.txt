@@ -7,7 +7,6 @@ Files:
 
 - wristband.uf2 - ready-to-flash wristband firmware.
 - flash.sh - copies wristband.uf2 to the XIAO UF2 bootloader drive.
-- monitor.sh - opens the wristband serial monitor at 115200 baud.
 
 Flash:
 
@@ -18,30 +17,9 @@ Flash:
 
    ./flash.sh
 
-Check wristband identity:
-
-1. After flashing, wait for the board to reboot.
-2. Run:
-
-   ./monitor.sh
-
-3. Type a command and press Enter:
-
-   i
-
-This prints the stable factory-derived device id. No per-wristband number setup is required.
-
-Useful commands:
-
-- i - print identity.
-- s - print status.
-- c - clear stored logs.
-- p - dump stored log.
-- b - toggle backup mode.
-
-If multiple serial devices are connected, run:
-
-SERIAL_PORT=/dev/cu.usbmodemXXXX ./monitor.sh
+No public serial monitor helper is required for flashing. The wristband uses
+its stable factory-derived device id, so no per-wristband number setup is
+required.
 
 If multiple UF2 drives are mounted, run:
 

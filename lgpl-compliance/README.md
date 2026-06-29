@@ -1,11 +1,15 @@
 # LGPL Relinking Materials
 
-These materials correspond to the `station.uf2` and `wristband.uf2` files in
-this repository.
+Every published `station-S00.uf2` through `station-S99.uf2` shares one identical
+linked code image; they differ only in a single station-id data byte. These
+materials relink that universal station image (which reproduces `station-S00.uf2`)
+and the `wristband.uf2` file, and `set_station_id.py` rewrites the id byte so any
+`station-SNN.uf2` can be reproduced without recompiling or relinking.
 
 They allow a recipient to modify the LGPL-covered Seeeduino nRF52 Arduino
-core or SPI library, rebuild those components, and relink them with the
-closed-source Stealth-O application object.
+core or SPI library, rebuild those components, relink them with the
+closed-source Stealth-O application object, and then patch the relinked image to
+any station number.
 
 ## Included Materials
 
@@ -20,7 +24,9 @@ closed-source Stealth-O application object.
 - `relink.sh`: links the objects and creates ELF, HEX, and UF2 output.
 - `tool-libraries`: CMSIS-DSP and ARM CryptoCell link libraries used by the
   original build.
-- `tools`: linker script and UF2 conversion utility.
+- `tools`: linker script, UF2 conversion utility, and `set_station_id.py`,
+  which rewrites the station-id byte to turn the relinked base image into any
+  `station-SNN.uf2`.
 
 The Stealth-O application is supplied only as `station.ino.cpp.o` or
 `wristband.ino.cpp.o`. No Stealth-O source code is included.
@@ -50,7 +56,16 @@ cd lgpl-compliance
 ./relink.sh wristband
 ```
 
-The generated UF2 files are written to `output/`.
+The generated UF2 files are written to `output/`. `output/station.uf2` is the
+universal station image and is byte-for-byte identical to `station-S00.uf2`.
+
+Reproduce any other published station image by patching its id byte:
+
+```bash
+python3 tools/set_station_id.py output/station.uf2 42 output/station-S42.uf2
+```
+
+The result is byte-for-byte identical to the published `station-S42.uf2`.
 
 ## Modify And Rebuild LGPL Components
 
@@ -78,6 +93,13 @@ Relink the station with the modified core:
 ```bash
 ./relink.sh station \
   --core-a rebuilt/core.a
+```
+
+`output/station.uf2` is the universal image with your modified core; patch it to
+the station number you need:
+
+```bash
+python3 tools/set_station_id.py output/station.uf2 42 output/station-S42.uf2
 ```
 
 Relink the wristband with the modified core and SPI objects:
