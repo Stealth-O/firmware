@@ -5,22 +5,23 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+MAX_STATION_ID=254
 
 usage() {
-    echo "Usage: ./flash.sh <0-99>"
+    echo "Usage: ./flash.sh <0-254>"
 }
 
 station_id_from_arg() {
     local value="$1"
 
-    if [[ ! "${value}" =~ ^[0-9]{1,2}$ ]]; then
-        echo "Station ID must be a number from 0 to 99." >&2
+    if [[ ! "${value}" =~ ^[0-9]{1,3}$ ]]; then
+        echo "Station ID must be a number from 0 to ${MAX_STATION_ID}." >&2
         return 1
     fi
 
     local station_id=$((10#${value}))
-    if [ "${station_id}" -lt 0 ] || [ "${station_id}" -gt 99 ]; then
-        echo "Station ID must be a number from 0 to 99." >&2
+    if [ "${station_id}" -lt 0 ] || [ "${station_id}" -gt "${MAX_STATION_ID}" ]; then
+        echo "Station ID must be a number from 0 to ${MAX_STATION_ID}." >&2
         return 1
     fi
 

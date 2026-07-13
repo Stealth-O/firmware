@@ -5,15 +5,24 @@ firmware for Seeed Studio XIAO nRF52840 boards.
 
 ## Firmware
 
-- [station](station) contains `station-S00.uf2` through `station-S99.uf2` and a
+- [station](station) contains `station-S00.uf2` through `station-S254.uf2` and a
   macOS flashing helper.
 - [wristband](wristband) contains `wristband.uf2` and macOS flashing helpers.
 
-Open the README in the corresponding folder before flashing. Every station image
-shares one universal code and carries its station number from `0` to `99` in a
-single data byte; flash `station-SNN.uf2` for station NN. There is no runtime
-serial configuration. Wristband firmware uses its stable factory-derived
-`device_id` and does not require per-device serial identity setup.
+Open the README in the corresponding folder before flashing. Every station
+image shares one universal code image and carries an ordinary station number
+from `0` to `254` in a single data byte. Value `255` is reserved as the
+wristband special-record prefix and cannot be assigned to a station. Flash the
+matching `station-S<ID>.uf2`; there is no runtime serial configuration.
+Wristband firmware uses its stable factory-derived `device_id` and does not
+require per-device serial identity setup.
+
+Physical station `S0` is valid, but the current MVP event flow reserves it for
+the `start_finish` role only. It is the physical alternative to the app's phone
+station `0` and must never be assigned as an ordinary checkpoint or ghost.
+Checkpoint and ghost roles use `S1...S254`. The wristband's compact log stores
+only the station number, so it does not preserve whether an `S0` sample came
+from the physical station or the phone station.
 
 The Stealth-O firmware is proprietary software. Its source code is not
 published in this repository. The permissions for downloading, installing,

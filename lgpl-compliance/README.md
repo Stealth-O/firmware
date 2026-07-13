@@ -1,15 +1,17 @@
 # LGPL Relinking Materials
 
-Every published `station-S00.uf2` through `station-S99.uf2` shares one identical
-linked code image; they differ only in a single station-id data byte. These
-materials relink that universal station image (which reproduces `station-S00.uf2`)
-and the `wristband.uf2` file, and `set_station_id.py` rewrites the id byte so any
-`station-SNN.uf2` can be reproduced without recompiling or relinking.
+Every published `station-S00.uf2` through `station-S254.uf2` shares one linked
+code image; the files differ only in a single station-ID data byte. These
+materials relink the linked-default station image, which reproduces
+`station-S254.uf2`, and the `wristband.uf2` file. `set_station_id.py` rewrites
+the ID byte so any published station image can be reproduced without
+recompiling or relinking. Ordinary station IDs are `0...254`; `255` is reserved
+as the wristband special-record prefix.
 
-They allow a recipient to modify the LGPL-covered Seeeduino nRF52 Arduino
-core or SPI library, rebuild those components, relink them with the
-closed-source Stealth-O application object, and then patch the relinked image to
-any station number.
+They allow a recipient to modify the LGPL-covered Seeeduino nRF52 Arduino core
+or SPI library, rebuild those components, relink them with the closed-source
+Stealth-O application object, and then patch the relinked image to any ordinary
+station number.
 
 ## Included Materials
 
@@ -24,9 +26,9 @@ any station number.
 - `relink.sh`: links the objects and creates ELF, HEX, and UF2 output.
 - `tool-libraries`: CMSIS-DSP and ARM CryptoCell link libraries used by the
   original build.
-- `tools`: linker script, UF2 conversion utility, and `set_station_id.py`,
-  which rewrites the station-id byte to turn the relinked base image into any
-  `station-SNN.uf2`.
+- `tools`: linker scripts, the UF2 conversion utility, and
+  `set_station_id.py`, which rewrites the station-ID byte to turn the relinked
+  base image into any published `station-S<ID>.uf2`.
 
 The Stealth-O application is supplied only as `station.ino.cpp.o` or
 `wristband.ino.cpp.o`. No Stealth-O source code is included.
@@ -57,9 +59,10 @@ cd lgpl-compliance
 ```
 
 The generated UF2 files are written to `output/`. `output/station.uf2` is the
-universal station image and is byte-for-byte identical to `station-S00.uf2`.
+linked-default universal station image and is byte-for-byte identical to
+`../station/station-S254.uf2`.
 
-Reproduce any other published station image by patching its id byte:
+Reproduce any other published station image by patching its ID byte:
 
 ```bash
 python3 tools/set_station_id.py output/station.uf2 42 output/station-S42.uf2

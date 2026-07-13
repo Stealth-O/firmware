@@ -21,6 +21,13 @@ No public serial monitor helper is required for flashing. The wristband uses
 its stable factory-derived device id, so no per-wristband number setup is
 required.
 
+The wristband accepts station IDs 0 through 254. Value 255 is reserved for its
+special-record format and is never a station ID. In the current MVP event flow,
+S0 has the start_finish role only: it represents either the physical
+start/finish station or phone station 0, which the compact log intentionally
+does not distinguish. Never assign S0 as an ordinary checkpoint or ghost;
+checkpoint and ghost roles use S1...S254.
+
 If multiple UF2 drives are mounted, run:
 
 UF2_VOLUME="/Volumes/BOARDNAME" ./flash.sh
