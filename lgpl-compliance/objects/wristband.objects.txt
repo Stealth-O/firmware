@@ -1,4 +1,6 @@
 sketch/wristband.ino.cpp.o
+sketch/wristband_runtime.cpp.o
+sketch/wristband_storage_logic.cpp.o
 libraries/Adafruit_SPIFlash/Adafruit_FlashCache.cpp.o
 libraries/Adafruit_SPIFlash/Adafruit_SPIFlash.cpp.o
 libraries/Adafruit_SPIFlash/Adafruit_SPIFlashBase.cpp.o
@@ -54,13 +56,6 @@ libraries/SdFat/iostream/StdioStream.cpp.o
 libraries/SdFat/iostream/StreamBaseClass.cpp.o
 libraries/SdFat/iostream/istream.cpp.o
 libraries/SdFat/iostream/ostream.cpp.o
-libraries/InternalFileSytem/InternalFileSystem.cpp.o
-libraries/InternalFileSytem/flash/flash_cache.c.o
-libraries/InternalFileSytem/flash/flash_nrf5x.c.o
-libraries/Adafruit_LittleFS/Adafruit_LittleFS.cpp.o
-libraries/Adafruit_LittleFS/Adafruit_LittleFS_File.cpp.o
-libraries/Adafruit_LittleFS/littlefs/lfs.c.o
-libraries/Adafruit_LittleFS/littlefs/lfs_util.c.o
 libraries/Bluefruit52Lib/BLEAdvertising.cpp.o
 libraries/Bluefruit52Lib/BLECentral.cpp.o
 libraries/Bluefruit52Lib/BLECharacteristic.cpp.o
@@ -135,4 +130,11 @@ libraries/Adafruit_TinyUSB_Arduino/portable/raspberrypi/rp2040/dcd_rp2040.c.o
 libraries/Adafruit_TinyUSB_Arduino/portable/raspberrypi/rp2040/hcd_rp2040.c.o
 libraries/Adafruit_TinyUSB_Arduino/portable/raspberrypi/rp2040/rp2040_usb.c.o
 libraries/Adafruit_TinyUSB_Arduino/tusb.c.o
+libraries/Adafruit_LittleFS/Adafruit_LittleFS.cpp.o
+libraries/Adafruit_LittleFS/Adafruit_LittleFS_File.cpp.o
+libraries/Adafruit_LittleFS/littlefs/lfs.c.o
+libraries/Adafruit_LittleFS/littlefs/lfs_util.c.o
+libraries/InternalFileSytem/InternalFileSystem.cpp.o
+libraries/InternalFileSytem/flash/flash_cache.c.o
+libraries/InternalFileSytem/flash/flash_nrf5x.c.o
 core/variant.cpp.o

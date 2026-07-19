@@ -1,0 +1,34 @@
+{
+  "components": {
+    "station": {
+      "advertisementProtocolVersion": 1,
+      "artifactPattern": "station/station-S00.uf2...station-S254.uf2",
+      "baselineArtifact": "station/station-S254.uf2",
+      "baselineArtifactSha256": "cc0db037b4dcf46b5a1413f35912e039827498d0bd6d7d31bb8f5d9b9211b896",
+      "hardwareTarget": "seeed-xiao-nrf52840",
+      "stationIdRange": {
+        "maximum": 254,
+        "minimum": 0
+      }
+    },
+    "wristband": {
+      "advertisementProtocolVersion": 1,
+      "artifact": "wristband/wristband.uf2",
+      "artifactSha256": "a2c0bb2e2a2d07ba6e1598ea2bbca7c70002d0ba0c3058728d94428ed5676cb3",
+      "commandProtocolVersion": 1,
+      "hardwareTarget": "seeed-xiao-nrf52840",
+      "journalFormat": "wristband-v2",
+      "recordSize": 4,
+      "storageBackend": "external-qspi",
+      "storageWordSize": 4,
+      "tickMilliseconds": 250,
+      "wbt2ProtocolVersion": 3
+    }
+  },
+  "manifestVersion": 1,
+  "toolchain": {
+    "arduinoCore": "Seeeduino nRF52 1.1.12",
+    "fqbn": "Seeeduino:nrf52:xiaonRF52840",
+    "gnuArmEmbedded": "9-2019q4"
+  }
+}

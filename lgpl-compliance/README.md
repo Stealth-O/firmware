@@ -30,8 +30,10 @@ station number.
   `set_station_id.py`, which rewrites the station-ID byte to turn the relinked
   base image into any published `station-S<ID>.uf2`.
 
-The Stealth-O application is supplied only as `station.ino.cpp.o` or
-`wristband.ino.cpp.o`. No Stealth-O source code is included.
+The Stealth-O application is supplied only as relocatable `sketch/*.o`
+objects. The v2 wristband has separate sketch objects for its Arduino entry
+point, runtime state machine, and storage logic. No Stealth-O source code is
+included.
 
 ## Requirements
 

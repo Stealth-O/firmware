@@ -7,7 +7,8 @@ firmware for Seeed Studio XIAO nRF52840 boards.
 
 - [station](station) contains `station-S00.uf2` through `station-S254.uf2` and a
   macOS flashing helper.
-- [wristband](wristband) contains `wristband.uf2` and macOS flashing helpers.
+- [wristband](wristband) contains the external-QSPI XIAO wristband
+  `wristband.uf2` and macOS flashing helpers.
 
 Open the README in the corresponding folder before flashing. Every station
 image shares one universal code image and carries an ordinary station number
@@ -16,6 +17,14 @@ wristband special-record prefix and cannot be assigned to a station. Flash the
 matching `station-S<ID>.uf2`; there is no runtime serial configuration.
 Wristband firmware uses its stable factory-derived `device_id` and does not
 require per-device serial identity setup.
+
+The release does not use one global device version. `manifest.json` records
+the independent hardware, storage, journal, advertisement, command, and WBT2
+protocol axes. The current public wristband artifact targets Seeed XIAO
+nRF52840 with external QSPI, uses the `wristband-v2` four-byte journal and WBT2
+protocol version 3. The compatible station advertisement envelope remains
+version 1. Internal-flash wristband builds are engineering variants and are not
+published as the default artifact.
 
 Physical station `S0` is valid, but the current MVP event flow reserves it for
 the `start_finish` role only. It is the physical alternative to the app's phone

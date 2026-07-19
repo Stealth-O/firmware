@@ -53,9 +53,15 @@ def main():
         "SOURCE_DIR": args.source_dir.resolve(),
     }
     entries = json.loads(manifest_path.read_text())
+    source_hardware_dir = (args.source_dir.resolve() / "hardware").as_posix()
+    path_remap_flags = [
+        f"-ffile-prefix-map={source_hardware_dir}=arduino-core",
+        f"-fmacro-prefix-map={source_hardware_dir}=arduino-core",
+    ]
 
     for entry in entries:
         command = [expand(value, replacements) for value in entry["arguments"]]
+        command[1:1] = path_remap_flags
         output_index = command.index("-o") + 1
         Path(command[output_index]).parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(command, check=True)
