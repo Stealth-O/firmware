@@ -68,7 +68,13 @@ if [ "${#volumes[@]}" -gt 1 ]; then
     exit 1
 fi
 
-cp -X "${UF2_PATH}" "${volumes[0]}/"
+TARGET_VOLUME="${volumes[0]}"
+if [ ! -f "${TARGET_VOLUME}/INFO_UF2.TXT" ]; then
+    echo "Selected target is not a mounted UF2 bootloader: ${TARGET_VOLUME}" >&2
+    exit 1
+fi
+
+cp -X "${UF2_PATH}" "${TARGET_VOLUME}/"
 sync
-echo "Flashed ${UF2_PATH} to ${volumes[0]}"
+echo "Flashed ${UF2_PATH} to ${TARGET_VOLUME}"
 echo "Station ID: ${station_id}"

@@ -7,8 +7,10 @@ firmware for Seeed Studio XIAO nRF52840 boards.
 
 - [station](station) contains `station-S00.uf2` through `station-S254.uf2` and a
   macOS flashing helper.
-- [wristband](wristband) contains the external-QSPI XIAO wristband
-  `wristband.uf2` and macOS flashing helpers.
+- [wristband](wristband) contains four explicit XIAO wristband profiles:
+  `wristband-xiao-external.uf2`, `wristband-xiao-internal.uf2`,
+  `wristband-xiao-lora-external.uf2`, and
+  `wristband-xiao-lora-internal.uf2`.
 
 Open the README in the corresponding folder before flashing. Every station
 image shares one universal code image and carries an ordinary station number
@@ -18,13 +20,18 @@ matching `station-S<ID>.uf2`; there is no runtime serial configuration.
 Wristband firmware uses its stable factory-derived `device_id` and does not
 require per-device serial identity setup.
 
-The release does not use one global device version. `manifest.json` records
-the independent hardware, storage, journal, advertisement, command, and WBT2
-protocol axes. The current public wristband artifact targets Seeed XIAO
-nRF52840 with external QSPI, uses the `wristband-v2` four-byte journal and WBT2
-protocol version 3. The compatible station advertisement envelope remains
-version 1. Internal-flash wristband builds are engineering variants and are not
-published as the default artifact.
+The release does not use one global device version. Manifest version 2 records
+each wristband variant independently, including artifact SHA-256, hardware,
+storage backend, capabilities, journal format, advertisement and command
+protocols, WBT2, and LoRa protocol metadata. All four variants use the
+`wristband-v2` four-byte journal and WBT2 protocol version 3. The compatible
+station advertisement envelope remains version 1.
+
+The `xiao-external` and `xiao-lora-external` variants use onboard external QSPI.
+The `xiao-internal` and `xiao-lora-internal` variants reserve a fixed 256 KiB
+internal-flash journal. LoRa variants require a Seeed Wio-SX1262 for XIAO and
+link pinned RadioLib 7.7.1 under MIT. The private receive-only LoRa receiver
+firmware is deliberately not part of this public package.
 
 Physical station `S0` is valid, but the current MVP event flow reserves it for
 the `start_finish` role only. It is the physical alternative to the app's phone

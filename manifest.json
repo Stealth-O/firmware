@@ -12,20 +12,153 @@
       }
     },
     "wristband": {
-      "advertisementProtocolVersion": 1,
-      "artifact": "wristband/wristband.uf2",
-      "artifactSha256": "a2c0bb2e2a2d07ba6e1598ea2bbca7c70002d0ba0c3058728d94428ed5676cb3",
-      "commandProtocolVersion": 1,
-      "hardwareTarget": "seeed-xiao-nrf52840",
-      "journalFormat": "wristband-v2",
-      "recordSize": 4,
-      "storageBackend": "external-qspi",
-      "storageWordSize": 4,
-      "tickMilliseconds": 250,
-      "wbt2ProtocolVersion": 3
+      "variants": {
+        "xiao-external": {
+          "advertisementProtocolVersion": 1,
+          "artifact": "wristband/wristband-xiao-external.uf2",
+          "artifactSha256": "df7e787313a79f8d5b8ac072c1af88bad0fa4fcbb82a18956f08f55bebd0bea1",
+          "capabilities": {
+            "bleTransfer": true,
+            "loraTransmit": false
+          },
+          "commandProtocolVersion": 1,
+          "hardwareAccessories": [],
+          "hardwareTarget": "seeed-xiao-nrf52840",
+          "journalFormat": "wristband-v2",
+          "loraFrameTypes": [],
+          "loraHello": null,
+          "loraProtocolVersion": null,
+          "loraRadioProfile": null,
+          "recordSize": 4,
+          "storageBackend": "external-qspi",
+          "storageCapacityBytes": 2097152,
+          "storageWordSize": 4,
+          "tickMilliseconds": 250,
+          "wbt2ProtocolVersion": 3
+        },
+        "xiao-internal": {
+          "advertisementProtocolVersion": 1,
+          "artifact": "wristband/wristband-xiao-internal.uf2",
+          "artifactSha256": "849ad5a52d37eba48628b07cf0b8397a2c4438f809461d44d1562c332cc8b3d0",
+          "capabilities": {
+            "bleTransfer": true,
+            "loraTransmit": false
+          },
+          "commandProtocolVersion": 1,
+          "hardwareAccessories": [],
+          "hardwareTarget": "seeed-xiao-nrf52840",
+          "journalFormat": "wristband-v2",
+          "loraFrameTypes": [],
+          "loraHello": null,
+          "loraProtocolVersion": null,
+          "loraRadioProfile": null,
+          "recordSize": 4,
+          "storageBackend": "internal-flash",
+          "storageCapacityBytes": 262144,
+          "storageWordSize": 4,
+          "tickMilliseconds": 250,
+          "wbt2ProtocolVersion": 3
+        },
+        "xiao-lora-external": {
+          "advertisementProtocolVersion": 1,
+          "artifact": "wristband/wristband-xiao-lora-external.uf2",
+          "artifactSha256": "309402d924b17798d68b0f981e283a0d858d81d59fd24502758f4a61cec6a120",
+          "capabilities": {
+            "bleTransfer": true,
+            "loraTransmit": true
+          },
+          "commandProtocolVersion": 1,
+          "hardwareAccessories": [
+            "seeed-wio-sx1262-for-xiao"
+          ],
+          "hardwareTarget": "seeed-xiao-nrf52840",
+          "journalFormat": "wristband-v2",
+          "loraFrameTypes": [
+            "hello"
+          ],
+          "loraHello": {
+            "headerBytes": 21,
+            "identityFields": [
+              "deviceId",
+              "storageEpoch",
+              "senderBootNonce",
+              "sequence"
+            ],
+            "maximumPayloadBytes": 44
+          },
+          "loraProtocolVersion": 1,
+          "loraRadioProfile": {
+            "bandwidthKHz": 125.0,
+            "codingRate": "4/5",
+            "frequencyMHz": 868.3,
+            "outputPowerDbm": 14,
+            "preambleSymbols": 8,
+            "spreadingFactor": 7,
+            "syncWordHex": "12",
+            "tcxoVoltage": 1.8
+          },
+          "recordSize": 4,
+          "storageBackend": "external-qspi",
+          "storageCapacityBytes": 2097152,
+          "storageWordSize": 4,
+          "tickMilliseconds": 250,
+          "wbt2ProtocolVersion": 3
+        },
+        "xiao-lora-internal": {
+          "advertisementProtocolVersion": 1,
+          "artifact": "wristband/wristband-xiao-lora-internal.uf2",
+          "artifactSha256": "52611986a89f5495d1b0c919011aa8a01342f68f03dda4eef3449c4823ce6629",
+          "capabilities": {
+            "bleTransfer": true,
+            "loraTransmit": true
+          },
+          "commandProtocolVersion": 1,
+          "hardwareAccessories": [
+            "seeed-wio-sx1262-for-xiao"
+          ],
+          "hardwareTarget": "seeed-xiao-nrf52840",
+          "journalFormat": "wristband-v2",
+          "loraFrameTypes": [
+            "hello"
+          ],
+          "loraHello": {
+            "headerBytes": 21,
+            "identityFields": [
+              "deviceId",
+              "storageEpoch",
+              "senderBootNonce",
+              "sequence"
+            ],
+            "maximumPayloadBytes": 44
+          },
+          "loraProtocolVersion": 1,
+          "loraRadioProfile": {
+            "bandwidthKHz": 125.0,
+            "codingRate": "4/5",
+            "frequencyMHz": 868.3,
+            "outputPowerDbm": 14,
+            "preambleSymbols": 8,
+            "spreadingFactor": 7,
+            "syncWordHex": "12",
+            "tcxoVoltage": 1.8
+          },
+          "recordSize": 4,
+          "storageBackend": "internal-flash",
+          "storageCapacityBytes": 262144,
+          "storageWordSize": 4,
+          "tickMilliseconds": 250,
+          "wbt2ProtocolVersion": 3
+        }
+      }
     }
   },
-  "manifestVersion": 1,
+  "dependencies": {
+    "RadioLib": {
+      "license": "MIT",
+      "version": "7.7.1"
+    }
+  },
+  "manifestVersion": 2,
   "toolchain": {
     "arduinoCore": "Seeeduino nRF52 1.1.12",
     "fqbn": "Seeeduino:nrf52:xiaonRF52840",

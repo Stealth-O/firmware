@@ -7,19 +7,27 @@ DEFAULT_ARM_GCC_DIR="${HOME}/Library/Arduino15/packages/Seeeduino/tools/arm-none
 ARM_GCC_DIR="${ARM_GCC_DIR:-${DEFAULT_ARM_GCC_DIR}}"
 CORE_ARCHIVE=""
 DEVICE="${1:-}"
+LINKER_SCRIPT="nrf52840_s140_v7.ld"
 OUTPUT_DIR="${SCRIPT_DIR}/output"
 SPI_DIR=""
 TEMP_DIR=""
 
-if [ -z "${DEVICE}" ] || { [ "${DEVICE}" != "station" ] && [ "${DEVICE}" != "wristband" ]; }; then
-    echo "Usage: ./relink.sh station|wristband [options]"
-    echo "Options:"
-    echo "  --arm-gcc-dir PATH"
-    echo "  --core-a PATH"
-    echo "  --output-dir PATH"
-    echo "  --spi-dir PATH"
-    exit 1
-fi
+case "${DEVICE}" in
+    station|wristband-xiao-external|wristband-xiao-lora-external)
+        ;;
+    wristband-xiao-internal|wristband-xiao-lora-internal)
+        LINKER_SCRIPT="nrf52840_s140_v7_wristband_internal.ld"
+        ;;
+    *)
+        echo "Usage: ./relink.sh station|wristband-xiao-external|wristband-xiao-internal|wristband-xiao-lora-external|wristband-xiao-lora-internal [options]"
+        echo "Options:"
+        echo "  --arm-gcc-dir PATH"
+        echo "  --core-a PATH"
+        echo "  --output-dir PATH"
+        echo "  --spi-dir PATH"
+        exit 1
+        ;;
+esac
 shift
 
 while [ "$#" -gt 0 ]; do
@@ -62,6 +70,10 @@ if [ ! -x "${GXX}" ] || [ ! -x "${OBJCOPY}" ]; then
     echo "GNU Arm toolchain not found: ${ARM_GCC_DIR}" >&2
     exit 1
 fi
+if [ ! -f "${SCRIPT_DIR}/tools/${LINKER_SCRIPT}" ]; then
+    echo "Linker script not found: ${SCRIPT_DIR}/tools/${LINKER_SCRIPT}" >&2
+    exit 1
+fi
 
 TEMP_DIR="$(mktemp -d "${TMPDIR:-/tmp}/stealth-o-relink.XXXXXX")"
 tar -xzf "${SCRIPT_DIR}/objects/${DEVICE}.tar.gz" -C "${TEMP_DIR}"
@@ -98,9 +110,8 @@ UF2_PATH="${OUTPUT_DIR}/${DEVICE}.uf2"
     -L"${TEMP_DIR}" \
     -Ofast \
     -Wl,--gc-sections \
-    -save-temps \
     -L"${SCRIPT_DIR}/tools" \
-    -Tnrf52840_s140_v7.ld \
+    -T"${LINKER_SCRIPT}" \
     -Wl,-Map,"${MAP_PATH}" \
     -mcpu=cortex-m4 \
     -mthumb \

@@ -119,5 +119,13 @@ terms on the target code.
 Copyright (c) Free Software Foundation, Inc.
 License file: licenses/GNU-Arm-Embedded-Toolchain-9-2019q4.txt
 
+17. RadioLib 7.7.1 (LoRa wristband variants only)
+
+License: MIT
+Copyright (c) 2018 Jan Gromeš
+RadioLib provides the SX1262 radio driver used by the XIAO + Wio-SX1262 LoRa
+wristband variants. Non-LoRa wristband and station artifacts do not link it.
+License file: licenses/RadioLib-MIT.txt
+
 Re-audit this notice whenever build dependencies or the compiler toolchain
 change.

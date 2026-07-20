@@ -5,15 +5,29 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-UF2_PATH="${SCRIPT_DIR}/wristband.uf2"
 
+if [ "$#" -ne 1 ]; then
+    echo "Usage: ./flash.sh <xiao-external|xiao-internal|xiao-lora-external|xiao-lora-internal>" >&2
+    exit 2
+fi
+PROFILE="$1"
+
+case "${PROFILE}" in
+    xiao-external|xiao-internal|xiao-lora-external|xiao-lora-internal)
+        ;;
+    *)
+        echo "Usage: ./flash.sh <xiao-external|xiao-internal|xiao-lora-external|xiao-lora-internal>" >&2
+        exit 2
+        ;;
+esac
+
+UF2_PATH="${SCRIPT_DIR}/wristband-${PROFILE}.uf2"
 if [ ! -f "${UF2_PATH}" ]; then
-    echo "Missing wristband.uf2 next to flash.sh."
+    echo "Missing $(basename "${UF2_PATH}") next to flash.sh." >&2
     exit 1
 fi
 
 volumes=()
-
 if [ -n "${UF2_VOLUME:-}" ]; then
     volumes=("${UF2_VOLUME}")
 else
@@ -29,7 +43,6 @@ if [ "${#volumes[@]}" -eq 0 ]; then
     echo "Double-press Reset on the XIAO board, wait for the drive to appear, then rerun ./flash.sh."
     exit 1
 fi
-
 if [ "${#volumes[@]}" -gt 1 ]; then
     echo "Multiple UF2 drives found:"
     printf '  %s\n' "${volumes[@]}"
@@ -37,6 +50,12 @@ if [ "${#volumes[@]}" -gt 1 ]; then
     exit 1
 fi
 
-cp -X "${UF2_PATH}" "${volumes[0]}/"
+TARGET_VOLUME="${volumes[0]}"
+if [ ! -f "${TARGET_VOLUME}/INFO_UF2.TXT" ]; then
+    echo "Selected target is not a mounted UF2 bootloader: ${TARGET_VOLUME}" >&2
+    exit 1
+fi
+
+cp -X "${UF2_PATH}" "${TARGET_VOLUME}/"
 sync
-echo "Flashed ${UF2_PATH} to ${volumes[0]}"
+echo "Flashed ${UF2_PATH} to ${TARGET_VOLUME}"
