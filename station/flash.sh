@@ -74,6 +74,32 @@ if [ ! -f "${TARGET_VOLUME}/INFO_UF2.TXT" ]; then
     exit 1
 fi
 
+# Board-ID strings reported by the pinned Seeeduino nrf52 bootloaders
+# (0.6.x updates ship both naming schemes). Stations are XIAO-only.
+EXPECTED_BOARD_IDS=(
+    "Seeed_XIAO_nRF52840"
+    "Seeed_XIAO_nRF52840_Sense"
+    "nRF52840-SeeedXiao-v1"
+    "nRF52840-SeeedXiaoSense-v1"
+)
+resolved_board_id="$(
+    sed -n 's/^Board-ID:[[:space:]]*//p' "${TARGET_VOLUME}/INFO_UF2.TXT" \
+        | tr -d '\r' \
+        | head -n 1
+)"
+board_id_allowed=false
+for expected_board_id in "${EXPECTED_BOARD_IDS[@]}"; do
+    if [ "${resolved_board_id}" = "${expected_board_id}" ]; then
+        board_id_allowed=true
+        break
+    fi
+done
+if [ "${board_id_allowed}" = false ]; then
+    echo "Refusing to flash station ${station_id} to Board-ID '${resolved_board_id:-missing}'." >&2
+    echo "Expected one of: ${EXPECTED_BOARD_IDS[*]}" >&2
+    exit 1
+fi
+
 cp -X "${UF2_PATH}" "${TARGET_VOLUME}/"
 sync
 echo "Flashed ${UF2_PATH} to ${TARGET_VOLUME}"

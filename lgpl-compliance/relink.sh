@@ -6,11 +6,19 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 DEFAULT_ARM_GCC_DIR="${HOME}/Library/Arduino15/packages/Seeeduino/tools/arm-none-eabi-gcc/9-2019q4"
 ARM_GCC_DIR="${ARM_GCC_DIR:-${DEFAULT_ARM_GCC_DIR}}"
 CORE_ARCHIVE=""
+CRYPTO_LIBRARIES=(
+    -lnrf_cc310_0.9.13-no-interrupts
+    -lnrf_cc310_0.9.13-no-interrupts
+)
 DEVICE="${1:-}"
 LINKER_SCRIPT="nrf52840_s140_v7.ld"
+LINKER_TOOLS_DIR="${SCRIPT_DIR}/tools"
 OUTPUT_DIR="${SCRIPT_DIR}/output"
 SPI_DIR=""
 TEMP_DIR=""
+TOOLCHAIN_DRIVER="arm-none-eabi-g++"
+VARIANT_OBJECT=""
+WRAP_EXTRA=(-Wl,--wrap=free)
 
 case "${DEVICE}" in
     station|wristband-xiao-external|wristband-xiao-lora-external)
@@ -18,13 +26,25 @@ case "${DEVICE}" in
     wristband-xiao-internal|wristband-xiao-lora-internal)
         LINKER_SCRIPT="nrf52840_s140_v7_wristband_internal.ld"
         ;;
+    wristband-t096-internal)
+        LINKER_SCRIPT="nrf52840_s140_v6_t096_wristband_internal.ld"
+        LINKER_TOOLS_DIR="${SCRIPT_DIR}/tools/t096"
+        TOOLCHAIN_DRIVER="arm-none-eabi-gcc"
+        CRYPTO_LIBRARIES=(-lnrf_cc310_0.9.13-no-interrupts)
+        WRAP_EXTRA=(
+            -Wl,--wrap=free
+            -Wl,--wrap=realloc
+            -Wl,--wrap=calloc
+        )
+        ;;
     *)
-        echo "Usage: ./relink.sh station|wristband-xiao-external|wristband-xiao-internal|wristband-xiao-lora-external|wristband-xiao-lora-internal [options]"
+        echo "Usage: ./relink.sh station|wristband-xiao-external|wristband-xiao-internal|wristband-xiao-lora-external|wristband-xiao-lora-internal|wristband-t096-internal [options]"
         echo "Options:"
         echo "  --arm-gcc-dir PATH"
         echo "  --core-a PATH"
         echo "  --output-dir PATH"
         echo "  --spi-dir PATH"
+        echo "  --variant-o PATH"
         exit 1
         ;;
 esac
@@ -48,6 +68,10 @@ while [ "$#" -gt 0 ]; do
             SPI_DIR="$2"
             shift 2
             ;;
+        --variant-o)
+            VARIANT_OBJECT="$2"
+            shift 2
+            ;;
         *)
             echo "Unknown option: $1" >&2
             exit 1
@@ -63,15 +87,15 @@ cleanup() {
 
 trap cleanup EXIT
 
-GXX="${ARM_GCC_DIR}/bin/arm-none-eabi-g++"
+LINKER="${ARM_GCC_DIR}/bin/${TOOLCHAIN_DRIVER}"
 OBJCOPY="${ARM_GCC_DIR}/bin/arm-none-eabi-objcopy"
 
-if [ ! -x "${GXX}" ] || [ ! -x "${OBJCOPY}" ]; then
+if [ ! -x "${LINKER}" ] || [ ! -x "${OBJCOPY}" ]; then
     echo "GNU Arm toolchain not found: ${ARM_GCC_DIR}" >&2
     exit 1
 fi
-if [ ! -f "${SCRIPT_DIR}/tools/${LINKER_SCRIPT}" ]; then
-    echo "Linker script not found: ${SCRIPT_DIR}/tools/${LINKER_SCRIPT}" >&2
+if [ ! -f "${LINKER_TOOLS_DIR}/${LINKER_SCRIPT}" ]; then
+    echo "Linker script not found: ${LINKER_TOOLS_DIR}/${LINKER_SCRIPT}" >&2
     exit 1
 fi
 
@@ -88,7 +112,13 @@ fi
 
 objects=()
 while IFS= read -r object_path; do
-    if [[ "${object_path}" == libraries/SPI/* ]] && [ -n "${SPI_DIR}" ]; then
+    if [ "${object_path}" = "core/variant.cpp.o" ] && [ -n "${VARIANT_OBJECT}" ]; then
+        if [ ! -f "${VARIANT_OBJECT}" ]; then
+            echo "Variant object not found: ${VARIANT_OBJECT}" >&2
+            exit 1
+        fi
+        objects+=("${VARIANT_OBJECT}")
+    elif [[ "${object_path}" == libraries/SPI/* ]] && [ -n "${SPI_DIR}" ]; then
         replacement="${SPI_DIR}/$(basename "${object_path}")"
         if [ ! -f "${replacement}" ]; then
             echo "SPI object not found: ${replacement}" >&2
@@ -106,11 +136,11 @@ HEX_PATH="${OUTPUT_DIR}/${DEVICE}.hex"
 MAP_PATH="${OUTPUT_DIR}/${DEVICE}.map"
 UF2_PATH="${OUTPUT_DIR}/${DEVICE}.uf2"
 
-"${GXX}" \
+"${LINKER}" \
     -L"${TEMP_DIR}" \
     -Ofast \
     -Wl,--gc-sections \
-    -L"${SCRIPT_DIR}/tools" \
+    -L"${LINKER_TOOLS_DIR}" \
     -T"${LINKER_SCRIPT}" \
     -Wl,-Map,"${MAP_PATH}" \
     -mcpu=cortex-m4 \
@@ -126,7 +156,7 @@ UF2_PATH="${OUTPUT_DIR}/${DEVICE}.uf2"
     -Wl,--warn-common \
     -Wl,--warn-section-align \
     -Wl,--wrap=malloc \
-    -Wl,--wrap=free \
+    "${WRAP_EXTRA[@]}" \
     --specs=nano.specs \
     --specs=nosys.specs \
     -o "${ELF_PATH}" \
@@ -136,8 +166,7 @@ UF2_PATH="${OUTPUT_DIR}/${DEVICE}.uf2"
     -larm_cortexM4lf_math \
     -lm \
     "${CORE_ARCHIVE}" \
-    -lnrf_cc310_0.9.13-no-interrupts \
-    -lnrf_cc310_0.9.13-no-interrupts \
+    "${CRYPTO_LIBRARIES[@]}" \
     -Wl,--end-group
 
 "${OBJCOPY}" -O ihex "${ELF_PATH}" "${HEX_PATH}"

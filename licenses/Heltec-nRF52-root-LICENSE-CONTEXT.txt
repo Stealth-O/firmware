@@ -1,0 +1,58 @@
+Stealth-O context for the Heltec nRF52 source archive
+
+Source mirror: https://github.com/Stealth-O/heltec-nrf52-mirror
+Audited commit: 53b3d4a126bd144f94642203605031dd0aa93354
+Snapshot identity: untagged upstream main snapshot; platform.txt reports 1.6.0
+Snapshot tag anchor: upstream 1.7.0 at d45d40df192eb155df3c1f809387591d515383ab
+
+Here "untagged" means that no upstream exact tag identifies the selected
+commit in the audited local mirror tag set. It is not a claim about tags absent
+from an unfetched remote. The release rejects shallow mirrors and requires the
+tag anchor above to resolve locally before relying on repository history.
+
+The adjacent LICENSE file is preserved verbatim from the root of the pinned
+Heltec nRF52 repository. It contains the complete GNU General Public License,
+version 3. Its inclusion records the upstream repository context; Stealth-O
+has not edited it and does not use this note to remove, replace, or relicense
+any upstream work.
+
+The root LICENSE history in this mirror is:
+
+- d2a9a9d94e7d353ff0be6ff6f12729987be8e093, 2024-07-15: added the
+  complete LGPL-2.1 text;
+- 4d07cb994509aaaa641df898374ced2a59dc0a9e, 2024-12-17: deleted the
+  root LICENSE file; and
+- 3f65fec81c8f9b1e3abf6f70dede1526e5524bca, 2024-12-20: added the
+  complete GPL-3.0 text that remains at the audited snapshot.
+
+The current T096 compilation manifest contains 64 direct source compilation
+units. The release workflow enumerates every one and classifies its file-level
+notice as LGPL-2.1-or-later, MIT, BSD, Apache-2.0, or SEGGER terms. It fails
+closed on an unapproved GPL-only, AGPL, unknown, or missing file-level license
+classification. One SEGGER assembler source has a minimal header and is
+accepted only by an exact-path and exact-content audit; its included
+SEGGER_RTT.h supplies the complete governing notice, also published in the
+source archive and release licenses directory.
+
+The selected HT-n5262G variant has two additional auditable facts. Its
+44-line variant.cpp is byte-for-byte identical to variants/HT-n5262/variant.cpp
+at commit 7e1e40cb07452e2b43de9d1177d2d5e64ccbd8e9 from 2024-07-15, while
+the repository root carried LGPL-2.1; both have SHA-256
+e5265f6f9f0ad1937c0d913aeeef83be48ef30109d733344c27e4e476a55acd4.
+The current variants/HT-n5262G/variant.h independently contains an explicit
+LGPL-2.1-or-later file-level notice. These are recorded source-history facts,
+not a conclusion that changes the terms of either file or the root LICENSE.
+The release gate verifies the current variant.cpp against that exact SHA-256
+and applies the semantic file-level license classifier to the
+descriptor-declared variant.h. It requires exactly `LGPL-2.1-or-later` and
+records the header path plus required and actual classifications in generated
+provenance.
+
+Heltec_nrf_lorawan and its precompiled liblorawan.a are deliberately excluded
+from the T096 build, link, source archive, and public object bundles.
+
+See the release-root THIRD_PARTY_NOTICES.txt,
+licenses/Heltec-nRF52-core-NOTICE.txt,
+licenses/SEGGER-SystemView-RTT-NOTICE.txt, and LGPL_COMPLIANCE.md for the
+audited distribution scope. This context note is factual release metadata,
+not a new license or legal advice.

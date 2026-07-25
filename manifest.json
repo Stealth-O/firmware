@@ -9,144 +9,544 @@
       "stationIdRange": {
         "maximum": 254,
         "minimum": 0
-      }
+      },
+      "toolchainId": "seeeduino-nrf52-1.1.12"
     },
     "wristband": {
       "variants": {
+        "t096-internal": {
+          "advertisementProtocolVersion": 1,
+          "artifact": "wristband/wristband-t096-internal.uf2",
+          "artifactSha256": "6d273172fceb8502425c083f53592a3e6994816214195f5ceddb44f5cec7b5db",
+          "capabilities": {
+            "bleTransfer": true,
+            "displayOutput": false,
+            "gnssReceive": true,
+            "loraTransmit": true
+          },
+          "commandProtocolVersion": 1,
+          "eventStart": {
+            "acceptedAckRequiresPersistedTransaction": true,
+            "ackBytes": 5,
+            "ackMagicAscii": "EVA1",
+            "ackStatusCodes": {
+              "accepted": 0,
+              "storageFailed": 2,
+              "storageUnavailable": 1
+            },
+            "checksum": {
+              "algorithm": "crc16-ccitt",
+              "initialHex": "FFFF",
+              "polynomialHex": "1021",
+              "xorOutHex": "0000"
+            },
+            "commandBytes": 15,
+            "commandMagicAscii": "EVS1",
+            "configurationVersion": 1,
+            "journalRecordTypesHex": [
+              "FD",
+              "F0",
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5",
+              "EF"
+            ],
+            "journalTransactionBytes": 32,
+            "minimumAvailableJournalRecords": 9,
+            "originEncoding": "signed-e7-big-endian",
+            "participantMaximum": 15,
+            "participantMinimum": 0,
+            "postStartContactRecordReserve": 1,
+            "startRelativeTicks": 0
+          },
+          "hardwareAccessories": [],
+          "hardwareIntegrated": [
+            "sx1262",
+            "uc6580",
+            "st7735"
+          ],
+          "hardwareTarget": "heltec-mesh-node-t096-ht-n5262g",
+          "journalFormat": "wristband-v2",
+          "loraCompactRealtime": {
+            "axisMaximumMeters": 510,
+            "axisMinimumMeters": -512,
+            "axisStepMeters": 2,
+            "baseTransmitIntervalMilliseconds": 15000,
+            "configurationSource": "ble-event-start",
+            "coordinateProjection": "wgs84-local-scale-at-origin-latitude",
+            "fixedFrameBytes": 5,
+            "formatIdentifierHex": "21",
+            "frameType": 1,
+            "gnssCurrentFixMaximumAgeMilliseconds": 30000,
+            "intervalMeasuredFrom": "transmission-completion",
+            "longitudeDelta": "shortest-antimeridian",
+            "noPositionRawPair": [
+              0,
+              0
+            ],
+            "noStationId": 255,
+            "originSource": "event-start",
+            "participantSource": "event-start",
+            "positionSource": "gnss-e7-runtime-origin",
+            "positiveJitterMaximumMilliseconds": 2000,
+            "stationContactBucketMilliseconds": 250,
+            "stationHistoryMaximumWindowMilliseconds": 10000,
+            "stationRssiLevelThresholdsDbm": [
+              -70,
+              -60,
+              -50
+            ],
+            "telemetryWindowMilliseconds": 10000
+          },
+          "loraFrameTypes": [
+            "realtime"
+          ],
+          "loraProtocolVersion": 2,
+          "loraRadioProfile": {
+            "bandwidthKHz": 125.0,
+            "chipOutputPowerDbm": 0,
+            "codingRate": "4/5",
+            "externalPowerAmplifier": "kct8103l",
+            "frequencyMHz": 869.525,
+            "preambleSymbols": 8,
+            "regulatory": {
+              "bandMaximumMHz": 869.65,
+              "bandMinimumMHz": 869.4,
+              "maximumDutyCyclePercent": 10.0,
+              "maximumErpDbmApproximate": 27.0,
+              "maximumErpMilliwatts": 500,
+              "powerLimitRole": "ceiling-not-target",
+              "profile": "EU868_CYPRUS_G3"
+            },
+            "spreadingFactor": 7,
+            "syncWordHex": "12",
+            "targetOutputPowerDbm": 14,
+            "targetOutputPowerVerified": false,
+            "tcxoVoltage": 1.8
+          },
+          "phoneStationCommand": {
+            "commandBytes": 6,
+            "commandType": 3,
+            "commandVersion": 2,
+            "encoding": "ascii-hex-local-name",
+            "legacyServiceUuidFallback": false,
+            "localNameBytes": 16,
+            "localNamePrefixAscii": "WBC:",
+            "reservedBytes": 3,
+            "reservedBytesMustBeZero": true,
+            "stationIdRange": {
+              "maximum": 254,
+              "minimum": 0
+            }
+          },
+          "recordSize": 4,
+          "storageBackend": "internal-flash",
+          "storageCapacityBytes": 262144,
+          "storageWordSize": 4,
+          "tickMilliseconds": 250,
+          "toolchainId": "heltec-nrf52-main-53b3d4a126bd",
+          "wbt2ProtocolVersion": 3
+        },
         "xiao-external": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-external.uf2",
-          "artifactSha256": "df7e787313a79f8d5b8ac072c1af88bad0fa4fcbb82a18956f08f55bebd0bea1",
+          "artifactSha256": "bc772b1be46eed85c02d3048718737b13bf0870f6df2e3c64c124998a7422246",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": false
           },
           "commandProtocolVersion": 1,
+          "eventStart": {
+            "acceptedAckRequiresPersistedTransaction": true,
+            "ackBytes": 5,
+            "ackMagicAscii": "EVA1",
+            "ackStatusCodes": {
+              "accepted": 0,
+              "storageFailed": 2,
+              "storageUnavailable": 1
+            },
+            "checksum": {
+              "algorithm": "crc16-ccitt",
+              "initialHex": "FFFF",
+              "polynomialHex": "1021",
+              "xorOutHex": "0000"
+            },
+            "commandBytes": 15,
+            "commandMagicAscii": "EVS1",
+            "configurationVersion": 1,
+            "journalRecordTypesHex": [
+              "FD",
+              "F0",
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5",
+              "EF"
+            ],
+            "journalTransactionBytes": 32,
+            "minimumAvailableJournalRecords": 9,
+            "originEncoding": "signed-e7-big-endian",
+            "participantMaximum": 15,
+            "participantMinimum": 0,
+            "postStartContactRecordReserve": 1,
+            "startRelativeTicks": 0
+          },
           "hardwareAccessories": [],
           "hardwareTarget": "seeed-xiao-nrf52840",
           "journalFormat": "wristband-v2",
+          "loraCompactRealtime": null,
           "loraFrameTypes": [],
-          "loraHello": null,
           "loraProtocolVersion": null,
           "loraRadioProfile": null,
+          "phoneStationCommand": {
+            "commandBytes": 6,
+            "commandType": 3,
+            "commandVersion": 2,
+            "encoding": "ascii-hex-local-name",
+            "legacyServiceUuidFallback": false,
+            "localNameBytes": 16,
+            "localNamePrefixAscii": "WBC:",
+            "reservedBytes": 3,
+            "reservedBytesMustBeZero": true,
+            "stationIdRange": {
+              "maximum": 254,
+              "minimum": 0
+            }
+          },
           "recordSize": 4,
           "storageBackend": "external-qspi",
           "storageCapacityBytes": 2097152,
           "storageWordSize": 4,
           "tickMilliseconds": 250,
+          "toolchainId": "seeeduino-nrf52-1.1.12",
           "wbt2ProtocolVersion": 3
         },
         "xiao-internal": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-internal.uf2",
-          "artifactSha256": "849ad5a52d37eba48628b07cf0b8397a2c4438f809461d44d1562c332cc8b3d0",
+          "artifactSha256": "69d0bac23987092e5ff39cb995916934816c1cb32230edd15b29c183c121ce95",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": false
           },
           "commandProtocolVersion": 1,
+          "eventStart": {
+            "acceptedAckRequiresPersistedTransaction": true,
+            "ackBytes": 5,
+            "ackMagicAscii": "EVA1",
+            "ackStatusCodes": {
+              "accepted": 0,
+              "storageFailed": 2,
+              "storageUnavailable": 1
+            },
+            "checksum": {
+              "algorithm": "crc16-ccitt",
+              "initialHex": "FFFF",
+              "polynomialHex": "1021",
+              "xorOutHex": "0000"
+            },
+            "commandBytes": 15,
+            "commandMagicAscii": "EVS1",
+            "configurationVersion": 1,
+            "journalRecordTypesHex": [
+              "FD",
+              "F0",
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5",
+              "EF"
+            ],
+            "journalTransactionBytes": 32,
+            "minimumAvailableJournalRecords": 9,
+            "originEncoding": "signed-e7-big-endian",
+            "participantMaximum": 15,
+            "participantMinimum": 0,
+            "postStartContactRecordReserve": 1,
+            "startRelativeTicks": 0
+          },
           "hardwareAccessories": [],
           "hardwareTarget": "seeed-xiao-nrf52840",
           "journalFormat": "wristband-v2",
+          "loraCompactRealtime": null,
           "loraFrameTypes": [],
-          "loraHello": null,
           "loraProtocolVersion": null,
           "loraRadioProfile": null,
+          "phoneStationCommand": {
+            "commandBytes": 6,
+            "commandType": 3,
+            "commandVersion": 2,
+            "encoding": "ascii-hex-local-name",
+            "legacyServiceUuidFallback": false,
+            "localNameBytes": 16,
+            "localNamePrefixAscii": "WBC:",
+            "reservedBytes": 3,
+            "reservedBytesMustBeZero": true,
+            "stationIdRange": {
+              "maximum": 254,
+              "minimum": 0
+            }
+          },
           "recordSize": 4,
           "storageBackend": "internal-flash",
           "storageCapacityBytes": 262144,
           "storageWordSize": 4,
           "tickMilliseconds": 250,
+          "toolchainId": "seeeduino-nrf52-1.1.12",
           "wbt2ProtocolVersion": 3
         },
         "xiao-lora-external": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-lora-external.uf2",
-          "artifactSha256": "309402d924b17798d68b0f981e283a0d858d81d59fd24502758f4a61cec6a120",
+          "artifactSha256": "9c06efcbc50948090c0fa561dbe923854d555fe82ab55f67ad7efd30a09b86fc",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": true
           },
           "commandProtocolVersion": 1,
+          "eventStart": {
+            "acceptedAckRequiresPersistedTransaction": true,
+            "ackBytes": 5,
+            "ackMagicAscii": "EVA1",
+            "ackStatusCodes": {
+              "accepted": 0,
+              "storageFailed": 2,
+              "storageUnavailable": 1
+            },
+            "checksum": {
+              "algorithm": "crc16-ccitt",
+              "initialHex": "FFFF",
+              "polynomialHex": "1021",
+              "xorOutHex": "0000"
+            },
+            "commandBytes": 15,
+            "commandMagicAscii": "EVS1",
+            "configurationVersion": 1,
+            "journalRecordTypesHex": [
+              "FD",
+              "F0",
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5",
+              "EF"
+            ],
+            "journalTransactionBytes": 32,
+            "minimumAvailableJournalRecords": 9,
+            "originEncoding": "signed-e7-big-endian",
+            "participantMaximum": 15,
+            "participantMinimum": 0,
+            "postStartContactRecordReserve": 1,
+            "startRelativeTicks": 0
+          },
           "hardwareAccessories": [
             "seeed-wio-sx1262-for-xiao"
           ],
           "hardwareTarget": "seeed-xiao-nrf52840",
           "journalFormat": "wristband-v2",
-          "loraFrameTypes": [
-            "hello"
-          ],
-          "loraHello": {
-            "headerBytes": 21,
-            "identityFields": [
-              "deviceId",
-              "storageEpoch",
-              "senderBootNonce",
-              "sequence"
+          "loraCompactRealtime": {
+            "axisMaximumMeters": 510,
+            "axisMinimumMeters": -512,
+            "axisStepMeters": 2,
+            "baseTransmitIntervalMilliseconds": 1000,
+            "configurationSource": "ble-event-start",
+            "fixedFrameBytes": 5,
+            "formatIdentifierHex": "21",
+            "frameType": 1,
+            "intervalMeasuredFrom": "transmission-start",
+            "noPositionRawPair": [
+              0,
+              0
             ],
-            "maximumPayloadBytes": 44
+            "noStationId": 255,
+            "originSource": "event-start",
+            "participantSource": "event-start",
+            "positionSource": "synthetic",
+            "positiveJitterMaximumMilliseconds": 0,
+            "stationContactBucketMilliseconds": 250,
+            "stationHistoryMaximumWindowMilliseconds": 10000,
+            "stationRssiLevelThresholdsDbm": [
+              -70,
+              -60,
+              -50
+            ],
+            "syntheticPositionIntervalMilliseconds": 2500,
+            "telemetryWindowMilliseconds": 1000
           },
-          "loraProtocolVersion": 1,
+          "loraFrameTypes": [
+            "realtime"
+          ],
+          "loraProtocolVersion": 2,
           "loraRadioProfile": {
             "bandwidthKHz": 125.0,
             "codingRate": "4/5",
-            "frequencyMHz": 868.3,
+            "frequencyMHz": 869.525,
             "outputPowerDbm": 14,
             "preambleSymbols": 8,
+            "regulatory": {
+              "bandMaximumMHz": 869.65,
+              "bandMinimumMHz": 869.4,
+              "maximumDutyCyclePercent": 10.0,
+              "maximumErpDbmApproximate": 27.0,
+              "maximumErpMilliwatts": 500,
+              "powerLimitRole": "ceiling-not-target",
+              "profile": "EU868_CYPRUS_G3"
+            },
             "spreadingFactor": 7,
             "syncWordHex": "12",
             "tcxoVoltage": 1.8
+          },
+          "phoneStationCommand": {
+            "commandBytes": 6,
+            "commandType": 3,
+            "commandVersion": 2,
+            "encoding": "ascii-hex-local-name",
+            "legacyServiceUuidFallback": false,
+            "localNameBytes": 16,
+            "localNamePrefixAscii": "WBC:",
+            "reservedBytes": 3,
+            "reservedBytesMustBeZero": true,
+            "stationIdRange": {
+              "maximum": 254,
+              "minimum": 0
+            }
           },
           "recordSize": 4,
           "storageBackend": "external-qspi",
           "storageCapacityBytes": 2097152,
           "storageWordSize": 4,
           "tickMilliseconds": 250,
+          "toolchainId": "seeeduino-nrf52-1.1.12",
           "wbt2ProtocolVersion": 3
         },
         "xiao-lora-internal": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-lora-internal.uf2",
-          "artifactSha256": "52611986a89f5495d1b0c919011aa8a01342f68f03dda4eef3449c4823ce6629",
+          "artifactSha256": "bc68410ce6c6d3a2c0dcbddc80d6170d09b643324168eeae23eaa43200478561",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": true
           },
           "commandProtocolVersion": 1,
+          "eventStart": {
+            "acceptedAckRequiresPersistedTransaction": true,
+            "ackBytes": 5,
+            "ackMagicAscii": "EVA1",
+            "ackStatusCodes": {
+              "accepted": 0,
+              "storageFailed": 2,
+              "storageUnavailable": 1
+            },
+            "checksum": {
+              "algorithm": "crc16-ccitt",
+              "initialHex": "FFFF",
+              "polynomialHex": "1021",
+              "xorOutHex": "0000"
+            },
+            "commandBytes": 15,
+            "commandMagicAscii": "EVS1",
+            "configurationVersion": 1,
+            "journalRecordTypesHex": [
+              "FD",
+              "F0",
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5",
+              "EF"
+            ],
+            "journalTransactionBytes": 32,
+            "minimumAvailableJournalRecords": 9,
+            "originEncoding": "signed-e7-big-endian",
+            "participantMaximum": 15,
+            "participantMinimum": 0,
+            "postStartContactRecordReserve": 1,
+            "startRelativeTicks": 0
+          },
           "hardwareAccessories": [
             "seeed-wio-sx1262-for-xiao"
           ],
           "hardwareTarget": "seeed-xiao-nrf52840",
           "journalFormat": "wristband-v2",
-          "loraFrameTypes": [
-            "hello"
-          ],
-          "loraHello": {
-            "headerBytes": 21,
-            "identityFields": [
-              "deviceId",
-              "storageEpoch",
-              "senderBootNonce",
-              "sequence"
+          "loraCompactRealtime": {
+            "axisMaximumMeters": 510,
+            "axisMinimumMeters": -512,
+            "axisStepMeters": 2,
+            "baseTransmitIntervalMilliseconds": 1000,
+            "configurationSource": "ble-event-start",
+            "fixedFrameBytes": 5,
+            "formatIdentifierHex": "21",
+            "frameType": 1,
+            "intervalMeasuredFrom": "transmission-start",
+            "noPositionRawPair": [
+              0,
+              0
             ],
-            "maximumPayloadBytes": 44
+            "noStationId": 255,
+            "originSource": "event-start",
+            "participantSource": "event-start",
+            "positionSource": "synthetic",
+            "positiveJitterMaximumMilliseconds": 0,
+            "stationContactBucketMilliseconds": 250,
+            "stationHistoryMaximumWindowMilliseconds": 10000,
+            "stationRssiLevelThresholdsDbm": [
+              -70,
+              -60,
+              -50
+            ],
+            "syntheticPositionIntervalMilliseconds": 2500,
+            "telemetryWindowMilliseconds": 1000
           },
-          "loraProtocolVersion": 1,
+          "loraFrameTypes": [
+            "realtime"
+          ],
+          "loraProtocolVersion": 2,
           "loraRadioProfile": {
             "bandwidthKHz": 125.0,
             "codingRate": "4/5",
-            "frequencyMHz": 868.3,
+            "frequencyMHz": 869.525,
             "outputPowerDbm": 14,
             "preambleSymbols": 8,
+            "regulatory": {
+              "bandMaximumMHz": 869.65,
+              "bandMinimumMHz": 869.4,
+              "maximumDutyCyclePercent": 10.0,
+              "maximumErpDbmApproximate": 27.0,
+              "maximumErpMilliwatts": 500,
+              "powerLimitRole": "ceiling-not-target",
+              "profile": "EU868_CYPRUS_G3"
+            },
             "spreadingFactor": 7,
             "syncWordHex": "12",
             "tcxoVoltage": 1.8
+          },
+          "phoneStationCommand": {
+            "commandBytes": 6,
+            "commandType": 3,
+            "commandVersion": 2,
+            "encoding": "ascii-hex-local-name",
+            "legacyServiceUuidFallback": false,
+            "localNameBytes": 16,
+            "localNamePrefixAscii": "WBC:",
+            "reservedBytes": 3,
+            "reservedBytesMustBeZero": true,
+            "stationIdRange": {
+              "maximum": 254,
+              "minimum": 0
+            }
           },
           "recordSize": 4,
           "storageBackend": "internal-flash",
           "storageCapacityBytes": 262144,
           "storageWordSize": 4,
           "tickMilliseconds": 250,
+          "toolchainId": "seeeduino-nrf52-1.1.12",
           "wbt2ProtocolVersion": 3
         }
       }
@@ -158,10 +558,32 @@
       "version": "7.7.1"
     }
   },
-  "manifestVersion": 2,
-  "toolchain": {
-    "arduinoCore": "Seeeduino nRF52 1.1.12",
-    "fqbn": "Seeeduino:nrf52:xiaonRF52840",
-    "gnuArmEmbedded": "9-2019q4"
+  "manifestVersion": 6,
+  "toolchains": {
+    "heltec-nrf52-main-53b3d4a126bd": {
+      "arduinoCore": "Heltec nRF52 untagged main snapshot",
+      "arduinoCoreCommit": "53b3d4a126bd144f94642203605031dd0aa93354",
+      "fqbn": "Heltec:Heltec_nRF52:HT-n5262G",
+      "gnuArmEmbedded": "9-2019q4",
+      "mirrorSnapshotTag": "stealth-o-t096-audit-2026-07-20",
+      "platformReportedVersion": "1.6.0",
+      "sourceRepository": "https://github.com/Stealth-O/heltec-nrf52-mirror",
+      "sourceSnapshotKind": "untagged-main",
+      "upstreamBranch": "main",
+      "upstreamReleaseTag": null,
+      "upstreamTagAnchor": {
+        "commit": "d45d40df192eb155df3c1f809387591d515383ab",
+        "name": "1.7.0"
+      },
+      "variantHeaderGrant": {
+        "path": "variants/HT-n5262G/variant.h",
+        "requiredClassification": "LGPL-2.1-or-later"
+      }
+    },
+    "seeeduino-nrf52-1.1.12": {
+      "arduinoCore": "Seeeduino nRF52 1.1.12",
+      "fqbn": "Seeeduino:nrf52:xiaonRF52840",
+      "gnuArmEmbedded": "9-2019q4"
+    }
   }
 }

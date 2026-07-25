@@ -1,4 +1,8 @@
 sketch/wristband.ino.cpp.o
+sketch/wristband_event_config.cpp.o
+sketch/wristband_gnss_logic.cpp.o
+sketch/wristband_lora_telemetry.cpp.o
+sketch/wristband_phone_station_command.cpp.o
 sketch/wristband_runtime.cpp.o
 sketch/wristband_storage_logic.cpp.o
 libraries/Adafruit_SPIFlash/Adafruit_FlashCache.cpp.o

@@ -1,9 +1,18 @@
 THIRD-PARTY SOFTWARE NOTICES
 
-Stealth-O firmware built with Seeeduino nRF52 core version 1.1.12 includes or
-links with the components listed below. Each component remains governed by its
-own license. The corresponding full license texts are in the licenses
-directory.
+Stealth-O firmware built with Seeeduino nRF52 core version 1.1.12 or pinned
+Heltec nRF52 untagged upstream main snapshot
+53b3d4a126bd144f94642203605031dd0aa93354 (immutable mirror tag
+stealth-o-t096-audit-2026-07-20) includes or links with the components listed
+below. The Heltec snapshot's platform.txt reports 1.6.0;
+that value is upstream platform metadata, not a release tag identifying the
+snapshot. Each component remains governed by its own license. The
+corresponding full license texts and notices are in the licenses directory.
+The `untagged-main` identity means no upstream exact tag points at the selected
+commit in the audited local mirror tag set; it is not a claim about an
+unfetched remote. Release validation rejects shallow repositories and requires
+upstream tag 1.7.0 to resolve locally to
+d45d40df192eb155df3c1f809387591d515383ab.
 
 1. Seeed Studio / Adafruit nRF52 Arduino core and SPI library
 
@@ -67,9 +76,13 @@ License: ARM Object Code and Header Files License, version 1.0
 Copyright (c) 2016-2017, ARM Limited or its affiliates. All rights reserved.
 Use and redistribution are limited to applications targeted for ARM-based
 products and are subject to the complete license terms.
-The linked libnrf_cc310_0.9.13-no-interrupts.a archive is supplied by
-Adafruit nRFCrypto in the Seeeduino nRF52 core 1.1.12 distribution under this
-license.
+The linked libnrf_cc310_0.9.13-no-interrupts.a archive is supplied by Adafruit
+nRFCrypto in the Seeeduino nRF52 core 1.1.12 distribution and by the pinned
+Heltec core used for T096. The two archives are byte-identical (SHA-256
+`97dc648d44520e47252f62c402a71f976e36d7b3aef99235bbdc4de79a928577`) and are
+distributed under this license. The release gate verifies both source-core
+archives against this value and freshly stages the verified copy instead of
+inheriting it from an older public package.
 License file: licenses/ARM-Object-Code-and-Headers-1.0.txt
 
 10. SdFat
@@ -124,8 +137,64 @@ License file: licenses/GNU-Arm-Embedded-Toolchain-9-2019q4.txt
 License: MIT
 Copyright (c) 2018 Jan Gromeš
 RadioLib provides the SX1262 radio driver used by the XIAO + Wio-SX1262 LoRa
-wristband variants. Non-LoRa wristband and station artifacts do not link it.
+wristband variants and by the T096 wristband's onboard SX1262. Non-LoRa
+wristband and station artifacts do not link it.
 License file: licenses/RadioLib-MIT.txt
+
+18. Heltec nRF52 Arduino core snapshot (T096 wristband only)
+
+The T096 build uses the nRF5 core and HT-n5262G variant from the pinned public
+mirror commit 53b3d4a126bd144f94642203605031dd0aa93354, an untagged upstream
+main snapshot pinned by immutable mirror tag
+stealth-o-t096-audit-2026-07-20, whose platform.txt reports 1.6.0. The captured
+build manifest
+contains 64 direct source compilation units. Every unit is classified from its
+file-level notice; the current set contains LGPL-2.1-or-later, MIT, BSD,
+Apache-2.0, and SEGGER classifications. Corresponding source and relinking
+materials are provided. Heltec_nrf_lorawan and its precompiled liblorawan.a
+are not linked or redistributed.
+The mirror root LICENSE history is LGPL-2.1 at commit
+d2a9a9d94e7d353ff0be6ff6f12729987be8e093 on 2024-07-15, deleted at
+4d07cb994509aaaa641df898374ced2a59dc0a9e on 2024-12-17, and GPL-3.0 at
+3f65fec81c8f9b1e3abf6f70dede1526e5524bca on 2024-12-20. The current
+GPL-3.0 text is retained verbatim inside source-t096.tar.gz and accompanied by
+an adjacent project-owned context note. The release fails on unapproved
+GPL-only, AGPL, unknown, or missing direct-source classifications.
+The selected HT-n5262G variant.cpp is byte-identical to the 44-line
+HT-n5262 variant.cpp present under the root LGPL-2.1 context at commit
+7e1e40cb07452e2b43de9d1177d2d5e64ccbd8e9 on 2024-07-15; both have
+SHA-256 e5265f6f9f0ad1937c0d913aeeef83be48ef30109d733344c27e4e476a55acd4.
+The current HT-n5262G variant.h contains an explicit LGPL-2.1-or-later
+file-level notice. The release gate pins and verifies the current variant.cpp
+hash, applies the semantic file-level license classifier to variant.h, requires
+exactly the declared LGPL-2.1-or-later result, and records its path plus required
+and actual classifications in T096 provenance. These are factual source-audit
+records, not changes to any upstream license.
+License files:
+- licenses/Heltec-nRF52-core-NOTICE.txt
+- licenses/Heltec-nRF52-root-LICENSE-CONTEXT.txt
+- licenses/LGPL-2.1.txt
+
+19. TinyGPS++ 1.0.2 (T096 wristband only)
+
+License: GNU Lesser General Public License, version 2.1 or later
+Copyright (c) 2008-2013 Mikal Hart
+TinyGPS++ parses NMEA data from the T096 onboard GNSS receiver and is rebuilt as
+part of the Heltec core archive.
+License files:
+- licenses/TinyGPSPlus-NOTICE.txt
+- licenses/LGPL-2.1.txt
+
+20. SEGGER SystemView / Real-Time Transfer (RTT) 3.10
+
+License: permissive redistribution terms with source-notice retention
+Copyright (c) 1995 - 2019 SEGGER Microcontroller GmbH
+The Seeeduino and pinned Heltec cores compile SEGGER RTT/SystemView units into
+their intermediate core archives. Both corresponding-source archives include
+the sources and headers. The current final station, XIAO wristband, and T096
+wristband images retain no SEGGER symbols. The notice remains required for the
+distributed source and intermediate objects.
+License file: licenses/SEGGER-SystemView-RTT-NOTICE.txt
 
 Re-audit this notice whenever build dependencies or the compiler toolchain
 change.

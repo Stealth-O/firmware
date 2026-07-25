@@ -5,18 +5,31 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+USAGE="Usage: ./flash.sh <xiao-external|xiao-internal|xiao-lora-external|xiao-lora-internal|t096-internal>"
 
 if [ "$#" -ne 1 ]; then
-    echo "Usage: ./flash.sh <xiao-external|xiao-internal|xiao-lora-external|xiao-lora-internal>" >&2
+    echo "${USAGE}" >&2
     exit 2
 fi
 PROFILE="$1"
+EXPECTED_BOARD_IDS=()
 
 case "${PROFILE}" in
     xiao-external|xiao-internal|xiao-lora-external|xiao-lora-internal)
+        # Board-ID strings reported by the pinned Seeeduino nrf52 bootloaders
+        # (0.6.x updates ship both naming schemes).
+        EXPECTED_BOARD_IDS=(
+            "Seeed_XIAO_nRF52840"
+            "Seeed_XIAO_nRF52840_Sense"
+            "nRF52840-SeeedXiao-v1"
+            "nRF52840-SeeedXiaoSense-v1"
+        )
+        ;;
+    t096-internal)
+        EXPECTED_BOARD_IDS=("HT-n5262")
         ;;
     *)
-        echo "Usage: ./flash.sh <xiao-external|xiao-internal|xiao-lora-external|xiao-lora-internal>" >&2
+        echo "${USAGE}" >&2
         exit 2
         ;;
 esac
@@ -40,7 +53,11 @@ fi
 
 if [ "${#volumes[@]}" -eq 0 ]; then
     echo "UF2 bootloader drive not found."
-    echo "Double-press Reset on the XIAO board, wait for the drive to appear, then rerun ./flash.sh."
+    if [ "${PROFILE}" = "t096-internal" ]; then
+        echo "Double-press Reset on the T096, wait for the drive to appear, then rerun ./flash.sh."
+    else
+        echo "Double-press Reset on the XIAO board, wait for the drive to appear, then rerun ./flash.sh."
+    fi
     exit 1
 fi
 if [ "${#volumes[@]}" -gt 1 ]; then
@@ -53,6 +70,23 @@ fi
 TARGET_VOLUME="${volumes[0]}"
 if [ ! -f "${TARGET_VOLUME}/INFO_UF2.TXT" ]; then
     echo "Selected target is not a mounted UF2 bootloader: ${TARGET_VOLUME}" >&2
+    exit 1
+fi
+resolved_board_id="$(
+    sed -n 's/^Board-ID:[[:space:]]*//p' "${TARGET_VOLUME}/INFO_UF2.TXT" \
+        | tr -d '\r' \
+        | head -n 1
+)"
+board_id_allowed=false
+for expected_board_id in "${EXPECTED_BOARD_IDS[@]}"; do
+    if [ "${resolved_board_id}" = "${expected_board_id}" ]; then
+        board_id_allowed=true
+        break
+    fi
+done
+if [ "${board_id_allowed}" = false ]; then
+    echo "Refusing to flash ${PROFILE} to Board-ID '${resolved_board_id:-missing}'." >&2
+    echo "Expected one of: ${EXPECTED_BOARD_IDS[*]}" >&2
     exit 1
 fi
 

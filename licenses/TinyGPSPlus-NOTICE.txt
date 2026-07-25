@@ -1,0 +1,10 @@
+TinyGPS++ 1.0.2
+Copyright (C) 2008-2013 Mikal Hart
+
+License: GNU Lesser General Public License, version 2.1 or later.
+
+The T096 firmware uses the TinyGPS.cpp and TinyGPS.h copies distributed in the
+pinned Heltec nRF52 Arduino core. Their corresponding source and exact rebuild
+command are included in lgpl-compliance/source-t096.tar.gz and
+lgpl-compliance/t096-core-spi-tinygps-compile-commands.json. The complete LGPL
+2.1 text is in LGPL-2.1.txt.

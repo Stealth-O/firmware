@@ -1,0 +1,40 @@
+{
+  "armGcc": "9-2019q4",
+  "cc310ArchivePath": "libraries/Adafruit_nRFCrypto/src/cortex-m4/fpv4-sp-d16-hard/libnrf_cc310_0.9.13-no-interrupts.a",
+  "cc310ArchiveSha256": "97dc648d44520e47252f62c402a71f976e36d7b3aef99235bbdc4de79a928577",
+  "cmsis": "5.7.0",
+  "coreCommit": null,
+  "corePlatformReportedVersion": "1.1.12",
+  "coreRootLicenseSha256": null,
+  "directSourceComponents": {
+    "core": 89,
+    "spi": 2,
+    "variant": 1
+  },
+  "directSourceLicenseKinds": [
+    "BSD",
+    "LGPL",
+    "MIT",
+    "SEGGER",
+    "SEGGER-sibling-grant",
+    "SPDX:Apache-2.0",
+    "Seeed-XIAO-pinned-LGPL-root-context"
+  ],
+  "excludedComponents": [],
+  "family": "seeeduino-xiao",
+  "fqbn": "Seeeduino:nrf52:xiaonRF52840",
+  "mirrorSnapshotTag": null,
+  "softDevice": "S140 7.3.0",
+  "sourceFiles": 249,
+  "sourceRepository": "https://github.com/Seeed-Studio/Adafruit_nRF52_Arduino",
+  "sourceSnapshotKind": "versioned-release",
+  "upstreamBranch": null,
+  "upstreamReleaseTag": null,
+  "upstreamTagAnchor": null,
+  "variant": "Seeed_XIAO_nRF52840",
+  "variantHeaderActualClassification": null,
+  "variantHeaderPath": null,
+  "variantHeaderRequiredClassification": null,
+  "variantPath": "variants/Seeed_XIAO_nRF52840/variant.cpp",
+  "variantSha256": "e4293e433980627dfe871a5c46115462774ec36a4efbf61fd1f025e7c66dab90"
+}

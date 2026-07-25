@@ -1,0 +1,54 @@
+Heltec nRF52 Arduino core snapshot for T096
+Source mirror: https://github.com/Stealth-O/heltec-nrf52-mirror
+Audited commit: 53b3d4a126bd144f94642203605031dd0aa93354
+Snapshot identity: untagged upstream main snapshot; platform.txt reports 1.6.0
+Snapshot tag anchor: upstream 1.7.0 at d45d40df192eb155df3c1f809387591d515383ab
+
+Here "untagged" means that no upstream exact tag identifies the audited commit
+in the validated local mirror tag set. It is not a claim about tags absent from
+an unfetched remote. The release rejects shallow mirrors and requires the tag
+anchor above to resolve locally before relying on repository history.
+
+The T096 build compiles the nRF5 core, HT-n5262G board variant, SPI library,
+and TinyGPS++ parser from this snapshot. Its captured compile manifest contains
+64 direct source compilation units, each audited against its file-level notice.
+The pinned input contains GNU Lesser General Public License version
+2.1-or-later and separately licensed MIT, BSD, Apache-2.0, and SEGGER code.
+Corresponding source and relinking materials are provided under
+lgpl-compliance/.
+
+The upstream repository root LICENSE changed from LGPL-2.1 at commit
+d2a9a9d94e7d353ff0be6ff6f12729987be8e093 on 2024-07-15, to absent at
+commit 4d07cb994509aaaa641df898374ced2a59dc0a9e on 2024-12-17, to GPL-3.0
+at commit 3f65fec81c8f9b1e3abf6f70dede1526e5524bca on 2024-12-20. The
+current GPL-3.0 text is preserved verbatim in the corresponding-source archive
+and accompanied there by STEALTH-O-LICENSING-NOTE.txt. That note documents the
+history and current repository-level context without modifying the root
+license or any file-level notice. The release license gate rejects an
+unapproved compiled GPL-only, AGPL, unknown, or missing file-level
+classification.
+
+The selected HT-n5262G variant.cpp is a byte-for-byte copy of the 44-line
+HT-n5262 variant.cpp present at commit
+7e1e40cb07452e2b43de9d1177d2d5e64ccbd8e9 on 2024-07-15; both have SHA-256
+e5265f6f9f0ad1937c0d913aeeef83be48ef30109d733344c27e4e476a55acd4.
+The current HT-n5262G variant.h carries its own explicit
+LGPL-2.1-or-later notice. These source-history facts do not alter or replace
+any upstream license text. The release gate verifies the current variant.cpp
+against that exact SHA-256. It also applies the semantic file-level license
+classifier to the descriptor-declared variant.h, requires exactly
+`LGPL-2.1-or-later`, and records the header path plus required and actual
+classifications in generated provenance.
+
+Stealth-O does not compile, link, or redistribute the Heltec_nrf_lorawan
+library or its precompiled liblorawan.a in the T096 image or corresponding
+source archive. The linked-static-library allowlist enforces this boundary.
+
+SEGGER RTT/SystemView compilation units are present in the corresponding
+source and intermediate core archive, although the current final T096 image
+retains no SEGGER symbols. Their complete terms are preserved in
+SEGGER-SystemView-RTT-NOTICE.txt and in the source-file headers.
+
+The core's Adafruit nRFCrypto dependency supplies the same ARM CC310 archive as
+the XIAO build. Its redistribution terms are in
+ARM-Object-Code-and-Headers-1.0.txt.
