@@ -16,8 +16,8 @@ EXPECTED_BOARD_IDS=()
 
 case "${PROFILE}" in
     xiao-external|xiao-internal|xiao-lora-external|xiao-lora-internal)
-        # Board-ID strings reported by the pinned Seeeduino nrf52 bootloaders
-        # (0.6.x updates ship both naming schemes).
+        # Board-ID strings reported by the stock Seeeduino nRF52 and upstream
+        # OTAFIX bootloaders.
         EXPECTED_BOARD_IDS=(
             "Seeed_XIAO_nRF52840"
             "Seeed_XIAO_nRF52840_Sense"

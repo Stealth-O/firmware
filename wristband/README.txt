@@ -94,5 +94,7 @@ If multiple UF2 drives are mounted, run, for example:
 
 UF2_VOLUME="/Volumes/BOARDNAME" ./flash.sh xiao-external
 
-The helper verifies INFO_UF2.TXT after selecting the target. An ordinary
-directory is rejected even when supplied explicitly through UF2_VOLUME.
+The helper reads Board-ID from INFO_UF2.TXT after selecting the target. XIAO
+profiles accept only the pinned XIAO/XIAO Sense bootloader identifiers, while
+t096-internal requires HT-n5262. An ordinary directory or incompatible board
+is rejected even when supplied explicitly through UF2_VOLUME.

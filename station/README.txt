@@ -33,5 +33,7 @@ If multiple UF2 drives are mounted, run:
 
 UF2_VOLUME="/Volumes/BOARDNAME" ./flash.sh 42
 
-The helper verifies INFO_UF2.TXT after selecting the target. An ordinary
-directory is rejected even when supplied explicitly through UF2_VOLUME.
+The helper reads Board-ID from INFO_UF2.TXT after selecting the target and
+accepts only the pinned XIAO/XIAO Sense bootloader identifiers. An ordinary
+directory or incompatible board is rejected even when supplied explicitly
+through UF2_VOLUME.

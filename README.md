@@ -21,7 +21,7 @@ matching `station-S<ID>.uf2`; there is no runtime serial configuration.
 Wristband firmware uses its stable factory-derived `device_id` and does not
 require per-device serial identity setup.
 
-The release does not use one global device version. Manifest version 5 records
+The release does not use one global device version. Manifest version 6 records
 each wristband variant independently, including artifact SHA-256, hardware,
 storage backend, capabilities, journal format, advertisement and command
 protocols, WBT2, and LoRa protocol metadata. All five variants use the

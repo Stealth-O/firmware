@@ -74,8 +74,8 @@ if [ ! -f "${TARGET_VOLUME}/INFO_UF2.TXT" ]; then
     exit 1
 fi
 
-# Board-ID strings reported by the pinned Seeeduino nrf52 bootloaders
-# (0.6.x updates ship both naming schemes). Stations are XIAO-only.
+# Board-ID strings reported by the stock Seeeduino nRF52 and upstream OTAFIX
+# bootloaders. Stations are XIAO-only.
 EXPECTED_BOARD_IDS=(
     "Seeed_XIAO_nRF52840"
     "Seeed_XIAO_nRF52840_Sense"
