@@ -2,12 +2,12 @@
   "components": {
     "station": {
       "advertisementProtocolVersion": 1,
-      "artifactPattern": "station/station-S00.uf2...station-S254.uf2",
-      "baselineArtifact": "station/station-S254.uf2",
-      "baselineArtifactSha256": "cc0db037b4dcf46b5a1413f35912e039827498d0bd6d7d31bb8f5d9b9211b896",
+      "artifactPattern": "station/station-S00.uf2...station-S190.uf2",
+      "baselineArtifact": "station/station-S190.uf2",
+      "baselineArtifactSha256": "428ad25ea89a6b5eb5575a74fc81b4441ce01713b9851ccef2b2f848c5bc058b",
       "hardwareTarget": "seeed-xiao-nrf52840",
       "stationIdRange": {
-        "maximum": 254,
+        "maximum": 190,
         "minimum": 0
       },
       "toolchainId": "seeeduino-nrf52-1.1.12"
@@ -17,7 +17,7 @@
         "t096-internal": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-t096-internal.uf2",
-          "artifactSha256": "6d273172fceb8502425c083f53592a3e6994816214195f5ceddb44f5cec7b5db",
+          "artifactSha256": "c49080cd0389ad9d7b3349d476642ceb233c0d6485e9aad9255548424344940b",
           "capabilities": {
             "bleTransfer": true,
             "displayOutput": false,
@@ -69,6 +69,7 @@
           ],
           "hardwareTarget": "heltec-mesh-node-t096-ht-n5262g",
           "journalFormat": "wristband-v2",
+          "journalGeneration": 2,
           "loraCompactRealtime": {
             "axisMaximumMeters": 510,
             "axisMinimumMeters": -512,
@@ -137,7 +138,7 @@
             "reservedBytes": 3,
             "reservedBytesMustBeZero": true,
             "stationIdRange": {
-              "maximum": 254,
+              "maximum": 190,
               "minimum": 0
             }
           },
@@ -145,14 +146,15 @@
           "storageBackend": "internal-flash",
           "storageCapacityBytes": 262144,
           "storageWordSize": 4,
+          "superblockVersion": 2,
           "tickMilliseconds": 250,
           "toolchainId": "heltec-nrf52-main-53b3d4a126bd",
-          "wbt2ProtocolVersion": 3
+          "wbt2ProtocolVersion": 4
         },
         "xiao-external": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-external.uf2",
-          "artifactSha256": "bc772b1be46eed85c02d3048718737b13bf0870f6df2e3c64c124998a7422246",
+          "artifactSha256": "42c2e1e0ebfd80510ac4275fae5a4e4744caaa1bf0a2dfb85ba783831036acad",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": false
@@ -197,6 +199,7 @@
           "hardwareAccessories": [],
           "hardwareTarget": "seeed-xiao-nrf52840",
           "journalFormat": "wristband-v2",
+          "journalGeneration": 2,
           "loraCompactRealtime": null,
           "loraFrameTypes": [],
           "loraProtocolVersion": null,
@@ -212,7 +215,7 @@
             "reservedBytes": 3,
             "reservedBytesMustBeZero": true,
             "stationIdRange": {
-              "maximum": 254,
+              "maximum": 190,
               "minimum": 0
             }
           },
@@ -220,14 +223,15 @@
           "storageBackend": "external-qspi",
           "storageCapacityBytes": 2097152,
           "storageWordSize": 4,
+          "superblockVersion": 2,
           "tickMilliseconds": 250,
           "toolchainId": "seeeduino-nrf52-1.1.12",
-          "wbt2ProtocolVersion": 3
+          "wbt2ProtocolVersion": 4
         },
         "xiao-internal": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-internal.uf2",
-          "artifactSha256": "69d0bac23987092e5ff39cb995916934816c1cb32230edd15b29c183c121ce95",
+          "artifactSha256": "07e8eb2abf95aaae2d8d0c93adb511ba39358c428f9378448fb4f1f7a9fcd431",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": false
@@ -272,6 +276,7 @@
           "hardwareAccessories": [],
           "hardwareTarget": "seeed-xiao-nrf52840",
           "journalFormat": "wristband-v2",
+          "journalGeneration": 2,
           "loraCompactRealtime": null,
           "loraFrameTypes": [],
           "loraProtocolVersion": null,
@@ -287,7 +292,7 @@
             "reservedBytes": 3,
             "reservedBytesMustBeZero": true,
             "stationIdRange": {
-              "maximum": 254,
+              "maximum": 190,
               "minimum": 0
             }
           },
@@ -295,14 +300,15 @@
           "storageBackend": "internal-flash",
           "storageCapacityBytes": 262144,
           "storageWordSize": 4,
+          "superblockVersion": 2,
           "tickMilliseconds": 250,
           "toolchainId": "seeeduino-nrf52-1.1.12",
-          "wbt2ProtocolVersion": 3
+          "wbt2ProtocolVersion": 4
         },
         "xiao-lora-external": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-lora-external.uf2",
-          "artifactSha256": "9c06efcbc50948090c0fa561dbe923854d555fe82ab55f67ad7efd30a09b86fc",
+          "artifactSha256": "c00f9d1a852c2cf5eb426047785629ea14c694960f2771a0348e924f7666c8c7",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": true
@@ -349,6 +355,7 @@
           ],
           "hardwareTarget": "seeed-xiao-nrf52840",
           "journalFormat": "wristband-v2",
+          "journalGeneration": 2,
           "loraCompactRealtime": {
             "axisMaximumMeters": 510,
             "axisMinimumMeters": -512,
@@ -412,7 +419,7 @@
             "reservedBytes": 3,
             "reservedBytesMustBeZero": true,
             "stationIdRange": {
-              "maximum": 254,
+              "maximum": 190,
               "minimum": 0
             }
           },
@@ -420,14 +427,15 @@
           "storageBackend": "external-qspi",
           "storageCapacityBytes": 2097152,
           "storageWordSize": 4,
+          "superblockVersion": 2,
           "tickMilliseconds": 250,
           "toolchainId": "seeeduino-nrf52-1.1.12",
-          "wbt2ProtocolVersion": 3
+          "wbt2ProtocolVersion": 4
         },
         "xiao-lora-internal": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-lora-internal.uf2",
-          "artifactSha256": "bc68410ce6c6d3a2c0dcbddc80d6170d09b643324168eeae23eaa43200478561",
+          "artifactSha256": "5ff30009b42379bfd6cf362aed7eb93f354dc2e3a3bad04b024c8eba20a09566",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": true
@@ -474,6 +482,7 @@
           ],
           "hardwareTarget": "seeed-xiao-nrf52840",
           "journalFormat": "wristband-v2",
+          "journalGeneration": 2,
           "loraCompactRealtime": {
             "axisMaximumMeters": 510,
             "axisMinimumMeters": -512,
@@ -537,7 +546,7 @@
             "reservedBytes": 3,
             "reservedBytesMustBeZero": true,
             "stationIdRange": {
-              "maximum": 254,
+              "maximum": 190,
               "minimum": 0
             }
           },
@@ -545,9 +554,10 @@
           "storageBackend": "internal-flash",
           "storageCapacityBytes": 262144,
           "storageWordSize": 4,
+          "superblockVersion": 2,
           "tickMilliseconds": 250,
           "toolchainId": "seeeduino-nrf52-1.1.12",
-          "wbt2ProtocolVersion": 3
+          "wbt2ProtocolVersion": 4
         }
       }
     }
@@ -558,7 +568,7 @@
       "version": "7.7.1"
     }
   },
-  "manifestVersion": 6,
+  "manifestVersion": 7,
   "toolchains": {
     "heltec-nrf52-main-53b3d4a126bd": {
       "arduinoCore": "Heltec nRF52 untagged main snapshot",

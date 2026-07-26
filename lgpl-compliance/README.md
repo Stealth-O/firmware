@@ -1,6 +1,6 @@
 # LGPL Relinking Materials
 
-Every published `station-S00.uf2` through `station-S254.uf2` shares one linked
+Every published `station-S00.uf2` through `station-S190.uf2` shares one linked
 code image; the files differ only in a single station-ID data byte. These
 materials also reproduce each of the five public wristband artifacts:
 
@@ -15,8 +15,9 @@ Arduino core, board variant, SPI library, and the Heltec core's TinyGPS++
 parser, rebuild those components, and relink them with the supplied closed-source
 Stealth-O application objects. `set_station_id.py` then rewrites
 the station ID byte so any station image can be reproduced without recompiling
-or relinking. Ordinary station IDs are `0...254`; `255` is reserved as the
-wristband special-record prefix.
+or relinking. Ordinary station IDs are `0...190`; `191...254` are wristband
+journal GPS record codes, and `255` is reserved as the wristband special-record
+prefix.
 
 ## Included Materials
 
@@ -126,7 +127,7 @@ cd lgpl-compliance
 
 Each generated UF2 is written under `output/` with its device ID as the file
 name. `output/station.uf2` is the linked-default universal station image and is
-byte-for-byte identical to `../station/station-S254.uf2`.
+byte-for-byte identical to `../station/station-S190.uf2`.
 
 Reproduce any other published station image by patching its ID byte:
 

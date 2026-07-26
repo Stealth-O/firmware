@@ -120,14 +120,14 @@ Recipients seeking byte-for-byte comparison must use the same epoch and GNU
 Arm Embedded Toolchain `9-2019q4`. Detailed commands are in
 `lgpl-compliance/README.md`.
 
-The exact-link matrix covers the linked-default `station-S254.uf2` baseline,
+The exact-link matrix covers the linked-default `station-S190.uf2` baseline,
 `wristband-xiao-external.uf2`, `wristband-xiao-internal.uf2`,
 `wristband-xiao-lora-external.uf2`, `wristband-xiao-lora-internal.uf2`, and
 `wristband-t096-internal.uf2`. Each is first relinked with the distributed
 original objects and then with the LGPL components rebuilt from the matching
 source archive. Both outputs must match the published UF2 byte-for-byte.
 `set_station_id.py` reproducibly derives `station-S00.uf2` through
-`station-S253.uf2` from the verified station baseline.
+`station-S190.uf2` from the verified station baseline.
 
 ## Recipient Rights And Operational Checklist
 

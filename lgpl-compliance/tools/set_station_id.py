@@ -2,11 +2,11 @@
 """Patch one ordinary station ID into a XIAO station UF2 image.
 
 The linked station image contains exactly one ``STOSID01`` marker followed by
-the station ID byte. The linked default is 254. IDs 0 through 254 are ordinary
-stations; 255 is reserved as the wristband special-record prefix and is never a
-valid station ID.
+the station ID byte. The linked default is 190. IDs 0 through 190 are ordinary
+stations. IDs 191 through 254 are journal GPS record codes and 255 is the
+wristband special-record prefix, so neither is ever a valid station ID.
 
-Usage: set_station_id.py <input.uf2> <station-id 0-254> <output.uf2>
+Usage: set_station_id.py <input.uf2> <station-id 0-190> <output.uf2>
 """
 
 import argparse
@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Dict, Optional, Sequence
 
 
-MAX_STATION_ID = 254
+MAX_STATION_ID = 190
 STATION_MAGIC = b"STOSID01"
 UF2_BLOCK_SIZE = 512
 UF2_DATA_CAPACITY = 476
@@ -129,7 +129,10 @@ def validate_station_id(text: str) -> int:
         raise PatchError("station ID must be a decimal number")
     station_id = int(text, 10)
     if station_id > MAX_STATION_ID:
-        raise PatchError(f"station ID must be in 0...{MAX_STATION_ID}; 255 is reserved")
+        raise PatchError(
+            f"station ID must be in 0...{MAX_STATION_ID}; "
+            "191...254 are GPS record codes and 255 is reserved"
+        )
     return station_id
 
 

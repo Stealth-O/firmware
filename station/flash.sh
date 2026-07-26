@@ -5,10 +5,10 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-MAX_STATION_ID=254
+MAX_STATION_ID=190
 
 usage() {
-    echo "Usage: ./flash.sh <0-254>"
+    echo "Usage: ./flash.sh <0-190>"
 }
 
 station_id_from_arg() {

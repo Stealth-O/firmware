@@ -4,9 +4,11 @@ This README and the included helper scripts are licensed under the repository
 root TOOLS_LICENSE.txt.
 
 These are the Stealth-O wristband-v2 builds for Seeed XIAO nRF52840 and Heltec
-T096. Every variant uses four-byte journal records, WBT2 protocol version 3,
-and the same BLE transfer contract. See ../manifest.json for the complete
-variant contract and artifact SHA-256 values.
+T096. Every variant writes four-byte journal generation 2 records and uses
+WBT2 protocol version 4 with an explicit generation in its 23-byte header.
+An earlier valid generation-1 journal is offered read-only until explicit
+CLEAR; it is not reinterpreted or erased automatically. See ../manifest.json
+for the complete variant contract and artifact SHA-256 values.
 
 Files:
 
@@ -82,13 +84,13 @@ No public serial monitor helper is required for flashing. The wristband uses
 its stable factory-derived device id, so no per-wristband number setup is
 required.
 
-The wristband accepts station IDs 0 through 254. Value 255 is reserved for its
-special-record format and is never a station ID. In the current event flow, S0
-is finish only. START is a separate persisted command and is never an S0
-contact. S0 represents either the physical finish station or phone finish
-station 0, which the compact log intentionally does not distinguish. Never
-assign S0 as an ordinary checkpoint or ghost; checkpoint and ghost roles use
-S1...S254.
+The wristband accepts station IDs 0 through 190. Values 191 through 254 are its
+journal GPS record codes and 255 is reserved for its special-record format and
+is never a station ID. In the current event flow, S0 is finish only. START is a
+separate persisted command and is never an S0 contact. S0 represents either the
+physical finish station or phone finish station 0, which the compact log
+intentionally does not distinguish. Never assign S0 as an ordinary checkpoint
+or ghost; checkpoint and ghost roles use S1...S190.
 
 If multiple UF2 drives are mounted, run, for example:
 

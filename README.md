@@ -5,7 +5,7 @@ firmware for Seeed Studio XIAO nRF52840 and Heltec T096 boards.
 
 ## Firmware
 
-- [station](station) contains `station-S00.uf2` through `station-S254.uf2` and a
+- [station](station) contains `station-S00.uf2` through `station-S190.uf2` and a
   macOS flashing helper.
 - [wristband](wristband) contains four explicit XIAO wristband profiles:
   `wristband-xiao-external.uf2`, `wristband-xiao-internal.uf2`,
@@ -15,18 +15,23 @@ firmware for Seeed Studio XIAO nRF52840 and Heltec T096 boards.
 
 Open the README in the corresponding folder before flashing. Every station
 image shares one universal code image and carries an ordinary station number
-from `0` to `254` in a single data byte. Value `255` is reserved as the
-wristband special-record prefix and cannot be assigned to a station. Flash the
-matching `station-S<ID>.uf2`; there is no runtime serial configuration.
+from `0` to `190` in a single data byte. Values `191...254` are wristband
+journal GPS record codes and `255` is reserved as the wristband special-record
+prefix and cannot be assigned to a station. Flash the matching
+`station-S<ID>.uf2`; there is no runtime serial configuration.
 Wristband firmware uses its stable factory-derived `device_id` and does not
 require per-device serial identity setup.
 
-The release does not use one global device version. Manifest version 6 records
+The release does not use one global device version. Manifest version 7 records
 each wristband variant independently, including artifact SHA-256, hardware,
 storage backend, capabilities, journal format, advertisement and command
 protocols, WBT2, and LoRa protocol metadata. All five variants use the
-`wristband-v2` four-byte journal and WBT2 protocol version 3. The compatible
-station advertisement envelope remains version 1.
+`wristband-v2` four-byte journal generation 2, superblock version 2, and WBT2
+protocol version 4 with the generation in its 23-byte header. A valid
+generation-1 journal left by an earlier firmware remains downloadable
+read-only until explicit `CLEAR`; it is never reinterpreted as GPS or erased
+automatically. The compatible station advertisement envelope remains version
+1.
 
 All wristband variants accept the runtime BLE event-start command `EVS1` with
 participant `0...15` and signed-E7 event origin. Accepted means the complete
@@ -62,7 +67,7 @@ Physical station `S0` is valid, but the current event flow reserves it for the
 finish-only role. START is a separate persisted command and is never an S0
 contact. Physical S0 is the alternative to the app's phone finish station `0`
 and must never be assigned as an ordinary checkpoint or ghost. Checkpoint and
-ghost roles use `S1...S254`. The wristband's compact log stores only the station
+ghost roles use `S1...S190`. The wristband's compact log stores only the station
 number, so it does not preserve whether an `S0` finish sample came from the
 physical station or the phone station.
 
