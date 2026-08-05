@@ -29,6 +29,13 @@ anchor for the audit. Its LGPL-covered build inputs include the core, selected
 source is in `lgpl-compliance/source-t096.tar.gz`; relocatable compiler
 arguments are in
 `lgpl-compliance/t096-core-spi-tinygps-compile-commands.json`.
+The commit is the immutable baseline, not a claim that every archived byte is
+unchanged upstream: before compilation the release removes
+`ledOn/ledOff(LED_BUILTIN)` from the invocation-private staged
+`InternalFileSytem/src/flash/flash_cache.c`, because the application owns that
+status LED. The source archive includes this modified MIT-licensed file, and
+`t096-provenance.json` records its path, purpose, and SHA-256 under
+`downstreamModifications`; the pinned mirror itself remains untouched.
 
 The root `LICENSE` history is explicit in the mirror: commit
 `d2a9a9d94e7d353ff0be6ff6f12729987be8e093` added LGPL-2.1 on 2024-07-15,
@@ -104,16 +111,18 @@ The private release workflow fails closed unless it can:
    local mirror tag set;
 3. verify the pinned T096 variant-lineage and CC310 archive SHA-256 values and
    require the declared variant header to classify as `LGPL-2.1-or-later`;
-4. reject unapproved plain GPL-only, AGPL, unknown, or missing file-level
+4. fail closed unless the staged T096 `flash_cache.c` contains the exact
+   project status-LED modification, archive it, and record its SHA-256;
+5. reject unapproved plain GPL-only, AGPL, unknown, or missing file-level
    license classifications;
-5. verify the exact allowlist of linked static libraries and reject an
+6. verify the exact allowlist of linked static libraries and reject an
    unexpected archive, including `liblorawan.a`;
-6. include all required corresponding source, including the pinned CMSIS
+7. include all required corresponding source, including the pinned CMSIS
    license and headers used by the compile commands;
-7. rebuild the applicable LGPL components from the published source archives;
-8. exact-relink the station baseline and all five wristband artifacts with
+8. rebuild the applicable LGPL components from the published source archives;
+9. exact-relink the station baseline and all five wristband artifacts with
    both the original and rebuilt LGPL objects; and
-9. reproduce every published UF2 byte-for-byte.
+10. reproduce every published UF2 byte-for-byte.
 
 The release scripts and normal wristband build use `SOURCE_DATE_EPOCH=0`.
 Recipients seeking byte-for-byte comparison must use the same epoch and GNU

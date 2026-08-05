@@ -57,6 +57,10 @@ License file: licenses/littlefs-BSD-3-Clause.txt
 License: MIT
 Copyright (c) 2019 Ha Thach for Adafruit Industries
 License file: licenses/InternalFileSystem-MIT.txt
+T096 downstream modification: the invocation-private build copy removes
+ledOn/ledOff(LED_BUILTIN) around flash flushes so the application remains the
+sole status-LED owner. The corresponding-source archive contains that modified
+flash_cache.c; the pinned Heltec mirror remains unchanged.
 
 7. Adafruit SPIFlash
 

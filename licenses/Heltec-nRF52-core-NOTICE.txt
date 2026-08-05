@@ -17,6 +17,13 @@ The pinned input contains GNU Lesser General Public License version
 Corresponding source and relinking materials are provided under
 lgpl-compliance/.
 
+The audited commit is the immutable baseline input. Before compilation, the
+release applies one fail-closed change to an invocation-private staged copy:
+`libraries/InternalFileSytem/src/flash/flash_cache.c` no longer calls
+`ledOn/ledOff(LED_BUILTIN)` around a flash flush, because the T096 application
+owns that same status LED. The mirror submodule remains untouched, and the
+corresponding-source archive contains the modified file actually compiled.
+
 The upstream repository root LICENSE changed from LGPL-2.1 at commit
 d2a9a9d94e7d353ff0be6ff6f12729987be8e093 on 2024-07-15, to absent at
 commit 4d07cb994509aaaa641df898374ced2a59dc0a9e on 2024-12-17, to GPL-3.0

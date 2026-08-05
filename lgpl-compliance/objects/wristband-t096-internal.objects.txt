@@ -172,6 +172,7 @@ libraries/RadioLib/utils/CRC.cpp.o
 libraries/RadioLib/utils/ConvCode.cpp.o
 libraries/RadioLib/utils/Cryptography.cpp.o
 libraries/RadioLib/utils/Utils.cpp.o
+libraries/CStealthProtocol/stealth_protocol.cpp.o
 libraries/Adafruit_LittleFS/Adafruit_LittleFS.cpp.o
 libraries/Adafruit_LittleFS/Adafruit_LittleFS_File.cpp.o
 libraries/Adafruit_LittleFS/littlefs/lfs.c.o

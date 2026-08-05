@@ -20,6 +20,7 @@
     "SPDX:Apache-2.0",
     "Seeed-XIAO-pinned-LGPL-root-context"
   ],
+  "downstreamModifications": [],
   "excludedComponents": [],
   "family": "seeeduino-xiao",
   "fqbn": "Seeeduino:nrf52:xiaonRF52840",

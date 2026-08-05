@@ -34,6 +34,14 @@ accepted only by an exact-path and exact-content audit; its included
 SEGGER_RTT.h supplies the complete governing notice, also published in the
 source archive and release licenses directory.
 
+The audited commit is the immutable baseline input. The T096 build makes one
+project-owned change only in its invocation-private staged copy:
+`libraries/InternalFileSytem/src/flash/flash_cache.c` no longer calls
+`ledOn/ledOff(LED_BUILTIN)` around a flash flush, because the application owns
+that same status LED. The patch is fail-closed against the audited source form,
+does not modify the mirror submodule, and the corresponding-source archive
+contains the modified file that was actually compiled.
+
 The selected HT-n5262G variant has two additional auditable facts. Its
 44-line variant.cpp is byte-for-byte identical to variants/HT-n5262/variant.cpp
 at commit 7e1e40cb07452e2b43de9d1177d2d5e64ccbd8e9 from 2024-07-15, while

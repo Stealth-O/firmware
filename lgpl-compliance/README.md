@@ -27,7 +27,12 @@ prefix.
   corresponding-source include roots, rewritten to use relocatable paths.
 - `source-t096.tar.gz`: corresponding source for the pinned Heltec nRF52 core,
   T096 variant, SPI library, TinyGPS++ parser, and required headers. It is
-  generated from mirror commit `53b3d4a126bd144f94642203605031dd0aa93354`.
+  generated from baseline mirror commit
+  `53b3d4a126bd144f94642203605031dd0aa93354`. Its invocation-private staged
+  `InternalFileSytem/src/flash/flash_cache.c` intentionally removes
+  `ledOn/ledOff(LED_BUILTIN)` so storage cannot override the application status
+  LED; the modified MIT-licensed file is included for transparency, while the
+  pinned mirror remains unchanged.
   It preserves the mirror's root GPL-3.0 `LICENSE` verbatim and places the
   project-owned `STEALTH-O-LICENSING-NOTE.txt` beside it to document that
   repository context without changing any upstream notice.
@@ -38,8 +43,9 @@ prefix.
   toolchain, source repository/snapshot/branch/tag, selected-variant, and CC310
   archive provenance. The T096 provenance also records the immutable mirror
   snapshot tag, upstream tag anchor, selected variant-header path and required
-  versus actual license classification, and deliberately excluded
-  `Heltec_nrf_lorawan` component.
+  versus actual license classification, the staged LED modification's path,
+  purpose, and SHA-256 under `downstreamModifications`, and deliberately
+  excluded `Heltec_nrf_lorawan` component.
 - `rebuild_lgpl.py`: rebuilds `core.a`, the selected board variant, and the two
   SPI object files for either board family. TinyGPS++ is part of the T096
   `core.a` rebuild.

@@ -4,7 +4,7 @@
       "advertisementProtocolVersion": 1,
       "artifactPattern": "station/station-S00.uf2...station-S190.uf2",
       "baselineArtifact": "station/station-S190.uf2",
-      "baselineArtifactSha256": "428ad25ea89a6b5eb5575a74fc81b4441ce01713b9851ccef2b2f848c5bc058b",
+      "baselineArtifactSha256": "562b3d1e19df5a040ac17899396f8667d587b75be5b9194a0bf2bb4b6d045822",
       "hardwareTarget": "seeed-xiao-nrf52840",
       "stationIdRange": {
         "maximum": 190,
@@ -17,7 +17,7 @@
         "t096-internal": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-t096-internal.uf2",
-          "artifactSha256": "c49080cd0389ad9d7b3349d476642ceb233c0d6485e9aad9255548424344940b",
+          "artifactSha256": "ec29c8167129bb356880c78b24fd7ecdb39539dbcd95fcd7d19c2c03eebd097c",
           "capabilities": {
             "bleTransfer": true,
             "displayOutput": false,
@@ -154,7 +154,7 @@
         "xiao-external": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-external.uf2",
-          "artifactSha256": "42c2e1e0ebfd80510ac4275fae5a4e4744caaa1bf0a2dfb85ba783831036acad",
+          "artifactSha256": "5cd345ea2a875c3a8ede0f1294f440c1bbe955bf33aed5f3acac14221b69def9",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": false
@@ -231,7 +231,7 @@
         "xiao-internal": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-internal.uf2",
-          "artifactSha256": "07e8eb2abf95aaae2d8d0c93adb511ba39358c428f9378448fb4f1f7a9fcd431",
+          "artifactSha256": "0268046439c2c5509e2994cc991dcdda1544b74a9ae8653c290dbf2f39b61b3c",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": false
@@ -308,7 +308,7 @@
         "xiao-lora-external": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-lora-external.uf2",
-          "artifactSha256": "c00f9d1a852c2cf5eb426047785629ea14c694960f2771a0348e924f7666c8c7",
+          "artifactSha256": "1889fc43c3fd78b1449284c68cfbfa8d5d8c9715009e9cf553a80af62802d302",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": true
@@ -435,7 +435,7 @@
         "xiao-lora-internal": {
           "advertisementProtocolVersion": 1,
           "artifact": "wristband/wristband-xiao-lora-internal.uf2",
-          "artifactSha256": "5ff30009b42379bfd6cf362aed7eb93f354dc2e3a3bad04b024c8eba20a09566",
+          "artifactSha256": "6b67e15489dd9644998c2a2a526e3a0ae3c2aa784dc8c0b883ac2ca0f6695dce",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": true
