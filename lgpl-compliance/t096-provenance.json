@@ -24,6 +24,11 @@
       "path": "libraries/InternalFileSytem/src/flash/flash_cache.c",
       "purpose": "disable InternalFS writes to the application-owned status LED",
       "sha256": "15620e7dc206a97d5c36f984c2ba842cb645488c6382d37b6b344aa3e1b3c3e8"
+    },
+    {
+      "path": "libraries/Adafruit_TinyUSB_Arduino/src/portable/nordic/nrf5x/dcd_nrf5x.c",
+      "purpose": "serialise the USB DETECTED and READY power events through one stage variable, bound the READY wait and keep the crystal requested through the SoftDevice",
+      "sha256": "fc96fc0e86108c166b033f9c5b15d1cf6866430fae90321d16ed1a9e5512a3ec"
     }
   ],
   "excludedComponents": [
@@ -33,7 +38,7 @@
   "fqbn": "Heltec:Heltec_nRF52:HT-n5262G:softdevice=s140v6,RGB=disable,LoRa_debug=disable,LORA_RX_LNA=0,lora_debug_port=serial",
   "mirrorSnapshotTag": "stealth-o-t096-audit-2026-07-20",
   "softDevice": "S140 6.1.1",
-  "sourceFiles": 231,
+  "sourceFiles": 232,
   "sourceRepository": "https://github.com/Stealth-O/heltec-nrf52-mirror",
   "sourceSnapshotKind": "untagged-main",
   "upstreamBranch": "main",

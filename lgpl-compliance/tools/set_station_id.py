@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Patch one ordinary station ID into a XIAO station UF2 image.
 
-The linked station image contains exactly one ``STOSID01`` marker followed by
+The linked station image contains exactly one ``STOSID02`` marker followed by
 the station ID byte. The linked default is 190. IDs 0 through 190 are ordinary
 stations. IDs 191 through 254 are journal GPS record codes and 255 is the
 wristband special-record prefix, so neither is ever a valid station ID.
@@ -16,7 +16,7 @@ from typing import Dict, Optional, Sequence
 
 
 MAX_STATION_ID = 190
-STATION_MAGIC = b"STOSID01"
+STATION_MAGIC = b"STOSID02"
 UF2_BLOCK_SIZE = 512
 UF2_DATA_CAPACITY = 476
 UF2_DATA_OFFSET = 32

@@ -56,11 +56,14 @@ prefix.
 - `tool-libraries`: CMSIS-DSP and the freshly staged, exact-hash-verified ARM
   CryptoCell link library used by the original build.
 - `tools/nrf52840_s140_v7.ld`: standard external-storage linker script.
-- `tools/nrf52840_s140_v7_wristband_internal.ld`: fixed 256 KiB internal-journal
+- `tools/nrf52840_s140_v7_wristband_internal.ld`: automatic internal-journal
   linker script for both internal XIAO wristband variants.
 - `tools/t096/nrf52840_s140_v6_t096_wristband_internal.ld` and
-  `tools/t096/nrf52_common.ld`: fixed 256 KiB internal-journal and matching
-  pinned-Heltec common linker scripts for the T096 wristband.
+  `tools/t096/nrf52_common.ld`: automatic internal-journal and matching
+  pinned-Heltec common linker scripts for the T096 wristband. Internal layouts
+  start on the first page above the flash load image and end at a fixed footer
+  below bootloader/SoftDevice-owned space; the manifest records the exact build
+  layout and capacity.
 - `tools/uf2conv.py` and `tools/set_station_id.py`: UF2 conversion and station
   identity patching.
 

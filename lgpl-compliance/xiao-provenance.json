@@ -20,13 +20,19 @@
     "SPDX:Apache-2.0",
     "Seeed-XIAO-pinned-LGPL-root-context"
   ],
-  "downstreamModifications": [],
+  "downstreamModifications": [
+    {
+      "path": "libraries/Adafruit_TinyUSB_Arduino/src/portable/nordic/nrf5x/dcd_nrf5x.c",
+      "purpose": "serialise the USB DETECTED and READY power events through one stage variable, bound the READY wait and keep the crystal requested through the SoftDevice",
+      "sha256": "1bd52ac56f825b52775fa0ad82ad59f41548a765ba679ee6ed1a292830c6bef9"
+    }
+  ],
   "excludedComponents": [],
   "family": "seeeduino-xiao",
   "fqbn": "Seeeduino:nrf52:xiaonRF52840",
   "mirrorSnapshotTag": null,
   "softDevice": "S140 7.3.0",
-  "sourceFiles": 249,
+  "sourceFiles": 250,
   "sourceRepository": "https://github.com/Seeed-Studio/Adafruit_nRF52_Arduino",
   "sourceSnapshotKind": "versioned-release",
   "upstreamBranch": null,

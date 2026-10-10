@@ -25,7 +25,7 @@ The station number is part of the flashed firmware image. There is no runtime
 station-number configuration step and no persistent station-number file.
 
 S0 is a valid image, but the current event flow reserves it for finish only.
-START is a separate persisted command and is never an S0 contact. Use physical
+Event assignment is persisted separately and is never an S0 contact. Use physical
 S0 as the alternative to phone finish station 0; never assign S0 as an ordinary
 checkpoint or ghost. Checkpoint and ghost roles use S1...S190. Value 255 is
 reserved and is not a station image.

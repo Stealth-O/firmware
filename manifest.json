@@ -1,10 +1,10 @@
 {
   "components": {
     "station": {
-      "advertisementProtocolVersion": 1,
+      "advertisementProtocolVersion": 2,
       "artifactPattern": "station/station-S00.uf2...station-S190.uf2",
       "baselineArtifact": "station/station-S190.uf2",
-      "baselineArtifactSha256": "562b3d1e19df5a040ac17899396f8667d587b75be5b9194a0bf2bb4b6d045822",
+      "baselineArtifactSha256": "eef826ba24bd5d81db91c0f855a3c4a3d307f009d1637fd8fbe7e7e7e7c9fceb",
       "hardwareTarget": "seeed-xiao-nrf52840",
       "stationIdRange": {
         "maximum": 190,
@@ -15,51 +15,73 @@
     "wristband": {
       "variants": {
         "t096-internal": {
-          "advertisementProtocolVersion": 1,
+          "advertisementProtocolVersion": 2,
           "artifact": "wristband/wristband-t096-internal.uf2",
-          "artifactSha256": "ec29c8167129bb356880c78b24fd7ecdb39539dbcd95fcd7d19c2c03eebd097c",
+          "artifactSha256": "bb1ec495e6afebdb0c2885f46cc6715caaa37806cb3565b2b5b9c2d09eeb4c64",
           "capabilities": {
             "bleTransfer": true,
             "displayOutput": false,
             "gnssReceive": true,
             "loraTransmit": true
           },
-          "commandProtocolVersion": 1,
-          "eventStart": {
+          "commandProtocolVersion": 2,
+          "eventAssignment": {
             "acceptedAckRequiresPersistedTransaction": true,
             "ackBytes": 5,
-            "ackMagicAscii": "EVA1",
+            "ackMagicAscii": "EAA4",
             "ackStatusCodes": {
               "accepted": 0,
               "storageFailed": 2,
               "storageUnavailable": 1
             },
+            "assignmentRelativeTicks": 0,
             "checksum": {
               "algorithm": "crc16-ccitt",
               "initialHex": "FFFF",
               "polynomialHex": "1021",
               "xorOutHex": "0000"
             },
-            "commandBytes": 15,
-            "commandMagicAscii": "EVS1",
-            "configurationVersion": 1,
-            "journalRecordTypesHex": [
-              "FD",
-              "F0",
-              "F1",
-              "F2",
-              "F3",
-              "F4",
-              "F5",
-              "EF"
+            "commandBytes": 60,
+            "commandMagicAscii": "EAS4",
+            "configurationVersion": 4,
+            "finalReserveBytes": 1024,
+            "journalAssignmentBytes": 68,
+            "journalRecords": [
+              "SESSION",
+              "ASSIGN"
             ],
-            "journalTransactionBytes": 32,
-            "minimumAvailableJournalRecords": 9,
+            "journalTransactionBytes": 72,
+            "minimumAvailableJournalRecords": 277,
+            "observationModeByteOffset": 4,
+            "observationModes": {
+              "normal": 0,
+              "rawStationCapture": 1
+            },
             "originEncoding": "signed-e7-big-endian",
-            "participantMaximum": 15,
-            "participantMinimum": 0,
-            "postStartContactRecordReserve": 1,
-            "startRelativeTicks": 0
+            "payloadBytesMaximum": 255,
+            "periodMillisecondsMaximum": 86399999,
+            "postAssignmentTailBytes": 12,
+            "radioIdDisabled": 65535,
+            "radioIdMaximum": 1023,
+            "radioIdentityCapacities": [
+              16,
+              32,
+              64,
+              128,
+              256,
+              512,
+              1024
+            ],
+            "stepCentimetersMaximum": 1500,
+            "stepCentimetersMinimum": 100,
+            "temporalSlotCountLegacyMarker": 0,
+            "temporalSlotCountMaximum": 64,
+            "temporalSlotCountMinimum": 16,
+            "temporalSlotCountValues": [
+              16,
+              32,
+              64
+            ]
           },
           "hardwareAccessories": [],
           "hardwareIntegrated": [
@@ -68,60 +90,104 @@
             "st7735"
           ],
           "hardwareTarget": "heltec-mesh-node-t096-ht-n5262g",
+          "internalJournalLayout": {
+            "application_start": 155648,
+            "artifact_sha256": "bb1ec495e6afebdb0c2885f46cc6715caaa37806cb3565b2b5b9c2d09eeb4c64",
+            "capacity_bytes": 565248,
+            "data_bytes": 561152,
+            "elf_sha256": "c96908f6dae37be3509d836aa390e0c795f4bc31fd2300365b1c21c7cdac60a7",
+            "final_reserve_bytes": 1024,
+            "flash_image_end": 401996,
+            "journal_end": 970752,
+            "journal_start": 405504,
+            "metadata_start": 966656,
+            "mode": "automatic",
+            "page_bytes": 4096,
+            "profile": "t096-internal",
+            "recording_budget_bytes": 560128
+          },
           "journalFormat": "wristband-v2",
-          "journalGeneration": 2,
+          "journalGeneration": 6,
           "loraCompactRealtime": {
-            "axisMaximumMeters": 510,
-            "axisMinimumMeters": -512,
-            "axisStepMeters": 2,
-            "baseTransmitIntervalMilliseconds": 15000,
-            "configurationSource": "ble-event-start",
+            "acceptedStartGridEffect": "none",
+            "axisUnit": "event-grid-index",
+            "clockLossPolicy": "continue-monotonic-grid",
+            "configurationSource": "ble-event-assignment",
+            "coordinateBitsPerAxisSource": "ble-event-assignment",
             "coordinateProjection": "wgs84-local-scale-at-origin-latitude",
-            "fixedFrameBytes": 5,
-            "formatIdentifierHex": "21",
-            "frameType": 1,
+            "crcEnabled": true,
+            "eventRadioAutomaticPlanRevision": "eu868-automatic-v5",
+            "eventRadioCatalogVersion": 4,
+            "eventRadioIdAllocationRevision": 3,
+            "eventRadioSchemaVersion": 4,
             "gnssCurrentFixMaximumAgeMilliseconds": 30000,
-            "intervalMeasuredFrom": "transmission-completion",
+            "headerMode": "implicit",
+            "lateStartPolicy": "attempt-immediately-no-expiry",
+            "legacyEventRadioAssignmentPolicy": "readable-and-assignable",
+            "legacyEventRadioAutomaticPlanRevision": "eu868-automatic-v2",
+            "legacyEventRadioCatalogVersion": 2,
+            "legacyEventRadioSchemaVersion": 2,
+            "legacyRadioIdAllocationPolicy": "counter-revision-1-sequential-or-2-bit-reversed",
             "longitudeDelta": "shortest-antimeridian",
-            "noPositionRawPair": [
-              0,
-              0
+            "missedTickPolicy": "latest-only-coalesce-no-backlog",
+            "nominalGridPolicy": "fixed-phase-send-never-reanchors",
+            "nominalStartPolicy": "cooperative-prefer-exact",
+            "originSource": "event-assignment",
+            "payloadBytesSource": "ble-event-assignment",
+            "payloadContents": [
+              "radio-id",
+              "x-index",
+              "y-index"
             ],
-            "noStationId": 255,
-            "originSource": "event-start",
-            "participantSource": "event-start",
+            "periodSource": "ble-event-assignment",
             "positionSource": "gnss-e7-runtime-origin",
-            "positiveJitterMaximumMilliseconds": 2000,
-            "stationContactBucketMilliseconds": 250,
-            "stationHistoryMaximumWindowMilliseconds": 10000,
-            "stationRssiLevelThresholdsDbm": [
-              -70,
-              -60,
-              -50
-            ],
-            "telemetryWindowMilliseconds": 10000
+            "previousCurrentEventRadioAssignmentPolicy": "readable-and-assignable",
+            "previousCurrentEventRadioAutomaticPlanRevision": "eu868-automatic-v4",
+            "previousCurrentEventRadioCatalogVersion": 4,
+            "previousCurrentEventRadioIdAllocationRevision": 3,
+            "previousCurrentEventRadioSchemaVersion": 4,
+            "previousEventRadioAssignmentPolicy": "readable-no-new-assign",
+            "previousEventRadioAutomaticPlanRevision": "eu868-automatic-v3",
+            "previousEventRadioCatalogVersion": 3,
+            "previousEventRadioIdAllocationRevision": 2,
+            "previousEventRadioSchemaVersion": 3,
+            "previousRadioIdAllocationPolicy": "bit-reversed-monotonic-ordinal",
+            "previousSlotIndexFormula": "floor-radio-id-times-temporal-slot-count-over-radio-identity-capacity",
+            "radioIdAllocationPolicy": "sequential-monotonic-ordinal",
+            "radioIdBitsSource": "ble-event-assignment",
+            "radioIdSource": "ble-event-assignment",
+            "radioIdentityCapacity": "two-to-radio-id-bits",
+            "schedulerMandatorySleepMilliseconds": 10,
+            "slotIndexFormula": "bit-reverse-radio-id-modulo-temporal-slot-count",
+            "slotOffsetSource": "ble-event-assignment",
+            "slotPreparationMaximumWaitMilliseconds": 40,
+            "slotWidth": "floor-period-milliseconds-over-temporal-slot-count",
+            "startCooldownPolicy": "none-next-nominal-remains-due",
+            "stepSource": "event-assignment",
+            "telemetryCommitPolicy": "latest-peek-commit-after-accepted-start",
+            "temporalSlotCountFormula": "minimum-of-radio-identity-capacity-and-64",
+            "temporalSlotCountSource": "ble-event-assignment",
+            "timebase": "gnss-utc-disciplined-with-monotonic-continuation",
+            "utcRebasePolicy": "future-grid-only-preserve-pending"
           },
           "loraFrameTypes": [
             "realtime"
           ],
           "loraProtocolVersion": 2,
           "loraRadioProfile": {
-            "bandwidthKHz": 125.0,
             "chipOutputPowerDbm": 0,
-            "codingRate": "4/5",
+            "configurationSource": "ble-event-assignment",
             "externalPowerAmplifier": "kct8103l",
-            "frequencyMHz": 869.525,
-            "preambleSymbols": 8,
             "regulatory": {
               "bandMaximumMHz": 869.65,
               "bandMinimumMHz": 869.4,
               "maximumDutyCyclePercent": 10.0,
               "maximumErpDbmApproximate": 27.0,
               "maximumErpMilliwatts": 500,
+              "occupiedBandValidation": "frequency-plus-minus-half-bandwidth",
               "powerLimitRole": "ceiling-not-target",
-              "profile": "EU868_CYPRUS_G3"
+              "profile": "eu868-cyprus-869-525"
             },
-            "spreadingFactor": 7,
             "syncWordHex": "12",
             "targetOutputPowerDbm": 14,
             "targetOutputPowerVerified": false,
@@ -143,63 +209,104 @@
             }
           },
           "recordSize": 4,
+          "stationTimestamp": {
+            "clockKey": [
+              "station",
+              "source"
+            ],
+            "contactDeltaBits": 15,
+            "deltaMaximumMilliseconds": 32767,
+            "firstDeltaRelativeTo": "accepted-assign",
+            "gapExceededBehavior": "TIME-then-zero-delta-CONTACT",
+            "maximumMilliseconds": 536870911,
+            "timeBits": 29,
+            "unitMilliseconds": 1
+          },
           "storageBackend": "internal-flash",
-          "storageCapacityBytes": 262144,
+          "storageCapacityBytes": 565248,
+          "storageDescriptor": {
+            "location": "fixed-footer",
+            "magicHex": "57424A35",
+            "version": 2
+          },
           "storageWordSize": 4,
-          "superblockVersion": 2,
-          "tickMilliseconds": 250,
+          "superblockVersion": null,
+          "tickMilliseconds": 1,
           "toolchainId": "heltec-nrf52-main-53b3d4a126bd",
-          "wbt2ProtocolVersion": 4
+          "wbt2ProtocolVersion": 2
         },
         "xiao-external": {
-          "advertisementProtocolVersion": 1,
+          "advertisementProtocolVersion": 2,
           "artifact": "wristband/wristband-xiao-external.uf2",
-          "artifactSha256": "5cd345ea2a875c3a8ede0f1294f440c1bbe955bf33aed5f3acac14221b69def9",
+          "artifactSha256": "a2250f8d9cfa2f5cbaaad5f7e9714c0da44a74124788c7cb4a018f9bebbeebc1",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": false
           },
-          "commandProtocolVersion": 1,
-          "eventStart": {
+          "commandProtocolVersion": 2,
+          "eventAssignment": {
             "acceptedAckRequiresPersistedTransaction": true,
             "ackBytes": 5,
-            "ackMagicAscii": "EVA1",
+            "ackMagicAscii": "EAA4",
             "ackStatusCodes": {
               "accepted": 0,
               "storageFailed": 2,
               "storageUnavailable": 1
             },
+            "assignmentRelativeTicks": 0,
             "checksum": {
               "algorithm": "crc16-ccitt",
               "initialHex": "FFFF",
               "polynomialHex": "1021",
               "xorOutHex": "0000"
             },
-            "commandBytes": 15,
-            "commandMagicAscii": "EVS1",
-            "configurationVersion": 1,
-            "journalRecordTypesHex": [
-              "FD",
-              "F0",
-              "F1",
-              "F2",
-              "F3",
-              "F4",
-              "F5",
-              "EF"
+            "commandBytes": 60,
+            "commandMagicAscii": "EAS4",
+            "configurationVersion": 4,
+            "finalReserveBytes": 1024,
+            "journalAssignmentBytes": 68,
+            "journalRecords": [
+              "SESSION",
+              "ASSIGN"
             ],
-            "journalTransactionBytes": 32,
-            "minimumAvailableJournalRecords": 9,
+            "journalTransactionBytes": 72,
+            "minimumAvailableJournalRecords": 277,
+            "observationModeByteOffset": 4,
+            "observationModes": {
+              "normal": 0,
+              "rawStationCapture": 1
+            },
             "originEncoding": "signed-e7-big-endian",
-            "participantMaximum": 15,
-            "participantMinimum": 0,
-            "postStartContactRecordReserve": 1,
-            "startRelativeTicks": 0
+            "payloadBytesMaximum": 255,
+            "periodMillisecondsMaximum": 86399999,
+            "postAssignmentTailBytes": 12,
+            "radioIdDisabled": 65535,
+            "radioIdMaximum": 1023,
+            "radioIdentityCapacities": [
+              16,
+              32,
+              64,
+              128,
+              256,
+              512,
+              1024
+            ],
+            "stepCentimetersMaximum": 1500,
+            "stepCentimetersMinimum": 100,
+            "temporalSlotCountLegacyMarker": 0,
+            "temporalSlotCountMaximum": 64,
+            "temporalSlotCountMinimum": 16,
+            "temporalSlotCountValues": [
+              16,
+              32,
+              64
+            ]
           },
           "hardwareAccessories": [],
           "hardwareTarget": "seeed-xiao-nrf52840",
+          "internalJournalLayout": null,
           "journalFormat": "wristband-v2",
-          "journalGeneration": 2,
+          "journalGeneration": 6,
           "loraCompactRealtime": null,
           "loraFrameTypes": [],
           "loraProtocolVersion": null,
@@ -220,63 +327,119 @@
             }
           },
           "recordSize": 4,
+          "stationTimestamp": {
+            "clockKey": [
+              "station",
+              "source"
+            ],
+            "contactDeltaBits": 15,
+            "deltaMaximumMilliseconds": 32767,
+            "firstDeltaRelativeTo": "accepted-assign",
+            "gapExceededBehavior": "TIME-then-zero-delta-CONTACT",
+            "maximumMilliseconds": 536870911,
+            "timeBits": 29,
+            "unitMilliseconds": 1
+          },
           "storageBackend": "external-qspi",
           "storageCapacityBytes": 2097152,
+          "storageDescriptor": {
+            "location": "logical-zero",
+            "magicHex": "57425332",
+            "version": 7
+          },
           "storageWordSize": 4,
-          "superblockVersion": 2,
-          "tickMilliseconds": 250,
+          "superblockVersion": 7,
+          "tickMilliseconds": 1,
           "toolchainId": "seeeduino-nrf52-1.1.12",
-          "wbt2ProtocolVersion": 4
+          "wbt2ProtocolVersion": 2
         },
         "xiao-internal": {
-          "advertisementProtocolVersion": 1,
+          "advertisementProtocolVersion": 2,
           "artifact": "wristband/wristband-xiao-internal.uf2",
-          "artifactSha256": "0268046439c2c5509e2994cc991dcdda1544b74a9ae8653c290dbf2f39b61b3c",
+          "artifactSha256": "0b86c0f1e7aefcb59cccc1ae817b4c510334f18db3c68c7a842f8cbe8a5a72d1",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": false
           },
-          "commandProtocolVersion": 1,
-          "eventStart": {
+          "commandProtocolVersion": 2,
+          "eventAssignment": {
             "acceptedAckRequiresPersistedTransaction": true,
             "ackBytes": 5,
-            "ackMagicAscii": "EVA1",
+            "ackMagicAscii": "EAA4",
             "ackStatusCodes": {
               "accepted": 0,
               "storageFailed": 2,
               "storageUnavailable": 1
             },
+            "assignmentRelativeTicks": 0,
             "checksum": {
               "algorithm": "crc16-ccitt",
               "initialHex": "FFFF",
               "polynomialHex": "1021",
               "xorOutHex": "0000"
             },
-            "commandBytes": 15,
-            "commandMagicAscii": "EVS1",
-            "configurationVersion": 1,
-            "journalRecordTypesHex": [
-              "FD",
-              "F0",
-              "F1",
-              "F2",
-              "F3",
-              "F4",
-              "F5",
-              "EF"
+            "commandBytes": 60,
+            "commandMagicAscii": "EAS4",
+            "configurationVersion": 4,
+            "finalReserveBytes": 1024,
+            "journalAssignmentBytes": 68,
+            "journalRecords": [
+              "SESSION",
+              "ASSIGN"
             ],
-            "journalTransactionBytes": 32,
-            "minimumAvailableJournalRecords": 9,
+            "journalTransactionBytes": 72,
+            "minimumAvailableJournalRecords": 277,
+            "observationModeByteOffset": 4,
+            "observationModes": {
+              "normal": 0,
+              "rawStationCapture": 1
+            },
             "originEncoding": "signed-e7-big-endian",
-            "participantMaximum": 15,
-            "participantMinimum": 0,
-            "postStartContactRecordReserve": 1,
-            "startRelativeTicks": 0
+            "payloadBytesMaximum": 255,
+            "periodMillisecondsMaximum": 86399999,
+            "postAssignmentTailBytes": 12,
+            "radioIdDisabled": 65535,
+            "radioIdMaximum": 1023,
+            "radioIdentityCapacities": [
+              16,
+              32,
+              64,
+              128,
+              256,
+              512,
+              1024
+            ],
+            "stepCentimetersMaximum": 1500,
+            "stepCentimetersMinimum": 100,
+            "temporalSlotCountLegacyMarker": 0,
+            "temporalSlotCountMaximum": 64,
+            "temporalSlotCountMinimum": 16,
+            "temporalSlotCountValues": [
+              16,
+              32,
+              64
+            ]
           },
           "hardwareAccessories": [],
           "hardwareTarget": "seeed-xiao-nrf52840",
+          "internalJournalLayout": {
+            "application_start": 159744,
+            "artifact_sha256": "0b86c0f1e7aefcb59cccc1ae817b4c510334f18db3c68c7a842f8cbe8a5a72d1",
+            "capacity_bytes": 634880,
+            "data_bytes": 630784,
+            "elf_sha256": "30116b520f5722ab62431a4b492fa36a962088a186c9c89561d93fa78cf396f6",
+            "final_reserve_bytes": 1024,
+            "flash_image_end": 335016,
+            "journal_end": 970752,
+            "journal_start": 335872,
+            "metadata_start": 966656,
+            "mode": "automatic",
+            "page_bytes": 4096,
+            "profile": "xiao-internal",
+            "recording_budget_bytes": 629760
+          },
           "journalFormat": "wristband-v2",
-          "journalGeneration": 2,
+          "journalGeneration": 6,
           "loraCompactRealtime": null,
           "loraFrameTypes": [],
           "loraProtocolVersion": null,
@@ -297,114 +460,181 @@
             }
           },
           "recordSize": 4,
+          "stationTimestamp": {
+            "clockKey": [
+              "station",
+              "source"
+            ],
+            "contactDeltaBits": 15,
+            "deltaMaximumMilliseconds": 32767,
+            "firstDeltaRelativeTo": "accepted-assign",
+            "gapExceededBehavior": "TIME-then-zero-delta-CONTACT",
+            "maximumMilliseconds": 536870911,
+            "timeBits": 29,
+            "unitMilliseconds": 1
+          },
           "storageBackend": "internal-flash",
-          "storageCapacityBytes": 262144,
+          "storageCapacityBytes": 634880,
+          "storageDescriptor": {
+            "location": "fixed-footer",
+            "magicHex": "57424A35",
+            "version": 2
+          },
           "storageWordSize": 4,
-          "superblockVersion": 2,
-          "tickMilliseconds": 250,
+          "superblockVersion": null,
+          "tickMilliseconds": 1,
           "toolchainId": "seeeduino-nrf52-1.1.12",
-          "wbt2ProtocolVersion": 4
+          "wbt2ProtocolVersion": 2
         },
         "xiao-lora-external": {
-          "advertisementProtocolVersion": 1,
+          "advertisementProtocolVersion": 2,
           "artifact": "wristband/wristband-xiao-lora-external.uf2",
-          "artifactSha256": "1889fc43c3fd78b1449284c68cfbfa8d5d8c9715009e9cf553a80af62802d302",
+          "artifactSha256": "cd6671a5e137b51043e828e63738528ebfa71af8756438cdb68c48a8aee2d3c4",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": true
           },
-          "commandProtocolVersion": 1,
-          "eventStart": {
+          "commandProtocolVersion": 2,
+          "eventAssignment": {
             "acceptedAckRequiresPersistedTransaction": true,
             "ackBytes": 5,
-            "ackMagicAscii": "EVA1",
+            "ackMagicAscii": "EAA4",
             "ackStatusCodes": {
               "accepted": 0,
               "storageFailed": 2,
               "storageUnavailable": 1
             },
+            "assignmentRelativeTicks": 0,
             "checksum": {
               "algorithm": "crc16-ccitt",
               "initialHex": "FFFF",
               "polynomialHex": "1021",
               "xorOutHex": "0000"
             },
-            "commandBytes": 15,
-            "commandMagicAscii": "EVS1",
-            "configurationVersion": 1,
-            "journalRecordTypesHex": [
-              "FD",
-              "F0",
-              "F1",
-              "F2",
-              "F3",
-              "F4",
-              "F5",
-              "EF"
+            "commandBytes": 60,
+            "commandMagicAscii": "EAS4",
+            "configurationVersion": 4,
+            "finalReserveBytes": 1024,
+            "journalAssignmentBytes": 68,
+            "journalRecords": [
+              "SESSION",
+              "ASSIGN"
             ],
-            "journalTransactionBytes": 32,
-            "minimumAvailableJournalRecords": 9,
+            "journalTransactionBytes": 72,
+            "minimumAvailableJournalRecords": 277,
+            "observationModeByteOffset": 4,
+            "observationModes": {
+              "normal": 0,
+              "rawStationCapture": 1
+            },
             "originEncoding": "signed-e7-big-endian",
-            "participantMaximum": 15,
-            "participantMinimum": 0,
-            "postStartContactRecordReserve": 1,
-            "startRelativeTicks": 0
+            "payloadBytesMaximum": 255,
+            "periodMillisecondsMaximum": 86399999,
+            "postAssignmentTailBytes": 12,
+            "radioIdDisabled": 65535,
+            "radioIdMaximum": 1023,
+            "radioIdentityCapacities": [
+              16,
+              32,
+              64,
+              128,
+              256,
+              512,
+              1024
+            ],
+            "stepCentimetersMaximum": 1500,
+            "stepCentimetersMinimum": 100,
+            "temporalSlotCountLegacyMarker": 0,
+            "temporalSlotCountMaximum": 64,
+            "temporalSlotCountMinimum": 16,
+            "temporalSlotCountValues": [
+              16,
+              32,
+              64
+            ]
           },
           "hardwareAccessories": [
             "seeed-wio-sx1262-for-xiao"
           ],
           "hardwareTarget": "seeed-xiao-nrf52840",
+          "internalJournalLayout": null,
           "journalFormat": "wristband-v2",
-          "journalGeneration": 2,
+          "journalGeneration": 6,
           "loraCompactRealtime": {
-            "axisMaximumMeters": 510,
-            "axisMinimumMeters": -512,
-            "axisStepMeters": 2,
-            "baseTransmitIntervalMilliseconds": 1000,
-            "configurationSource": "ble-event-start",
-            "fixedFrameBytes": 5,
-            "formatIdentifierHex": "21",
-            "frameType": 1,
-            "intervalMeasuredFrom": "transmission-start",
-            "noPositionRawPair": [
-              0,
-              0
+            "acceptedStartGridEffect": "none",
+            "axisUnit": "event-grid-index",
+            "configurationSource": "ble-event-assignment",
+            "coordinateBitsPerAxisSource": "ble-event-assignment",
+            "crcEnabled": true,
+            "eventRadioAutomaticPlanRevision": "eu868-automatic-v5",
+            "eventRadioCatalogVersion": 4,
+            "eventRadioIdAllocationRevision": 3,
+            "eventRadioSchemaVersion": 4,
+            "headerMode": "implicit",
+            "lateStartPolicy": "attempt-immediately-no-expiry",
+            "legacyEventRadioAssignmentPolicy": "readable-and-assignable",
+            "legacyEventRadioAutomaticPlanRevision": "eu868-automatic-v2",
+            "legacyEventRadioCatalogVersion": 2,
+            "legacyEventRadioSchemaVersion": 2,
+            "legacyRadioIdAllocationPolicy": "counter-revision-1-sequential-or-2-bit-reversed",
+            "missedTickPolicy": "latest-only-coalesce-no-backlog",
+            "nominalGridPolicy": "fixed-phase-send-never-reanchors",
+            "nominalStartPolicy": "cooperative-prefer-exact",
+            "originSource": "event-assignment",
+            "payloadBytesSource": "ble-event-assignment",
+            "payloadContents": [
+              "radio-id",
+              "x-index",
+              "y-index"
             ],
-            "noStationId": 255,
-            "originSource": "event-start",
-            "participantSource": "event-start",
+            "periodSource": "ble-event-assignment",
             "positionSource": "synthetic",
-            "positiveJitterMaximumMilliseconds": 0,
-            "stationContactBucketMilliseconds": 250,
-            "stationHistoryMaximumWindowMilliseconds": 10000,
-            "stationRssiLevelThresholdsDbm": [
-              -70,
-              -60,
-              -50
-            ],
+            "previousCurrentEventRadioAssignmentPolicy": "readable-and-assignable",
+            "previousCurrentEventRadioAutomaticPlanRevision": "eu868-automatic-v4",
+            "previousCurrentEventRadioCatalogVersion": 4,
+            "previousCurrentEventRadioIdAllocationRevision": 3,
+            "previousCurrentEventRadioSchemaVersion": 4,
+            "previousEventRadioAssignmentPolicy": "readable-no-new-assign",
+            "previousEventRadioAutomaticPlanRevision": "eu868-automatic-v3",
+            "previousEventRadioCatalogVersion": 3,
+            "previousEventRadioIdAllocationRevision": 2,
+            "previousEventRadioSchemaVersion": 3,
+            "previousRadioIdAllocationPolicy": "bit-reversed-monotonic-ordinal",
+            "previousSlotIndexFormula": "floor-radio-id-times-temporal-slot-count-over-radio-identity-capacity",
+            "radioIdAllocationPolicy": "sequential-monotonic-ordinal",
+            "radioIdBitsSource": "ble-event-assignment",
+            "radioIdSource": "ble-event-assignment",
+            "radioIdentityCapacity": "two-to-radio-id-bits",
+            "schedulerMandatorySleepMilliseconds": 20,
+            "slotIndexFormula": "bit-reverse-radio-id-modulo-temporal-slot-count",
+            "slotOffsetSource": "ble-event-assignment",
+            "slotPreparationMaximumWaitMilliseconds": 40,
+            "slotWidth": "floor-period-milliseconds-over-temporal-slot-count",
+            "startCooldownPolicy": "none-next-nominal-remains-due",
+            "stepSource": "event-assignment",
             "syntheticPositionIntervalMilliseconds": 2500,
-            "telemetryWindowMilliseconds": 1000
+            "telemetryCommitPolicy": "latest-peek-commit-after-accepted-start",
+            "temporalSlotCountFormula": "minimum-of-radio-identity-capacity-and-64",
+            "temporalSlotCountSource": "ble-event-assignment",
+            "timebase": "boot-relative-engineering"
           },
           "loraFrameTypes": [
             "realtime"
           ],
           "loraProtocolVersion": 2,
           "loraRadioProfile": {
-            "bandwidthKHz": 125.0,
-            "codingRate": "4/5",
-            "frequencyMHz": 869.525,
+            "configurationSource": "ble-event-assignment",
             "outputPowerDbm": 14,
-            "preambleSymbols": 8,
             "regulatory": {
               "bandMaximumMHz": 869.65,
               "bandMinimumMHz": 869.4,
               "maximumDutyCyclePercent": 10.0,
               "maximumErpDbmApproximate": 27.0,
               "maximumErpMilliwatts": 500,
+              "occupiedBandValidation": "frequency-plus-minus-half-bandwidth",
               "powerLimitRole": "ceiling-not-target",
-              "profile": "EU868_CYPRUS_G3"
+              "profile": "eu868-cyprus-869-525"
             },
-            "spreadingFactor": 7,
             "syncWordHex": "12",
             "tcxoVoltage": 1.8
           },
@@ -424,114 +654,196 @@
             }
           },
           "recordSize": 4,
+          "stationTimestamp": {
+            "clockKey": [
+              "station",
+              "source"
+            ],
+            "contactDeltaBits": 15,
+            "deltaMaximumMilliseconds": 32767,
+            "firstDeltaRelativeTo": "accepted-assign",
+            "gapExceededBehavior": "TIME-then-zero-delta-CONTACT",
+            "maximumMilliseconds": 536870911,
+            "timeBits": 29,
+            "unitMilliseconds": 1
+          },
           "storageBackend": "external-qspi",
           "storageCapacityBytes": 2097152,
+          "storageDescriptor": {
+            "location": "logical-zero",
+            "magicHex": "57425332",
+            "version": 7
+          },
           "storageWordSize": 4,
-          "superblockVersion": 2,
-          "tickMilliseconds": 250,
+          "superblockVersion": 7,
+          "tickMilliseconds": 1,
           "toolchainId": "seeeduino-nrf52-1.1.12",
-          "wbt2ProtocolVersion": 4
+          "wbt2ProtocolVersion": 2
         },
         "xiao-lora-internal": {
-          "advertisementProtocolVersion": 1,
+          "advertisementProtocolVersion": 2,
           "artifact": "wristband/wristband-xiao-lora-internal.uf2",
-          "artifactSha256": "6b67e15489dd9644998c2a2a526e3a0ae3c2aa784dc8c0b883ac2ca0f6695dce",
+          "artifactSha256": "ee400ab44ffbd4ab3ced8f0fd91eb968ac0c3363fb373159c83410b43e8b6748",
           "capabilities": {
             "bleTransfer": true,
             "loraTransmit": true
           },
-          "commandProtocolVersion": 1,
-          "eventStart": {
+          "commandProtocolVersion": 2,
+          "eventAssignment": {
             "acceptedAckRequiresPersistedTransaction": true,
             "ackBytes": 5,
-            "ackMagicAscii": "EVA1",
+            "ackMagicAscii": "EAA4",
             "ackStatusCodes": {
               "accepted": 0,
               "storageFailed": 2,
               "storageUnavailable": 1
             },
+            "assignmentRelativeTicks": 0,
             "checksum": {
               "algorithm": "crc16-ccitt",
               "initialHex": "FFFF",
               "polynomialHex": "1021",
               "xorOutHex": "0000"
             },
-            "commandBytes": 15,
-            "commandMagicAscii": "EVS1",
-            "configurationVersion": 1,
-            "journalRecordTypesHex": [
-              "FD",
-              "F0",
-              "F1",
-              "F2",
-              "F3",
-              "F4",
-              "F5",
-              "EF"
+            "commandBytes": 60,
+            "commandMagicAscii": "EAS4",
+            "configurationVersion": 4,
+            "finalReserveBytes": 1024,
+            "journalAssignmentBytes": 68,
+            "journalRecords": [
+              "SESSION",
+              "ASSIGN"
             ],
-            "journalTransactionBytes": 32,
-            "minimumAvailableJournalRecords": 9,
+            "journalTransactionBytes": 72,
+            "minimumAvailableJournalRecords": 277,
+            "observationModeByteOffset": 4,
+            "observationModes": {
+              "normal": 0,
+              "rawStationCapture": 1
+            },
             "originEncoding": "signed-e7-big-endian",
-            "participantMaximum": 15,
-            "participantMinimum": 0,
-            "postStartContactRecordReserve": 1,
-            "startRelativeTicks": 0
+            "payloadBytesMaximum": 255,
+            "periodMillisecondsMaximum": 86399999,
+            "postAssignmentTailBytes": 12,
+            "radioIdDisabled": 65535,
+            "radioIdMaximum": 1023,
+            "radioIdentityCapacities": [
+              16,
+              32,
+              64,
+              128,
+              256,
+              512,
+              1024
+            ],
+            "stepCentimetersMaximum": 1500,
+            "stepCentimetersMinimum": 100,
+            "temporalSlotCountLegacyMarker": 0,
+            "temporalSlotCountMaximum": 64,
+            "temporalSlotCountMinimum": 16,
+            "temporalSlotCountValues": [
+              16,
+              32,
+              64
+            ]
           },
           "hardwareAccessories": [
             "seeed-wio-sx1262-for-xiao"
           ],
           "hardwareTarget": "seeed-xiao-nrf52840",
+          "internalJournalLayout": {
+            "application_start": 159744,
+            "artifact_sha256": "ee400ab44ffbd4ab3ced8f0fd91eb968ac0c3363fb373159c83410b43e8b6748",
+            "capacity_bytes": 585728,
+            "data_bytes": 581632,
+            "elf_sha256": "e9ba3f96b4acce355d1d828a4890471ad8c7880c6e46fe6afb7d93a841d55099",
+            "final_reserve_bytes": 1024,
+            "flash_image_end": 384056,
+            "journal_end": 970752,
+            "journal_start": 385024,
+            "metadata_start": 966656,
+            "mode": "automatic",
+            "page_bytes": 4096,
+            "profile": "xiao-lora-internal",
+            "recording_budget_bytes": 580608
+          },
           "journalFormat": "wristband-v2",
-          "journalGeneration": 2,
+          "journalGeneration": 6,
           "loraCompactRealtime": {
-            "axisMaximumMeters": 510,
-            "axisMinimumMeters": -512,
-            "axisStepMeters": 2,
-            "baseTransmitIntervalMilliseconds": 1000,
-            "configurationSource": "ble-event-start",
-            "fixedFrameBytes": 5,
-            "formatIdentifierHex": "21",
-            "frameType": 1,
-            "intervalMeasuredFrom": "transmission-start",
-            "noPositionRawPair": [
-              0,
-              0
+            "acceptedStartGridEffect": "none",
+            "axisUnit": "event-grid-index",
+            "configurationSource": "ble-event-assignment",
+            "coordinateBitsPerAxisSource": "ble-event-assignment",
+            "crcEnabled": true,
+            "eventRadioAutomaticPlanRevision": "eu868-automatic-v5",
+            "eventRadioCatalogVersion": 4,
+            "eventRadioIdAllocationRevision": 3,
+            "eventRadioSchemaVersion": 4,
+            "headerMode": "implicit",
+            "lateStartPolicy": "attempt-immediately-no-expiry",
+            "legacyEventRadioAssignmentPolicy": "readable-and-assignable",
+            "legacyEventRadioAutomaticPlanRevision": "eu868-automatic-v2",
+            "legacyEventRadioCatalogVersion": 2,
+            "legacyEventRadioSchemaVersion": 2,
+            "legacyRadioIdAllocationPolicy": "counter-revision-1-sequential-or-2-bit-reversed",
+            "missedTickPolicy": "latest-only-coalesce-no-backlog",
+            "nominalGridPolicy": "fixed-phase-send-never-reanchors",
+            "nominalStartPolicy": "cooperative-prefer-exact",
+            "originSource": "event-assignment",
+            "payloadBytesSource": "ble-event-assignment",
+            "payloadContents": [
+              "radio-id",
+              "x-index",
+              "y-index"
             ],
-            "noStationId": 255,
-            "originSource": "event-start",
-            "participantSource": "event-start",
+            "periodSource": "ble-event-assignment",
             "positionSource": "synthetic",
-            "positiveJitterMaximumMilliseconds": 0,
-            "stationContactBucketMilliseconds": 250,
-            "stationHistoryMaximumWindowMilliseconds": 10000,
-            "stationRssiLevelThresholdsDbm": [
-              -70,
-              -60,
-              -50
-            ],
+            "previousCurrentEventRadioAssignmentPolicy": "readable-and-assignable",
+            "previousCurrentEventRadioAutomaticPlanRevision": "eu868-automatic-v4",
+            "previousCurrentEventRadioCatalogVersion": 4,
+            "previousCurrentEventRadioIdAllocationRevision": 3,
+            "previousCurrentEventRadioSchemaVersion": 4,
+            "previousEventRadioAssignmentPolicy": "readable-no-new-assign",
+            "previousEventRadioAutomaticPlanRevision": "eu868-automatic-v3",
+            "previousEventRadioCatalogVersion": 3,
+            "previousEventRadioIdAllocationRevision": 2,
+            "previousEventRadioSchemaVersion": 3,
+            "previousRadioIdAllocationPolicy": "bit-reversed-monotonic-ordinal",
+            "previousSlotIndexFormula": "floor-radio-id-times-temporal-slot-count-over-radio-identity-capacity",
+            "radioIdAllocationPolicy": "sequential-monotonic-ordinal",
+            "radioIdBitsSource": "ble-event-assignment",
+            "radioIdSource": "ble-event-assignment",
+            "radioIdentityCapacity": "two-to-radio-id-bits",
+            "schedulerMandatorySleepMilliseconds": 20,
+            "slotIndexFormula": "bit-reverse-radio-id-modulo-temporal-slot-count",
+            "slotOffsetSource": "ble-event-assignment",
+            "slotPreparationMaximumWaitMilliseconds": 40,
+            "slotWidth": "floor-period-milliseconds-over-temporal-slot-count",
+            "startCooldownPolicy": "none-next-nominal-remains-due",
+            "stepSource": "event-assignment",
             "syntheticPositionIntervalMilliseconds": 2500,
-            "telemetryWindowMilliseconds": 1000
+            "telemetryCommitPolicy": "latest-peek-commit-after-accepted-start",
+            "temporalSlotCountFormula": "minimum-of-radio-identity-capacity-and-64",
+            "temporalSlotCountSource": "ble-event-assignment",
+            "timebase": "boot-relative-engineering"
           },
           "loraFrameTypes": [
             "realtime"
           ],
           "loraProtocolVersion": 2,
           "loraRadioProfile": {
-            "bandwidthKHz": 125.0,
-            "codingRate": "4/5",
-            "frequencyMHz": 869.525,
+            "configurationSource": "ble-event-assignment",
             "outputPowerDbm": 14,
-            "preambleSymbols": 8,
             "regulatory": {
               "bandMaximumMHz": 869.65,
               "bandMinimumMHz": 869.4,
               "maximumDutyCyclePercent": 10.0,
               "maximumErpDbmApproximate": 27.0,
               "maximumErpMilliwatts": 500,
+              "occupiedBandValidation": "frequency-plus-minus-half-bandwidth",
               "powerLimitRole": "ceiling-not-target",
-              "profile": "EU868_CYPRUS_G3"
+              "profile": "eu868-cyprus-869-525"
             },
-            "spreadingFactor": 7,
             "syncWordHex": "12",
             "tcxoVoltage": 1.8
           },
@@ -551,13 +863,31 @@
             }
           },
           "recordSize": 4,
+          "stationTimestamp": {
+            "clockKey": [
+              "station",
+              "source"
+            ],
+            "contactDeltaBits": 15,
+            "deltaMaximumMilliseconds": 32767,
+            "firstDeltaRelativeTo": "accepted-assign",
+            "gapExceededBehavior": "TIME-then-zero-delta-CONTACT",
+            "maximumMilliseconds": 536870911,
+            "timeBits": 29,
+            "unitMilliseconds": 1
+          },
           "storageBackend": "internal-flash",
-          "storageCapacityBytes": 262144,
+          "storageCapacityBytes": 585728,
+          "storageDescriptor": {
+            "location": "fixed-footer",
+            "magicHex": "57424A35",
+            "version": 2
+          },
           "storageWordSize": 4,
-          "superblockVersion": 2,
-          "tickMilliseconds": 250,
+          "superblockVersion": null,
+          "tickMilliseconds": 1,
           "toolchainId": "seeeduino-nrf52-1.1.12",
-          "wbt2ProtocolVersion": 4
+          "wbt2ProtocolVersion": 2
         }
       }
     }
@@ -568,7 +898,9 @@
       "version": "7.7.1"
     }
   },
-  "manifestVersion": 7,
+  "manifestVersion": 16,
+  "productVersion": 2,
+  "protocolAbiRevision": 8,
   "toolchains": {
     "heltec-nrf52-main-53b3d4a126bd": {
       "arduinoCore": "Heltec nRF52 untagged main snapshot",

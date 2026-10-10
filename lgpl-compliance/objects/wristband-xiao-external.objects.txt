@@ -1,9 +1,14 @@
 sketch/wristband.ino.cpp.o
+sketch/wristband_as3933.cpp.o
 sketch/wristband_event_config.cpp.o
 sketch/wristband_gnss_logic.cpp.o
+sketch/wristband_internal_storage.cpp.o
+sketch/wristband_journal.cpp.o
+sketch/wristband_journal_gnss.cpp.o
 sketch/wristband_lora_telemetry.cpp.o
 sketch/wristband_phone_station_command.cpp.o
 sketch/wristband_runtime.cpp.o
+sketch/wristband_station_observation.cpp.o
 sketch/wristband_storage_logic.cpp.o
 libraries/Adafruit_SPIFlash/Adafruit_FlashCache.cpp.o
 libraries/Adafruit_SPIFlash/Adafruit_SPIFlash.cpp.o
@@ -134,6 +139,9 @@ libraries/Adafruit_TinyUSB_Arduino/portable/raspberrypi/rp2040/dcd_rp2040.c.o
 libraries/Adafruit_TinyUSB_Arduino/portable/raspberrypi/rp2040/hcd_rp2040.c.o
 libraries/Adafruit_TinyUSB_Arduino/portable/raspberrypi/rp2040/rp2040_usb.c.o
 libraries/Adafruit_TinyUSB_Arduino/tusb.c.o
+libraries/CStealthProtocol/stealth_firmware_update.cpp.o
+libraries/CStealthProtocol/stealth_journal.cpp.o
+libraries/CStealthProtocol/stealth_point_link.cpp.o
 libraries/CStealthProtocol/stealth_protocol.cpp.o
 libraries/Adafruit_LittleFS/Adafruit_LittleFS.cpp.o
 libraries/Adafruit_LittleFS/Adafruit_LittleFS_File.cpp.o

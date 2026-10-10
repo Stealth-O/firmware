@@ -33,8 +33,14 @@ The commit is the immutable baseline, not a claim that every archived byte is
 unchanged upstream: before compilation the release removes
 `ledOn/ledOff(LED_BUILTIN)` from the invocation-private staged
 `InternalFileSytem/src/flash/flash_cache.c`, because the application owns that
-status LED. The source archive includes this modified MIT-licensed file, and
-`t096-provenance.json` records its path, purpose, and SHA-256 under
+status LED, and serialises the USB DETECTED and READY power events through one
+stage variable and bounds the READY wait in the staged
+`Adafruit_TinyUSB_Arduino/src/portable/nordic/nrf5x/dcd_nrf5x.c`, because a
+second context entering the upstream handler, at once or right after the first
+one's configuration, waited forever for the consumed USBD event; the XIAO
+archive carries the same modified driver from the staged Seeeduino core. The
+source archive includes both modified MIT-licensed files, and
+`t096-provenance.json` records each path, purpose, and SHA-256 under
 `downstreamModifications`; the pinned mirror itself remains untouched.
 
 The root `LICENSE` history is explicit in the mirror: commit
@@ -112,7 +118,8 @@ The private release workflow fails closed unless it can:
 3. verify the pinned T096 variant-lineage and CC310 archive SHA-256 values and
    require the declared variant header to classify as `LGPL-2.1-or-later`;
 4. fail closed unless the staged T096 `flash_cache.c` contains the exact
-   project status-LED modification, archive it, and record its SHA-256;
+   project status-LED modification and the staged `dcd_nrf5x.c` the exact
+   staged USB power-event modification, archive both, and record their SHA-256;
 5. reject unapproved plain GPL-only, AGPL, unknown, or missing file-level
    license classifications;
 6. verify the exact allowlist of linked static libraries and reject an

@@ -26,7 +26,9 @@ case "${PROFILE}" in
         )
         ;;
     t096-internal)
-        EXPECTED_BOARD_IDS=("HT-n5262")
+        # T096 reports "HT-n5262G". Plain "HT-n5262" is the Mesh Node T114, a
+        # different board with a different flash layout, so it is refused.
+        EXPECTED_BOARD_IDS=("HT-n5262G")
         ;;
     *)
         echo "${USAGE}" >&2
