@@ -1,0 +1,11 @@
+{
+  "counters": {
+    "bootloader": 5,
+    "firmware": 8
+  },
+  "reservedThrough": {
+    "bootloader": 5,
+    "firmware": 8
+  },
+  "schemaVersion": 1
+}
