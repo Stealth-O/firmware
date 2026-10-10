@@ -1,0 +1,79 @@
+name: Allocate release number
+
+on:
+  workflow_dispatch:
+    inputs:
+      component:
+        description: Independent global release counter
+        required: true
+        type: choice
+        options: [firmware, bootloader]
+      request_id:
+        description: Stable UUID; reuse this value when retrying the same request
+        required: true
+        type: string
+      source_digest:
+        description: Lowercase SHA-256 of the prepared source snapshot
+        required: true
+        type: string
+
+permissions: {}
+
+jobs:
+  allocate:
+    if: github.event_name == 'workflow_dispatch' && github.repository == 'Stealth-O/firmware' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      ALLOCATION_COMPONENT: ${{ inputs.component }}
+      ALLOCATION_REQUEST_ID: ${{ inputs.request_id }}
+      ALLOCATION_SOURCE_DIGEST: ${{ inputs.source_digest }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Run allocator from the immutable main workflow commit
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64
+          import os
+          import pathlib
+          import re
+          import subprocess
+          import sys
+          import tempfile
+
+          if (os.environ['GITHUB_EVENT_NAME'] != 'workflow_dispatch' or
+              os.environ['GITHUB_REPOSITORY'] != 'Stealth-O/firmware' or os.environ['GITHUB_REF'] != 'refs/heads/main'):
+              sys.exit('Allocator must run from Stealth-O/firmware main')
+          revision = os.environ['GITHUB_SHA']
+          if not re.fullmatch(r'[0-9a-f]{40}|[0-9a-f]{64}', revision):
+              sys.exit('Invalid trusted workflow revision')
+          env = dict(os.environ)
+          token = env.pop('GH_TOKEN')
+          env['GIT_CONFIG_COUNT'] = '1'
+          env['GIT_CONFIG_KEY_0'] = 'http.https://github.com/.extraheader'
+          env['GIT_CONFIG_VALUE_0'] = 'AUTHORIZATION: basic ' + base64.b64encode(('x-access-token:' + token).encode()).decode()
+          remote = 'https://github.com/Stealth-O/firmware.git'
+          with tempfile.TemporaryDirectory(prefix='trusted-allocator-') as temporary:
+              directory = pathlib.Path(temporary)
+              def git(*args):
+                  result = subprocess.run(['git', '-c', 'core.hooksPath=/dev/null', *args], cwd=directory,
+                                          env=env, capture_output=True, text=True, timeout=60)
+                  if result.returncode:
+                      sys.exit('Could not read the trusted workflow commit')
+                  return result.stdout.strip()
+              git('init', '--quiet')
+              git('fetch', '--quiet', '--no-tags', '--depth=1', remote, revision)
+              git('checkout', '--quiet', '--detach', 'FETCH_HEAD')
+              if git('rev-parse', 'HEAD') != revision:
+                  sys.exit('Trusted workflow commit mismatch')
+              script = directory / '.github/scripts/release_numbers.py'
+              subprocess.run([sys.executable, str(script), 'reserve', '--remote', remote,
+                  '--branch', 'registry', '--component', os.environ['ALLOCATION_COMPONENT'],
+                  '--request-id', os.environ['ALLOCATION_REQUEST_ID'],
+                  '--source-digest', os.environ['ALLOCATION_SOURCE_DIGEST'],
+                  '--actor', os.environ['GITHUB_ACTOR'], '--actor-id', os.environ['GITHUB_ACTOR_ID']],
+                  env=env, check=True)
+          PY
