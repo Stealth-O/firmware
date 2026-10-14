@@ -1,6 +1,6 @@
 {
   "counters": {
-    "bootloader": 8,
+    "bootloader": 9,
     "firmware": 13
   },
   "reservedThrough": {
