@@ -1,0 +1,10 @@
+{
+  "actor": "iwheelbuy",
+  "actorId": "2524584",
+  "component": "firmware",
+  "createdAt": "2026-10-31T15:59:53Z",
+  "number": 42,
+  "requestId": "33c19274-463f-4ca6-a40d-36da2e7cc0ad",
+  "schemaVersion": 1,
+  "sourceDigest": "bc63063be5f7ca7a9f5dfae0ac3c71b675ea1bf375dfe7382ab30a9359486095"
+}
