@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 1,
+  "offer": "https://github.com/Stealth-O/firmware/blob/main/CATALOG_LGPL_OFFER.txt",
+  "releases": [
+    {
+      "profileId": "tag-omni-f",
+      "hardwareRevision": "F",
+      "releaseNumber": 14,
+      "firmwareVersion": "ota1-6540df915c3010fd",
+      "generation": 0,
+      "imageSha256": "fbfcfbd9c5d23605913abe451b98b4e062ef0ff9a77e527ce0f3e4f7467d18c9",
+      "packageSha256": "035f87671d0269096c2e957cc356f8a248b7566c605355bb9d8a5506fd7ce453",
+      "releaseSourceDigest": "c13ab4c3f8ea812b63086dc747f1a1505b4c6152eda1b9fc523e6f04dc5d3cd2"
+    },
+    {
+      "profileId": "t096-internal",
+      "hardwareRevision": "HT-n5262G",
+      "releaseNumber": 34,
+      "firmwareVersion": "ota1-7c01a3adef2cd4a4",
+      "generation": 1,
+      "imageSha256": "f19128f779a033fb20cd3f468d59858282e376adfbbd80a95171b5f65e725591",
+      "packageSha256": "050062bf0c5dae55d7c7d744c30cabb23d5c037a0bd80f0379a2367966071903",
+      "releaseSourceDigest": "cf7a57713c72615d02958950428f8ae8ba176a6920596eed66e3b3c2ea66bccd"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 23,
+      "firmwareVersion": "ota1-c4656581d5740cf1",
+      "generation": 1,
+      "imageSha256": "350b8a53b84332a19b4ecd1415e957ca984dd34373f6a056dc9c68e9ada480f8",
+      "packageSha256": "06841be1d55284f182a4cb39defe58f420157c5c0730758f159a72ad5b4781fb",
+      "releaseSourceDigest": "38bd5888a7fec9e69c2f9b3f947ccdfbfb5db21fcbac8d1d8222d868ca864228"
+    },
+    {
+      "profileId": "xiao-lora-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 34,
+      "firmwareVersion": "ota1-ad5f2e224c5c163a",
+      "generation": 1,
+      "imageSha256": "ce26b20ab1c6b5c1772136f36f892bbeddad50254620e68773ff704d88908605",
+      "packageSha256": "071d914c131f685fc3f47329586c0deaaee2a05276f8ac68cc05c591c332e32b",
+      "releaseSourceDigest": "cf7a57713c72615d02958950428f8ae8ba176a6920596eed66e3b3c2ea66bccd"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 41,
+      "firmwareVersion": "ota1-56172ad4ad41e09d",
+      "generation": 1,
+      "imageSha256": "e04fe38b29590ae5318d154505d3708cf56c12dccce3628a7c954fa321036244",
+      "packageSha256": "07ed317cf89535a07afd05ca76ebd5d8849f8c7d3798400c8d18cfb735ecabeb",
+      "releaseSourceDigest": "a2b06599dbd17dfc1a5a4f2551974436f48cd0d5e5380786ef88f01254cf1e49"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 46,
+      "firmwareVersion": "ota1-6ba054cc9f0f23e9",
+      "generation": 1,
+      "imageSha256": "66e54630bb0152c302a745d3ab422842fd8552a22d83f2e4d0a0e1e5c2e7da18",
+      "packageSha256": "0a8d92c877d2882f2ca1ef2e49e385aff577037db319a2d896712b5bb1705399",
+      "releaseSourceDigest": "1e9b7adf994fd3db33ec475dba0e7d2f381df63a38447d926b9b3d89d16f2adc"
+    },
+    {
+      "profileId": "t096-internal",
+      "hardwareRevision": "HT-n5262G",
+      "releaseNumber": 42,
+      "firmwareVersion": "ota1-88ba12f2361b6f91",
+      "generation": 1,
+      "imageSha256": "0ffcd1051f8ebf50eb24cf3d5f2f338b74647657703b3beddcacdab474a47108",
+      "packageSha256": "0bd713fee4551cecd858eb33a1ef8b531c8b54998d2554191ece6c23c25a23f1",
+      "releaseSourceDigest": "bc63063be5f7ca7a9f5dfae0ac3c71b675ea1bf375dfe7382ab30a9359486095"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 29,
+      "firmwareVersion": "ota1-5e1686aea366713b",
+      "generation": 1,
+      "imageSha256": "8f2001ff2d3fa10abad3862db608df42d32ad1013d7b01efa79c98ed819cca20",
+      "packageSha256": "0cbfa0be769932232c6139d7b03d7fecdf4a7e30523d41e77cf79565baab3b0f",
+      "releaseSourceDigest": "13d68fb5852dfe2ec1ab6bd82eebb514014b1944d74a430fc5df5fd1004e988c"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 26,
+      "firmwareVersion": "ota1-00a9fa9a6d1ef986",
+      "generation": 1,
+      "imageSha256": "1f434a788265af4403c9f3e8ca16f82a963d51ebcc638d1bbb7ab8dce5f465ca",
+      "packageSha256": "11a3335a92ef32354f352140fe036272b381966a412d3990ac587ccb0a543212",
+      "releaseSourceDigest": "d0c1d3d8f35a65a86ebcc6a7817007eab6201b21f70bc99cdaf3c245f99d98ef"
+    },
+    {
+      "profileId": "xiao-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 35,
+      "firmwareVersion": "ota1-ba7d022d2a1d704f",
+      "generation": 1,
+      "imageSha256": "d46a720a45e9fab6222c9d3a9c046f812507cfc880354014359a6f97de9fd477",
+      "packageSha256": "1a37b65227e0888ef5abca31a0ebf54964a853598f01db73e4b57a898d6cddc2",
+      "releaseSourceDigest": "e4eb0835301486b1e60071314610d87910038ef0016a680394a3d7cfd1ee1135"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 43,
+      "firmwareVersion": "ota1-048522af9b5995c8",
+      "generation": 1,
+      "imageSha256": "0a7f921421cfc651ae9fa7211f447ebd36fd9509f40cece80edfc105ad3c57c4",
+      "packageSha256": "1e30331d0bf56d91e9c1ad3f66283edf32f6ce704c5727d203a4ede128c66b96",
+      "releaseSourceDigest": "28b563fb403acb18da1f754000a999cfc8a155401773fa1173a05deebc2abd41"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 34,
+      "firmwareVersion": "ota1-7caf112d11e60f5a",
+      "generation": 1,
+      "imageSha256": "a6357be8649f56b36cc3ca85f19ba80e83d9297a04ac4e7c97c5fa234f026fb9",
+      "packageSha256": "22badf0a088655842fae302d194d0437ee3398af7d1e304ed108de9d8278141c",
+      "releaseSourceDigest": "cf7a57713c72615d02958950428f8ae8ba176a6920596eed66e3b3c2ea66bccd"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 44,
+      "firmwareVersion": "ota1-cbddc3a21b673fc8",
+      "generation": 1,
+      "imageSha256": "895d63c36cdca4c158ddb3f174b1cb4a5a9752b269636ea416fe0f1a4950a2cd",
+      "packageSha256": "2e5d0716ae37611c5a39842c33de53864826459783c449a8a2cb83ecd421e445",
+      "releaseSourceDigest": "c58d9b9d385e8cae1ef85971f47b0f64ce20154aa679ba7bc86356e8262cdd08"
+    },
+    {
+      "profileId": "xiao-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 16,
+      "firmwareVersion": "ota1-73c65d84c9563847",
+      "generation": 0,
+      "imageSha256": "6021c63752b793c185ef4ff02cffec6766b216bf710dfacd32abf09ec6132c5a",
+      "packageSha256": "34c98f994cef4793ecb4f96f0b9441d83bb0a25a458ad4fb7818e96b749ba5a1",
+      "releaseSourceDigest": "404d07de09b8f6dc7809ee065d2614b5be25f37949fd968e710dcbe5963f3e52"
+    },
+    {
+      "profileId": "bridge-a",
+      "hardwareRevision": "A",
+      "releaseNumber": 41,
+      "firmwareVersion": "ota1-e9cb59df8636ab5a",
+      "generation": 1,
+      "imageSha256": "1b51d134755bce0d3a1e5e9bf3a036fc3564a4309b985227348e72faebbc5132",
+      "packageSha256": "399f5f9a2ddbb85ac9c1e4c75d77af262b7143b061664ce57da89dda91da2c4c",
+      "releaseSourceDigest": "a2b06599dbd17dfc1a5a4f2551974436f48cd0d5e5380786ef88f01254cf1e49"
+    },
+    {
+      "profileId": "t096-internal",
+      "hardwareRevision": "HT-n5262G",
+      "releaseNumber": 17,
+      "firmwareVersion": "ota1-c285837677847544",
+      "generation": 0,
+      "imageSha256": "66b44e65ccb4e4ed30b87329f5fc6e38e45cd5f4f46d0146427a1256dffdbdd9",
+      "packageSha256": "3a230b851060eba3a1c3cbed61a90e1f66a755d95c29a252b08898db26613fa7",
+      "releaseSourceDigest": "0114ed9d318e59ce940f902a118630a39d3647da54d29b114ebc8de55fd8f82b"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 31,
+      "firmwareVersion": "ota1-6e72845c1b48fe8a",
+      "generation": 1,
+      "imageSha256": "8463dcc9afda952c6a8eaa42455441efa52f16643a8600354c88b1fb22b6c316",
+      "packageSha256": "3d4c7635c61cb6f85de986559ddb4859caa2b7dda8e5aee1b191e7607fd71981",
+      "releaseSourceDigest": "a372c2785c4a80594a5f81569e6921e5553f0941968bf513c46d0dae334bb0ad"
+    },
+    {
+      "profileId": "t096-internal",
+      "hardwareRevision": "HT-n5262G",
+      "releaseNumber": 12,
+      "firmwareVersion": "ota1-6dfbcc2202404bc6",
+      "generation": 0,
+      "imageSha256": "4791518c6954ff9c6b9341964e1e0cbee26370fb0481d0e86bb0f4a98879b97d",
+      "packageSha256": "3de2cd7946cc4aad5bd32ddf8ed02125ce95ac244a3c8a2ca23471c8f15443f4",
+      "releaseSourceDigest": "50d52bb05ea8f8de490799513b2b94b70dbcbad431699108ff8edd785d27e0ae"
+    },
+    {
+      "profileId": "tag-omni-f",
+      "hardwareRevision": "F",
+      "releaseNumber": 17,
+      "firmwareVersion": "ota1-6aed547b3a5e5da1",
+      "generation": 0,
+      "imageSha256": "e4d45a668f9f584739956d53044cd1b281eb38a4b92d637d13ce1aa7e1cbe302",
+      "packageSha256": "407c2b805c576850167b94bfcc6a22f000fa6690d01a2ce60fbefbec79f6bbf3",
+      "releaseSourceDigest": "0114ed9d318e59ce940f902a118630a39d3647da54d29b114ebc8de55fd8f82b"
+    },
+    {
+      "profileId": "t096-internal",
+      "hardwareRevision": "HT-n5262G",
+      "releaseNumber": 16,
+      "firmwareVersion": "ota1-8cac4fff5ac63dd0",
+      "generation": 0,
+      "imageSha256": "8b927263f778f95f3fdfb3540e661da3f7004c162aea2762f2346ec2822e7f7c",
+      "packageSha256": "428230fc52a6d8043fba7d9f19506c5bab588293c6695b7a4c623f8d10bc6c5e",
+      "releaseSourceDigest": "404d07de09b8f6dc7809ee065d2614b5be25f37949fd968e710dcbe5963f3e52"
+    },
+    {
+      "profileId": "bridge-a",
+      "hardwareRevision": "A",
+      "releaseNumber": 24,
+      "firmwareVersion": "ota1-dfc7231dd17198aa",
+      "generation": 1,
+      "imageSha256": "313450cf8afa6602f9c1a27535526df642dd259112636df002dcdd6c1b890878",
+      "packageSha256": "4bf8668ae923e422322b61ca3f8688a6a04804b06d0137ed08bc8365beb7e24b",
+      "releaseSourceDigest": "c4dddc5a774c46e45e927b9b801da17c50c72e494342d3122a569d02496c1862"
+    },
+    {
+      "profileId": "bridge-a",
+      "hardwareRevision": "A",
+      "releaseNumber": 34,
+      "firmwareVersion": "ota1-de88e6f8532c9f52",
+      "generation": 1,
+      "imageSha256": "01f10fadaf7af1a77cb79c4827c62b21b7de1b985af47cfa67b2f1bc6fa85444",
+      "packageSha256": "4c3d848016bcef7a7de137087bb45cc8960aa0dd2ba1f9d59c75278be7f0b618",
+      "releaseSourceDigest": "cf7a57713c72615d02958950428f8ae8ba176a6920596eed66e3b3c2ea66bccd"
+    },
+    {
+      "profileId": "bridge-a",
+      "hardwareRevision": "A",
+      "releaseNumber": 27,
+      "firmwareVersion": "ota1-bf64febbd4737e4b",
+      "generation": 1,
+      "imageSha256": "60dd03e982b858acfa18a7e0ecace40bf3aa02cab6c7d9af02ee600aed812174",
+      "packageSha256": "4dd8eaed1e6a436303ea21bc22df04156ae7b1e785d09ea0fff98533a9d3f792",
+      "releaseSourceDigest": "e11d5ddeb18c72a9fa455ce6ffeb47c67b13755a4dcd27d7388dc1aa5f0f222c"
+    },
+    {
+      "profileId": "t096-internal",
+      "hardwareRevision": "HT-n5262G",
+      "releaseNumber": 41,
+      "firmwareVersion": "ota1-d16b8d93821d42a4",
+      "generation": 1,
+      "imageSha256": "370d0802a2aac4ae22d7fe3d33be3ecf067ea114a45579532f47ecc7c1c18002",
+      "packageSha256": "4ed93c0aab85f7258650c9927008c4569c0c9f453798e4ac76161e2f283666f6",
+      "releaseSourceDigest": "a2b06599dbd17dfc1a5a4f2551974436f48cd0d5e5380786ef88f01254cf1e49"
+    },
+    {
+      "profileId": "bridge-a",
+      "hardwareRevision": "A",
+      "releaseNumber": 42,
+      "firmwareVersion": "ota1-09c1c0165e89d33a",
+      "generation": 1,
+      "imageSha256": "48d6ac6ea1648ed300cf57bcbfb68f181ef18d66fb229096359ea02ef4357e53",
+      "packageSha256": "541cb393fdff6ae4a045fc505442ad7bdb6000bd67142f4e2ffe588d36b950aa",
+      "releaseSourceDigest": "bc63063be5f7ca7a9f5dfae0ac3c71b675ea1bf375dfe7382ab30a9359486095"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 41,
+      "firmwareVersion": "ota1-258529b42c1f5523",
+      "generation": 1,
+      "imageSha256": "6b9b0edb126b1e6f5ba944f2dc1af5314419e3fe895c3fa18e721ec4c7fe5aad",
+      "packageSha256": "594c265f685bbe18e63237ae91ab67a5b2eeeea546281b3f6a5a103f16802766",
+      "releaseSourceDigest": "a2b06599dbd17dfc1a5a4f2551974436f48cd0d5e5380786ef88f01254cf1e49"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 46,
+      "firmwareVersion": "ota1-dcda81c65b290a33",
+      "generation": 1,
+      "imageSha256": "e953b638a024edd8b8b2389e24853da5fd8eac833bf879ff0f85536ccbbc10f0",
+      "packageSha256": "5aee5cac750d9afd8a6bdefd1957c737b1ab54e78ecc2c54a77ddac166ca9768",
+      "releaseSourceDigest": "1e9b7adf994fd3db33ec475dba0e7d2f381df63a38447d926b9b3d89d16f2adc"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 22,
+      "firmwareVersion": "ota1-a89ccba9bceaeac3",
+      "generation": 1,
+      "imageSha256": "c01d96516ef77d1b4c352257d0c188732b64212f4998426d5303a55268689ea3",
+      "packageSha256": "607eec1ba0a64454c3ccce11c2129abe78294c746270660c22473ba36ed8808d",
+      "releaseSourceDigest": "6f98e3bc74fa3297699d71c9ea73e6b783b58aa12476cb4646068699c3a3e812"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 35,
+      "firmwareVersion": "ota1-370c45111d108987",
+      "generation": 1,
+      "imageSha256": "cca70c018144ce149afb87ebc0e8b5ef3cffe9d7c1898c9c9a1fafdb5d321c57",
+      "packageSha256": "6c40b87d055c855f742e0c57b828709dfe4d356b3d949a7669bc94b48c96969d",
+      "releaseSourceDigest": "e4eb0835301486b1e60071314610d87910038ef0016a680394a3d7cfd1ee1135"
+    },
+    {
+      "profileId": "xiao-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 30,
+      "firmwareVersion": "ota1-931acb50ae9d8716",
+      "generation": 1,
+      "imageSha256": "ddef3982b82062d61a563fab69887c5e169eb36e3ac0d0193a1774290e99f8f3",
+      "packageSha256": "6ccca5fe865aabc9816646eb8d420c1d4d96d721c58234feee93db052ba12541",
+      "releaseSourceDigest": "c55d6b01af00183be75963353975af597f31d83ade7f486037b989e55b21ade5"
+    },
+    {
+      "profileId": "t096-internal",
+      "hardwareRevision": "HT-n5262G",
+      "releaseNumber": 14,
+      "firmwareVersion": "ota1-e367c3fb65c18263",
+      "generation": 0,
+      "imageSha256": "c0cfb1267bfb3edc982deb553708a23c6b90d3f534b936e8ebb0ee9838df597c",
+      "packageSha256": "71a243966748cfd7e8a576e981338d6f46e76e67aa923fa58e99c1eb12e85b9a",
+      "releaseSourceDigest": "c13ab4c3f8ea812b63086dc747f1a1505b4c6152eda1b9fc523e6f04dc5d3cd2"
+    },
+    {
+      "profileId": "t096-internal",
+      "hardwareRevision": "HT-n5262G",
+      "releaseNumber": 13,
+      "firmwareVersion": "ota1-5e371e2785f24836",
+      "generation": 0,
+      "imageSha256": "76ded1bbe11815ff12b9f6124caf03473d95a0280d55f30ae1f773448eda2f67",
+      "packageSha256": "7249cb5a6027729f5f50fbae4b27cba0ef48f55c9862694bed2186e2b679e2bc",
+      "releaseSourceDigest": "40cc226c94993b8141ebd30beded21a8b66416f601eadf4490a5ae3dad0bd0ce"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 33,
+      "firmwareVersion": "ota1-4cd35f84566da218",
+      "generation": 1,
+      "imageSha256": "b165a5458271e795fbfa1675c0d86b4bb1962b685a68a235c8ca87a8c6018a27",
+      "packageSha256": "791eb89fc0ab4d46182a593c0c2715bd8ccd78b63240e511c138b9f0f7af3faf",
+      "releaseSourceDigest": "928a0f8193143966b256be908f7c5cd210c505dd042b0f34f882da1da909a8fa"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 45,
+      "firmwareVersion": "ota1-9bfda8880afb134e",
+      "generation": 1,
+      "imageSha256": "4c20c4d8545d236de03bc26b5788ba512b8c87462211193e0308391a5b0e1c9b",
+      "packageSha256": "7b096ea471d54deb4393eb0286ab6ae282c46f8160abd73a67fb4b3057b5efad",
+      "releaseSourceDigest": "0fd2e5081d27bb4f0c2853115a7c2e398b791f21ae5b7b994b9004921a483c16"
+    },
+    {
+      "profileId": "t096-internal",
+      "hardwareRevision": "HT-n5262G",
+      "releaseNumber": 35,
+      "firmwareVersion": "ota1-267af39eb0268220",
+      "generation": 1,
+      "imageSha256": "caf7f8fa56c2c7c67c595220cf5920e41ceb19248586dac8050de74a9d51d11d",
+      "packageSha256": "7ba8c13fa11464affd7ae73268a7714741179fb660e31b569f4a0fc194aa6977",
+      "releaseSourceDigest": "e4eb0835301486b1e60071314610d87910038ef0016a680394a3d7cfd1ee1135"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 43,
+      "firmwareVersion": "ota1-411496ed21a7524a",
+      "generation": 1,
+      "imageSha256": "9b7e2c22dbf745db621e27351c9408ac446827454cbb957a75c552afbd32b415",
+      "packageSha256": "80d94c0f90f7145fd6ccf91117486032d367d3e5a1e8a2e42988a48682808c57",
+      "releaseSourceDigest": "28b563fb403acb18da1f754000a999cfc8a155401773fa1173a05deebc2abd41"
+    },
+    {
+      "profileId": "receiver-xiao-lora",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 35,
+      "firmwareVersion": "ota1-c638713af0e87e36",
+      "generation": 1,
+      "imageSha256": "872db3dfc6896ed7279aa9bf28b0d32d87340fd30521ddcbcf24ead482f45a63",
+      "packageSha256": "813f55f5646febf1ccfadf9c116858afe6f586d1d290d5984f6a178fc2fe4f28",
+      "releaseSourceDigest": "e4eb0835301486b1e60071314610d87910038ef0016a680394a3d7cfd1ee1135"
+    },
+    {
+      "profileId": "xiao-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 41,
+      "firmwareVersion": "ota1-c215c309fc012d4d",
+      "generation": 1,
+      "imageSha256": "76b5b2e7490780cdc8b5d1ca0c944dd278dda2e046c4a84da5d5b250723a68fa",
+      "packageSha256": "83a278f748e1b05b735f6a3b20d7c32fd9044a5f73a79b8c7abce13f370cd0b5",
+      "releaseSourceDigest": "a2b06599dbd17dfc1a5a4f2551974436f48cd0d5e5380786ef88f01254cf1e49"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 42,
+      "firmwareVersion": "ota1-793879133c5f8d13",
+      "generation": 1,
+      "imageSha256": "674a48993bfd379b16a6cd422dd9a3b6092346ba5f3e0bde300a231c9135db31",
+      "packageSha256": "874b1b8e3ab68c9bac0a7f16418893909522399a62043070a6d5aa095755a131",
+      "releaseSourceDigest": "bc63063be5f7ca7a9f5dfae0ac3c71b675ea1bf375dfe7382ab30a9359486095"
+    },
+    {
+      "profileId": "xiao-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 17,
+      "firmwareVersion": "ota1-9d5125874b8424e9",
+      "generation": 0,
+      "imageSha256": "1a7b660e0c645a84c13faa6777149584e3b8ecb68a72a3defa1908beea991312",
+      "packageSha256": "8cfc4296f03038e0c10d3fbc32d3d49057290dc6a15f13cee595eebd2d7f7ee8",
+      "releaseSourceDigest": "0114ed9d318e59ce940f902a118630a39d3647da54d29b114ebc8de55fd8f82b"
+    },
+    {
+      "profileId": "receiver-xiao-fake",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 34,
+      "firmwareVersion": "ota1-bee238577a6a450d",
+      "generation": 1,
+      "imageSha256": "5188b5f4000461e533e98d92eda547188805a5a95c5b734debdfe6a11e77b5c6",
+      "packageSha256": "8e9e9f9fe8e6c57e7145661321683ce09dbba184c0365b06f4bd704bd02b9fa4",
+      "releaseSourceDigest": "cf7a57713c72615d02958950428f8ae8ba176a6920596eed66e3b3c2ea66bccd"
+    },
+    {
+      "profileId": "bridge-a",
+      "hardwareRevision": "A",
+      "releaseNumber": 26,
+      "firmwareVersion": "ota1-c56f258340a49a3e",
+      "generation": 1,
+      "imageSha256": "257a2ebb7648d1c899a5edb07bfbd112fbf1f64b2ffb539781e591a3b00d0d02",
+      "packageSha256": "98d26ee4a7e6001632f949fcd1abb890af43ae0e868ff1c340137c5ca552b2ed",
+      "releaseSourceDigest": "d0c1d3d8f35a65a86ebcc6a7817007eab6201b21f70bc99cdaf3c245f99d98ef"
+    },
+    {
+      "profileId": "xiao-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 42,
+      "firmwareVersion": "ota1-1d6b52c0f27fde17",
+      "generation": 1,
+      "imageSha256": "db9c448c3fc135b0f4a9a84bb0a9e11af63818a8b49f8ca561b7514d25743ed5",
+      "packageSha256": "a2ae7dbef6e377939b76620f0a69ebed96b502ed05dfb78000f32e619111a72c",
+      "releaseSourceDigest": "bc63063be5f7ca7a9f5dfae0ac3c71b675ea1bf375dfe7382ab30a9359486095"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 28,
+      "firmwareVersion": "ota1-fa1008b7f3ba485e",
+      "generation": 1,
+      "imageSha256": "1ec807ed2d6d91cbd7dba9978de55131c5615b14db1a5e09b9423d7c85495d98",
+      "packageSha256": "a89877f79c99c62560b2678bbf47cf7e70a377187aa09da503504eabbec8c002",
+      "releaseSourceDigest": "e60e3ff6d947c5d341e793ecc7771a96f0659bc8fe6c44df13f52621675533a2"
+    },
+    {
+      "profileId": "xiao-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 34,
+      "firmwareVersion": "ota1-64a4a708d3d6178f",
+      "generation": 1,
+      "imageSha256": "98c4262c5edc40b4097fdfceaeb5573ead91ac512b052794c13f3db9e3c52b17",
+      "packageSha256": "aeefc05673105eb83537fef752ec3c846a8a1bd0ad333b4cfa8ce5a4a4ef71c5",
+      "releaseSourceDigest": "cf7a57713c72615d02958950428f8ae8ba176a6920596eed66e3b3c2ea66bccd"
+    },
+    {
+      "profileId": "bridge-a",
+      "hardwareRevision": "A",
+      "releaseNumber": 35,
+      "firmwareVersion": "ota1-dd7abdd2e69952da",
+      "generation": 1,
+      "imageSha256": "7f538133eca3b6550ba52818d4198c166c880fb719ac75ade26a8f686fa8869a",
+      "packageSha256": "b3a55d19bf7f00e56994f24da5253f45becde2a3088551f0c0169d59cb40bf05",
+      "releaseSourceDigest": "e4eb0835301486b1e60071314610d87910038ef0016a680394a3d7cfd1ee1135"
+    },
+    {
+      "profileId": "xiao-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 18,
+      "firmwareVersion": "ota1-2cb4da57cea690c7",
+      "generation": 0,
+      "imageSha256": "766c66adf19ae41995369b6a4e133d933e74afc9c20e1cdb4379cd3256db0d6a",
+      "packageSha256": "b512ef074ba01ea141a1b0226554351ec2708a53b7bafa9523b537ede66c8146",
+      "releaseSourceDigest": "81bfa0f55ac3ac29fa36d19248ebe133a2a1661eb3e1922608c8e344ddc6221d"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 44,
+      "firmwareVersion": "ota1-7bc2419995212852",
+      "generation": 1,
+      "imageSha256": "29ad32f61c73e9e08a38e4e03e940feb991a4a663bb83bd3b1121be6a968f45b",
+      "packageSha256": "b58330e06bf76cad9fd317bfd73dd311ff9b0282ef25a6b805fd8045725f7842",
+      "releaseSourceDigest": "c58d9b9d385e8cae1ef85971f47b0f64ce20154aa679ba7bc86356e8262cdd08"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 23,
+      "firmwareVersion": "ota1-410ac2912d359c11",
+      "generation": 1,
+      "imageSha256": "a58e0dd45a1595fc11a583c0d1cb6fcac727e5922bc291d406a26bbe59abbd74",
+      "packageSha256": "bcc4f86363e0805017039425c435f447fcdb653a9efb7bc21c33b38e07880012",
+      "releaseSourceDigest": "38bd5888a7fec9e69c2f9b3f947ccdfbfb5db21fcbac8d1d8222d868ca864228"
+    },
+    {
+      "profileId": "bridge-a",
+      "hardwareRevision": "A",
+      "releaseNumber": 31,
+      "firmwareVersion": "ota1-20d4783237ce6712",
+      "generation": 1,
+      "imageSha256": "882f81959353d495358eaace9e8947ec9ec4d484a2c30d23cb01fc0793f89e83",
+      "packageSha256": "c7a2333ad5fdb34606ad5975fc9cba94929d7c9c175a3d083e048ff22db19e62",
+      "releaseSourceDigest": "a372c2785c4a80594a5f81569e6921e5553f0941968bf513c46d0dae334bb0ad"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 35,
+      "firmwareVersion": "ota1-913b887a47f0f770",
+      "generation": 1,
+      "imageSha256": "f8a89990e4ee654b819d4708fdee9c4767ae49f3b1648bb9331b269e06a540d1",
+      "packageSha256": "c7afc92b54e6ae90080a7a17880fe751da7d10e85d86e50d0ddd66c1384afb65",
+      "releaseSourceDigest": "e4eb0835301486b1e60071314610d87910038ef0016a680394a3d7cfd1ee1135"
+    },
+    {
+      "profileId": "tag-core-b-internal",
+      "hardwareRevision": "B",
+      "releaseNumber": 42,
+      "firmwareVersion": "ota1-22cd02f50acae5df",
+      "generation": 1,
+      "imageSha256": "20c67e3f64cad060abca73cdcdabf6ea07eddaaa13fb1fdee2001bcac3273d80",
+      "packageSha256": "c947bac11bf85027083726ed80ee00bc0cac887ed974c80033d7b969d8fe591a",
+      "releaseSourceDigest": "bc63063be5f7ca7a9f5dfae0ac3c71b675ea1bf375dfe7382ab30a9359486095"
+    },
+    {
+      "profileId": "receiver-xiao-lora",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 41,
+      "firmwareVersion": "ota1-3600b6b8058a072f",
+      "generation": 1,
+      "imageSha256": "8d1993b670f614e3548fbcfb8464cf5c8472c59314f1029f995dd0f40c25cef5",
+      "packageSha256": "cdb61f892510516dedf15c768c650a3047f41aea2fdded4d2f6d580857ad5933",
+      "releaseSourceDigest": "a2b06599dbd17dfc1a5a4f2551974436f48cd0d5e5380786ef88f01254cf1e49"
+    },
+    {
+      "profileId": "receiver-xiao-lora",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 42,
+      "firmwareVersion": "ota1-aa0041290ef1779b",
+      "generation": 1,
+      "imageSha256": "4aacd7821def5a8f889f8de03a23bdb4021ff2b1c5691a15fdd66771f1dec36b",
+      "packageSha256": "cdc0a587790ed64efafa2616c30d03418ad0a931e4d740ca5664a3be57a95aa0",
+      "releaseSourceDigest": "bc63063be5f7ca7a9f5dfae0ac3c71b675ea1bf375dfe7382ab30a9359486095"
+    },
+    {
+      "profileId": "xiao-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 13,
+      "firmwareVersion": "ota1-b87247beff1db03a",
+      "generation": 0,
+      "imageSha256": "b59d4da096049adb56752a1a937884d08e3600531d256e9819b1c18e84a53e6a",
+      "packageSha256": "cf33e59c54a49a0338bd775769216be6729aaa2b160f195b7f87fd68e14a2b6a",
+      "releaseSourceDigest": "40cc226c94993b8141ebd30beded21a8b66416f601eadf4490a5ae3dad0bd0ce"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 45,
+      "firmwareVersion": "ota1-d600a4eddf0c6845",
+      "generation": 1,
+      "imageSha256": "08016c790343c3847ea14471ecd0914da95806a2583404a04c6a3c38e9c839ae",
+      "packageSha256": "d0679c2a30e89cb4dda24aee7bd7537d7a04de0b9d610c0649172cd767fe2e39",
+      "releaseSourceDigest": "0fd2e5081d27bb4f0c2853115a7c2e398b791f21ae5b7b994b9004921a483c16"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 27,
+      "firmwareVersion": "ota1-03fda7a7e8669bb7",
+      "generation": 1,
+      "imageSha256": "2b0f5f92a300754af87a23da13cd24555dbefe20d4fab459542f8d135bc77e43",
+      "packageSha256": "d4bf37b7345f9e4adf54c7a15a365d1613fc56a4eed04453e4234f9aa7dde0b4",
+      "releaseSourceDigest": "e11d5ddeb18c72a9fa455ce6ffeb47c67b13755a4dcd27d7388dc1aa5f0f222c"
+    },
+    {
+      "profileId": "xiao-internal",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 14,
+      "firmwareVersion": "ota1-04683ca50dc28b64",
+      "generation": 0,
+      "imageSha256": "15d47c9abd2b4999eae4601b8396cc0754adc2a4ab4c5f3d88c5afd316f5e2d1",
+      "packageSha256": "db35cc4185503a8dc80a5203137d5a2deacaa5ca66b75bc8059b6024660f112b",
+      "releaseSourceDigest": "c13ab4c3f8ea812b63086dc747f1a1505b4c6152eda1b9fc523e6f04dc5d3cd2"
+    },
+    {
+      "profileId": "receiver-xiao-lora",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 32,
+      "firmwareVersion": "ota1-a1efcf4b1ed41ac1",
+      "generation": 1,
+      "imageSha256": "61606da5a391ddb780aa6dc15d674567e92905db5b283d73f5cf2b0c30ef29ea",
+      "packageSha256": "dea2acee2f98a53a5aa54704bf07e63b3bc714b9d6db0eb05e2578305bcd4e1e",
+      "releaseSourceDigest": "05eed939ac42d7fc130d6d1bba71f6b60b64193e22f730c6c99004e72fbf7cda"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 22,
+      "firmwareVersion": "ota1-a76d204231ed302e",
+      "generation": 1,
+      "imageSha256": "2c7d9a49a6ea6e423c16aac078a24df23e0e0d223379c8868966630b54c57b0b",
+      "packageSha256": "e03e96aed097fb2bcb91b2f9568e3b0895c3cf98cf2e70ee9085ee5978bb5cec",
+      "releaseSourceDigest": "6f98e3bc74fa3297699d71c9ea73e6b783b58aa12476cb4646068699c3a3e812"
+    },
+    {
+      "profileId": "tag-omni-a-internal",
+      "hardwareRevision": "A",
+      "releaseNumber": 34,
+      "firmwareVersion": "ota1-7e0afe95b84e2861",
+      "generation": 1,
+      "imageSha256": "5205342ee1638595b2b7c46d74d0325d0328eb509936da5373b3fbd757b176a1",
+      "packageSha256": "e19a09577445cf071da1080a22942c9b3a6dc75f0830888bb0717716a5cbd4a0",
+      "releaseSourceDigest": "cf7a57713c72615d02958950428f8ae8ba176a6920596eed66e3b3c2ea66bccd"
+    },
+    {
+      "profileId": "receiver-xiao-lora",
+      "hardwareRevision": "Seeed_XIAO_nRF52840",
+      "releaseNumber": 34,
+      "firmwareVersion": "ota1-1cd3acfbac9d28cc",
+      "generation": 1,
+      "imageSha256": "df3f7615a5069dcde63d38024d0a8be6cd143365dfa17d555aad80d4a922a309",
+      "packageSha256": "ea71ed4d144e6d96e6dfa21e2ca26444e2996219121d2cff487394bdaf899b4e",
+      "releaseSourceDigest": "cf7a57713c72615d02958950428f8ae8ba176a6920596eed66e3b3c2ea66bccd"
+    },
+    {
+      "profileId": "tag-omni-f",
+      "hardwareRevision": "F",
+      "releaseNumber": 13,
+      "firmwareVersion": "ota1-1b8924aa9995c0f5",
+      "generation": 0,
+      "imageSha256": "45233d932c44dc3f36cb211ba09007641130960eb70f2a183b5707dcb24813db",
+      "packageSha256": "ec93bb0bee15928036e352e8e7671d3258de9be6c94ed776188edc509cc7d592",
+      "releaseSourceDigest": "40cc226c94993b8141ebd30beded21a8b66416f601eadf4490a5ae3dad0bd0ce"
+    },
+    {
+      "profileId": "tag-omni-f",
+      "hardwareRevision": "F",
+      "releaseNumber": 16,
+      "firmwareVersion": "ota1-c33f3098c3f74479",
+      "generation": 0,
+      "imageSha256": "91523f1c40816d5710e68cc63a78aee09cfc19c948da7cc6030367a28cbe54b0",
+      "packageSha256": "ef6559b93393ff265f5ff7e41904780d434a353b4b7416c1e1026ce4b6457087",
+      "releaseSourceDigest": "404d07de09b8f6dc7809ee065d2614b5be25f37949fd968e710dcbe5963f3e52"
+    },
+    {
+      "profileId": "bridge-a",
+      "hardwareRevision": "A",
+      "releaseNumber": 25,
+      "firmwareVersion": "ota1-cf16e7d0991c55ed",
+      "generation": 1,
+      "imageSha256": "cd472b3029f96f9b6a581b358a61775087ed098e785f40282e4a48367e34b536",
+      "packageSha256": "fd750f3ff824ca455d6f99f538439dafa28dd74404fc723e2d55df61d08d4dfe",
+      "releaseSourceDigest": "c51fd0ccc720d95fed13f35c6f276136baa52ad7424eada824d1dd5f25d5fee5"
+    }
+  ]
+}
